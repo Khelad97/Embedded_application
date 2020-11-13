@@ -13,16 +13,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51 ./ecu/ecu_lcd/ecu_lcd.h
 [; ;./ecu/ecu_lcd/ecu_lcd.h: 51: void lcd_intialize(const lcd_t *_lcd);
 [v _lcd_intialize `(v ~T0 @X0 0 ef1`*CS310 ]
-"60
-[; ;./ecu/ecu_lcd/ecu_lcd.h: 60: void lcd_send_custome_char(const lcd_t *lcd, uint8_t row, uint8_t coulmn, const char arr[], uint8_t pos);
-[v _lcd_send_custome_char `(v ~T0 @X0 0 ef5`*CS310`uc`uc`*Cuc`uc ]
 "59
 [; ;./ecu/ecu_lcd/ecu_lcd.h: 59: void lcd_send_string_data_pos(const lcd_t *lcd, uint8_t row, uint8_t coulmn, uint8_t *data);
 [v _lcd_send_string_data_pos `(v ~T0 @X0 0 ef4`*CS310`uc`uc`*uc ]
-[v F3001 `(v ~T0 @X0 1 tf1`ul ]
-"203 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
-[v __delay `JF3001 ~T0 @X0 0 e ]
-[p i __delay ]
+"62
+[; ;./ecu/ecu_lcd/ecu_lcd.h: 62: void byte_to_string(uint8_t number, uint8_t *output);
+[v _byte_to_string `(v ~T0 @X0 0 ef2`uc`*uc ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -478,278 +474,118 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"16
-[; ;application.c: 16: const char character1[] = {14,10,17,17,17,17,31,0};
-[v _character1 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _character1
-:U ..
--> -> 14 `i `uc
--> -> 10 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"17
-[; ;application.c: 17: const char character2[] = {14,10,17,17,17,31,31,0};
-[v _character2 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _character2
-:U ..
--> -> 14 `i `uc
--> -> 10 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"18
-[; ;application.c: 18: const char character3[] = {14,10,17,17,31,31,31,0};
-[v _character3 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _character3
-:U ..
--> -> 14 `i `uc
--> -> 10 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"19
-[; ;application.c: 19: const char character4[] = {14,10,17,31,31,31,31,0};
-[v _character4 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _character4
-:U ..
--> -> 14 `i `uc
--> -> 10 `i `uc
--> -> 17 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"20
-[; ;application.c: 20: const char character5[] = {14,10,31,31,31,31,31,0};
-[v _character5 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _character5
-:U ..
--> -> 14 `i `uc
--> -> 10 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"21
-[; ;application.c: 21: const char character6[] = {14,14,31,31,31,31,31,0};
-[v _character6 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _character6
-:U ..
--> -> 14 `i `uc
--> -> 14 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"22
-[; ;application.c: 22: const char blt[] = {6,21,13,6,13,21,6,0};
-[v _blt `Cuc ~T0 @X0 -> 8 `i e ]
-[i _blt
-:U ..
--> -> 6 `i `uc
--> -> 21 `i `uc
--> -> 13 `i `uc
--> -> 6 `i `uc
--> -> 13 `i `uc
--> -> 21 `i `uc
--> -> 6 `i `uc
--> -> 0 `i `uc
-..
-]
-"23
-[; ;application.c: 23: const char Shab[] = {31,21,14,4,4,4,4,0};
-[v _Shab `Cuc ~T0 @X0 -> 8 `i e ]
-[i _Shab
-:U ..
--> -> 31 `i `uc
--> -> 21 `i `uc
--> -> 14 `i `uc
--> -> 4 `i `uc
--> -> 4 `i `uc
--> -> 4 `i `uc
--> -> 4 `i `uc
--> -> 0 `i `uc
-..
-]
-"24
-[; ;application.c: 24: const char shab_bat1[] = {24,24,24,24,24,24,24,0};
-[v _shab_bat1 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _shab_bat1
-:U ..
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 0 `i `uc
-..
-]
-"25
-[; ;application.c: 25: const char shab_bat2[] = {28,28,28,28,28,28,28,0};
-[v _shab_bat2 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _shab_bat2
-:U ..
--> -> 28 `i `uc
--> -> 28 `i `uc
--> -> 28 `i `uc
--> -> 28 `i `uc
--> -> 28 `i `uc
--> -> 28 `i `uc
--> -> 28 `i `uc
--> -> 0 `i `uc
-..
-]
-"26
-[; ;application.c: 26: const char shab_bat3[] = {30,30,30,30,30,30,30,0};
-[v _shab_bat3 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _shab_bat3
-:U ..
--> -> 30 `i `uc
--> -> 30 `i `uc
--> -> 30 `i `uc
--> -> 30 `i `uc
--> -> 30 `i `uc
--> -> 30 `i `uc
--> -> 30 `i `uc
--> -> 0 `i `uc
-..
-]
-"27
-[; ;application.c: 27: const char mesg1[] = {31,24,22,17,16,31,0,0};
-[v _mesg1 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _mesg1
-:U ..
--> -> 31 `i `uc
--> -> 24 `i `uc
--> -> 22 `i `uc
--> -> 17 `i `uc
--> -> 16 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-"28
-[; ;application.c: 28: const char mesg2[] = {31,3,13,17,1,31,0,0};
-[v _mesg2 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _mesg2
-:U ..
--> -> 31 `i `uc
--> -> 3 `i `uc
--> -> 13 `i `uc
--> -> 17 `i `uc
--> -> 1 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"30
-[; ;application.c: 30: int main() {
+"17
+[; ;application.c: 17: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"31
-[; ;application.c: 31:     lcd_intialize(&lcd_1);
+"18
+[; ;application.c: 18:     lcd_intialize(&lcd_1);
 [e ( _lcd_intialize (1 -> &U _lcd_1 `*CS310 ]
-"32
-[; ;application.c: 32:     lcd_send_custome_char(&lcd_1, 4, 20, character6, 0);
-[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 4 `i `uc -> -> 20 `i `uc &U _character6 -> -> 0 `i `uc ]
-"33
-[; ;application.c: 33:     lcd_send_custome_char(&lcd_1, 1, 19, blt, 1);
-[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 19 `i `uc &U _blt -> -> 1 `i `uc ]
-"34
-[; ;application.c: 34:     lcd_send_custome_char(&lcd_1, 4, 1, Shab, 2);
-[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 4 `i `uc -> -> 1 `i `uc &U _Shab -> -> 2 `i `uc ]
-"35
-[; ;application.c: 35:     lcd_send_custome_char(&lcd_1, 3, 1, shab_bat1, 3);
-[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 3 `i `uc -> -> 1 `i `uc &U _shab_bat1 -> -> 3 `i `uc ]
-"36
-[; ;application.c: 36:     lcd_send_custome_char(&lcd_1, 3, 20, shab_bat1, 3);
-[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 3 `i `uc -> -> 20 `i `uc &U _shab_bat1 -> -> 3 `i `uc ]
-"37
-[; ;application.c: 37:     lcd_send_custome_char(&lcd_1, 2, 1, shab_bat2, 4);
-[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 2 `i `uc -> -> 1 `i `uc &U _shab_bat2 -> -> 4 `i `uc ]
-"38
-[; ;application.c: 38:     lcd_send_custome_char(&lcd_1, 2, 20, shab_bat2, 4);
-[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 2 `i `uc -> -> 20 `i `uc &U _shab_bat2 -> -> 4 `i `uc ]
-"39
-[; ;application.c: 39:     lcd_send_custome_char(&lcd_1, 1, 20, shab_bat3, 4);
-[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 20 `i `uc &U _shab_bat3 -> -> 4 `i `uc ]
-"40
-[; ;application.c: 40:     lcd_send_custome_char(&lcd_1, 1, 2, mesg1, 5);
-[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 2 `i `uc &U _mesg1 -> -> 5 `i `uc ]
-"41
-[; ;application.c: 41:     lcd_send_custome_char(&lcd_1, 1, 3, mesg2, 6);
-[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 3 `i `uc &U _mesg2 -> -> 6 `i `uc ]
-"42
-[; ;application.c: 42:     lcd_send_string_data_pos(&lcd_1, 2, 2, "3 messages");
-[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 2 `i `uc -> -> 2 `i `uc :s 1C ]
-"43
-[; ;application.c: 43:     lcd_send_string_data_pos(&lcd_1, 3, 5, "received");
-[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 3 `i `uc -> -> 5 `i `uc :s 2C ]
-"44
-[; ;application.c: 44:     lcd_send_string_data_pos(&lcd_1, 4, 9, "Read");
-[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 4 `i `uc -> -> 9 `i `uc :s 3C ]
-"45
-[; ;application.c: 45:     while (1) {
+"20
+[; ;application.c: 20:     lcd_send_string_data_pos(&lcd_1, 1, 1, "Time :");
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 1 `i `uc :s 1C ]
+"21
+[; ;application.c: 21:     uint16_t h,m,s,hours[4],min[4],sec[4];
+[v _h `us ~T0 @X0 1 a ]
+[v _m `us ~T0 @X0 1 a ]
+[v _s `us ~T0 @X0 1 a ]
+[v _hours `us ~T0 @X0 -> 4 `i a ]
+[v _min `us ~T0 @X0 -> 4 `i a ]
+[v _sec `us ~T0 @X0 -> 4 `i a ]
+"23
+[; ;application.c: 23:     while (1) {
 [e :U 313 ]
 {
-"46
-[; ;application.c: 46:         lcd_send_string_data_pos(&lcd_1, 1, 6, "ES Diploma");
-[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 6 `i `uc :s 4C ]
-"47
-[; ;application.c: 47:         lcd_send_string_data_pos(&lcd_1, 4, 9, "Read");_delay((unsigned long)((500)*(8000000UL/4000.0)));
-[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 4 `i `uc -> -> 9 `i `uc :s 5C ]
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"48
-[; ;application.c: 48:         lcd_send_string_data_pos(&lcd_1, 4, 9, "    ");_delay((unsigned long)((500)*(8000000UL/4000.0)));
-[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 4 `i `uc -> -> 9 `i `uc :s 6C ]
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"53
-[; ;application.c: 53:     }
+"24
+[; ;application.c: 24:         for (h = 0; h < 12; h++) {
+{
+[e = _h -> -> 0 `i `us ]
+[e $ < -> _h `ui -> -> 12 `i `ui 315  ]
+[e $U 316  ]
+[e :U 315 ]
+{
+"25
+[; ;application.c: 25:             for (m = 0; m < 60; m++) {
+{
+[e = _m -> -> 0 `i `us ]
+[e $ < -> _m `ui -> -> 60 `i `ui 318  ]
+[e $U 319  ]
+[e :U 318 ]
+{
+"26
+[; ;application.c: 26:                 for (s = 0; s < 60; s++) {
+{
+[e = _s -> -> 0 `i `us ]
+[e $ < -> _s `ui -> -> 60 `i `ui 321  ]
+[e $U 322  ]
+[e :U 321 ]
+{
+"27
+[; ;application.c: 27:                     byte_to_string(h,&hours);
+[e ( _byte_to_string (2 , -> _h `uc -> &U _hours `*uc ]
+"28
+[; ;application.c: 28:                     byte_to_string(m,&min);
+[e ( _byte_to_string (2 , -> _m `uc -> &U _min `*uc ]
+"29
+[; ;application.c: 29:                     byte_to_string(s,&sec);
+[e ( _byte_to_string (2 , -> _s `uc -> &U _sec `*uc ]
+"30
+[; ;application.c: 30:                     lcd_send_string_data_pos(&lcd_1, 1, 7, hours);
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 7 `i `uc -> &U _hours `*uc ]
+"31
+[; ;application.c: 31:                     lcd_send_string_data_pos(&lcd_1, 1, 9, ":");
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 9 `i `uc :s 2C ]
+"32
+[; ;application.c: 32:                     lcd_send_string_data_pos(&lcd_1, 1, 10, min);
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 10 `i `uc -> &U _min `*uc ]
+"33
+[; ;application.c: 33:                     lcd_send_string_data_pos(&lcd_1, 1, 12, ":");
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 12 `i `uc :s 3C ]
+"34
+[; ;application.c: 34:                     lcd_send_string_data_pos(&lcd_1, 1, 13, sec);
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 13 `i `uc -> &U _sec `*uc ]
+"35
+[; ;application.c: 35:                 }
+}
+[e ++ _s -> -> 1 `i `us ]
+[e $ < -> _s `ui -> -> 60 `i `ui 321  ]
+[e :U 322 ]
+}
+"36
+[; ;application.c: 36:                 lcd_send_string_data_pos(&lcd_1, 1, 13, "  ");
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 13 `i `uc :s 4C ]
+"37
+[; ;application.c: 37:             }
+}
+[e ++ _m -> -> 1 `i `us ]
+[e $ < -> _m `ui -> -> 60 `i `ui 318  ]
+[e :U 319 ]
+}
+"38
+[; ;application.c: 38:             lcd_send_string_data_pos(&lcd_1, 1, 10, " ");
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 10 `i `uc :s 5C ]
+"39
+[; ;application.c: 39:         }
+}
+[e ++ _h -> -> 1 `i `us ]
+[e $ < -> _h `ui -> -> 12 `i `ui 315  ]
+[e :U 316 ]
+}
+"42
+[; ;application.c: 42:     }
 }
 [e :U 312 ]
 [e $U 313  ]
 [e :U 314 ]
-"54
-[; ;application.c: 54: }
+"43
+[; ;application.c: 43: }
 [e :UE 311 ]
 }
-[a 1C 51 32 109 101 115 115 97 103 101 115 0 ]
-[a 2C 114 101 99 101 105 118 101 100 0 ]
-[a 3C 82 101 97 100 0 ]
-[a 5C 82 101 97 100 0 ]
-[a 4C 69 83 32 68 105 112 108 111 109 97 0 ]
-[a 6C 32 32 32 32 0 ]
+[a 1C 84 105 109 101 32 58 0 ]
+[a 2C 58 0 ]
+[a 3C 58 0 ]
+[a 4C 32 32 0 ]
+[a 5C 32 0 ]

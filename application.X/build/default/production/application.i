@@ -5150,46 +5150,35 @@ void int_to_string(uint32_t number, uint8_t *output);
 
 lcd_t lcd_1 = {
     .lcd_data_port = PORTC_INDEX,
-    .lcd_rs_port=PORTD_INDEX,
-    .lcd_en_port=PORTD_INDEX,
+    .lcd_rs_port = PORTD_INDEX,
+    .lcd_en_port = PORTD_INDEX,
     .lcd_rs_pin = PIN0,
     .lcd_en_pin = PIN1
 };
-const char character1[] = {14,10,17,17,17,17,31,0};
-const char character2[] = {14,10,17,17,17,31,31,0};
-const char character3[] = {14,10,17,17,31,31,31,0};
-const char character4[] = {14,10,17,31,31,31,31,0};
-const char character5[] = {14,10,31,31,31,31,31,0};
-const char character6[] = {14,14,31,31,31,31,31,0};
-const char blt[] = {6,21,13,6,13,21,6,0};
-const char Shab[] = {31,21,14,4,4,4,4,0};
-const char shab_bat1[] = {24,24,24,24,24,24,24,0};
-const char shab_bat2[] = {28,28,28,28,28,28,28,0};
-const char shab_bat3[] = {30,30,30,30,30,30,30,0};
-const char mesg1[] = {31,24,22,17,16,31,0,0};
-const char mesg2[] = {31,3,13,17,1,31,0,0};
 
 int main() {
     lcd_intialize(&lcd_1);
-    lcd_send_custome_char(&lcd_1, 4, 20, character6, 0);
-    lcd_send_custome_char(&lcd_1, 1, 19, blt, 1);
-    lcd_send_custome_char(&lcd_1, 4, 1, Shab, 2);
-    lcd_send_custome_char(&lcd_1, 3, 1, shab_bat1, 3);
-    lcd_send_custome_char(&lcd_1, 3, 20, shab_bat1, 3);
-    lcd_send_custome_char(&lcd_1, 2, 1, shab_bat2, 4);
-    lcd_send_custome_char(&lcd_1, 2, 20, shab_bat2, 4);
-    lcd_send_custome_char(&lcd_1, 1, 20, shab_bat3, 4);
-    lcd_send_custome_char(&lcd_1, 1, 2, mesg1, 5);
-    lcd_send_custome_char(&lcd_1, 1, 3, mesg2, 6);
-    lcd_send_string_data_pos(&lcd_1, 2, 2, "3 messages");
-    lcd_send_string_data_pos(&lcd_1, 3, 5, "received");
-    lcd_send_string_data_pos(&lcd_1, 4, 9, "Read");
+
+    lcd_send_string_data_pos(&lcd_1, 1, 1, "Time :");
+    uint16_t h,m,s,hours[4],min[4],sec[4];
+
     while (1) {
-        lcd_send_string_data_pos(&lcd_1, 1, 6, "ES Diploma");
-        lcd_send_string_data_pos(&lcd_1, 4, 9, "Read");_delay((unsigned long)((500)*(8000000UL/4000.0)));
-        lcd_send_string_data_pos(&lcd_1, 4, 9, "    ");_delay((unsigned long)((500)*(8000000UL/4000.0)));
-
-
+        for (h = 0; h < 12; h++) {
+            for (m = 0; m < 60; m++) {
+                for (s = 0; s < 60; s++) {
+                    byte_to_string(h,&hours);
+                    byte_to_string(m,&min);
+                    byte_to_string(s,&sec);
+                    lcd_send_string_data_pos(&lcd_1, 1, 7, hours);
+                    lcd_send_string_data_pos(&lcd_1, 1, 9, ":");
+                    lcd_send_string_data_pos(&lcd_1, 1, 10, min);
+                    lcd_send_string_data_pos(&lcd_1, 1, 12, ":");
+                    lcd_send_string_data_pos(&lcd_1, 1, 13, sec);
+                }
+                lcd_send_string_data_pos(&lcd_1, 1, 13, "  ");
+            }
+            lcd_send_string_data_pos(&lcd_1, 1, 10, " ");
+        }
 
 
     }
