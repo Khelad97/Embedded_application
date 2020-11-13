@@ -7,7 +7,7 @@
 
 #ifndef ECU_BUTTON_H
 #define	ECU_BUTTON_H
-
+#include <stdlib.h>
 #include "../../mcal/mcal_gpio/mcal_gpio.h"
 
 typedef enum {

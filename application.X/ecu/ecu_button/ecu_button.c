@@ -24,7 +24,6 @@ ret_status button_initialize(button_t *btn) {
     }
     return ret;
 }
-
 /**
  * 
  * @param btn

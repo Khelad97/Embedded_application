@@ -1,69 +1,28 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"20 ./ecu/ecu_led/ecu_led.h
-[; ;./ecu/ecu_led/ecu_led.h: 20:     struct {
-[s S306 :4 `uc 1 :4 `uc 1 ]
-[n S306 . port_name pin ]
-"11 application.c
-[; ;application.c: 11: led_t led_0 = {. port_info.port_name = PORTC_INDEX, .port_info.pin = PIN0, .led_stutus = LED_OFF};
-[c E3067 0 1 .. ]
-[n E3067 . LED_OFF LED_ON  ]
-"18 ./ecu/ecu_led/ecu_led.h
-[; ;./ecu/ecu_led/ecu_led.h: 18: typedef struct {
-[s S305 `S306 1 `E3067 1 ]
-[n S305 . port_info led_stutus ]
-"11 application.c
-[; ;application.c: 11: led_t led_0 = {. port_info.port_name = PORTC_INDEX, .port_info.pin = PIN0, .led_stutus = LED_OFF};
+"31 ./ecu/ecu_lcd/ecu_lcd.h
+[; ;./ecu/ecu_lcd/ecu_lcd.h: 31: typedef struct {
+[s S310 :4 `uc 1 :4 `uc 1 :4 `uc 1 :3 `uc 1 :3 `uc 1 :6 `uc 1 ]
+[n S310 . lcd_data_port lcd_en_port lcd_rs_port lcd_en_pin lcd_rs_pin lcd_status ]
+"9 application.c
+[; ;application.c: 9: lcd_t lcd_1 = {
 [c E3027 0 1 2 3 4 .. ]
 [n E3027 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
 [c E3017 0 1 2 3 4 5 6 7 .. ]
 [n E3017 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
-"18 ./ecu/ecu_button/ecu_button.h
-[; ;./ecu/ecu_button/ecu_button.h: 18: typedef struct {
-[s S307 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S307 . port_name pin button_status ]
-"15 application.c
-[; ;application.c: 15: button_t btn = {.port_name = PORTD_INDEX, .pin = PIN0, .button_status = BUTTON_NOT_PRESSED};
-[c E3086 0 1 .. ]
-[n E3086 . BUTTON_NOT_PRESSED BUTTON_PRESSED  ]
 [p mainexit ]
-"27
-[; ;application.c: 27:     led_initialize(&led_0);
-[c E469 0 1 .. ]
-[n E469 . R_NOK R_OK  ]
-"27 ./ecu/ecu_led/ecu_led.h
-[; ;./ecu/ecu_led/ecu_led.h: 27: ret_status led_initialize(led_t *led);
-[v _led_initialize `(E469 ~T0 @X0 0 ef1`*S305 ]
-"24 ./ecu/ecu_button/ecu_button.h
-[; ;./ecu/ecu_button/ecu_button.h: 24: ret_status button_initialize(button_t *btn);
-[v _button_initialize `(E469 ~T0 @X0 0 ef1`*S307 ]
-"25
-[; ;./ecu/ecu_button/ecu_button.h: 25: ret_status button_get_status(button_t *btn ,button_status *btn_status);
-[v _button_get_status `(E469 ~T0 @X0 0 ef2`*S307`*E3086 ]
-"20 application.c
-[; ;application.c: 20: void task_0(void);
-[v _task_0 `(v ~T0 @X0 0 ef ]
-"21
-[; ;application.c: 21: void task_1(void);
-[v _task_1 `(v ~T0 @X0 0 ef ]
-"22
-[; ;application.c: 22: void task_2(void);
-[v _task_2 `(v ~T0 @X0 0 ef ]
-"23
-[; ;application.c: 23: void task_3(void);
-[v _task_3 `(v ~T0 @X0 0 ef ]
-"24
-[; ;application.c: 24: void task_4(void);
-[v _task_4 `(v ~T0 @X0 0 ef ]
-"29 ./ecu/ecu_led/ecu_led.h
-[; ;./ecu/ecu_led/ecu_led.h: 29: ret_status led_turn_on(led_t *led);
-[v _led_turn_on `(E469 ~T0 @X0 0 ef1`*S305 ]
+"51 ./ecu/ecu_lcd/ecu_lcd.h
+[; ;./ecu/ecu_lcd/ecu_lcd.h: 51: void lcd_intialize(const lcd_t *_lcd);
+[v _lcd_intialize `(v ~T0 @X0 0 ef1`*CS310 ]
+"60
+[; ;./ecu/ecu_lcd/ecu_lcd.h: 60: void lcd_send_custome_char(const lcd_t *lcd, uint8_t row, uint8_t coulmn, const char arr[], uint8_t pos);
+[v _lcd_send_custome_char `(v ~T0 @X0 0 ef5`*CS310`uc`uc`*Cuc`uc ]
+"59
+[; ;./ecu/ecu_lcd/ecu_lcd.h: 59: void lcd_send_string_data_pos(const lcd_t *lcd, uint8_t row, uint8_t coulmn, uint8_t *data);
+[v _lcd_send_string_data_pos `(v ~T0 @X0 0 ef4`*CS310`uc`uc`*uc ]
 [v F3001 `(v ~T0 @X0 1 tf1`ul ]
 "203 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
 [v __delay `JF3001 ~T0 @X0 0 e ]
 [p i __delay ]
-"31 ./ecu/ecu_led/ecu_led.h
-[; ;./ecu/ecu_led/ecu_led.h: 31: ret_status led_turn_off(led_t *led);
-[v _led_turn_off `(E469 ~T0 @X0 0 ef1`*S305 ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -505,342 +464,292 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7352
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h: 7352: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"11 application.c
-[; ;application.c: 11: led_t led_0 = {. port_info.port_name = PORTC_INDEX, .port_info.pin = PIN0, .led_stutus = LED_OFF};
-[v _led_0 `S305 ~T0 @X0 1 e ]
-[i _led_0
-:U ..
-:U ..
-:U ..
-:U ..
--> . `E3027 2 `uc
--> . `E3017 0 `uc
-..
-..
-. `E3067 0
-..
-..
-]
-"12
-[; ;application.c: 12: led_t led_1 = {. port_info.port_name = PORTC_INDEX, .port_info.pin = PIN1, .led_stutus = LED_OFF};
-[v _led_1 `S305 ~T0 @X0 1 e ]
-[i _led_1
-:U ..
-:U ..
+"9 application.c
+[; ;application.c: 9: lcd_t lcd_1 = {
+[v _lcd_1 `S310 ~T0 @X0 1 e ]
+[i _lcd_1
 :U ..
 :U ..
 -> . `E3027 2 `uc
--> . `E3017 1 `uc
-..
-..
-. `E3067 0
-..
-..
-]
-"13
-[; ;application.c: 13: led_t led_2 = {. port_info.port_name = PORTC_INDEX, .port_info.pin = PIN2, .led_stutus = LED_OFF};
-[v _led_2 `S305 ~T0 @X0 1 e ]
-[i _led_2
-:U ..
-:U ..
-:U ..
-:U ..
--> . `E3027 2 `uc
--> . `E3017 2 `uc
-..
-..
-. `E3067 0
-..
-..
-]
-"15
-[; ;application.c: 15: button_t btn = {.port_name = PORTD_INDEX, .pin = PIN0, .button_status = BUTTON_NOT_PRESSED};
-[v _btn `S307 ~T0 @X0 1 e ]
-[i _btn
-:U ..
-:U ..
 -> . `E3027 3 `uc
+-> . `E3027 3 `uc
+-> . `E3017 1 `uc
 -> . `E3017 0 `uc
--> . `E3086 0 `uc
 ..
+..
+]
+"16
+[; ;application.c: 16: const char character1[] = {14,10,17,17,17,17,31,0};
+[v _character1 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _character1
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
 ..
 ]
 "17
-[; ;application.c: 17: uint8_t btn_status = 0;
-[v _btn_status `uc ~T0 @X0 1 e ]
-[i _btn_status
+[; ;application.c: 17: const char character2[] = {14,10,17,17,17,31,31,0};
+[v _character2 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _character2
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
 -> -> 0 `i `uc
+..
 ]
 "18
-[; ;application.c: 18: uint8_t number_of_click = 0, number_of_task = 0, back = 0;
-[v _number_of_click `uc ~T0 @X0 1 e ]
-[i _number_of_click
+[; ;application.c: 18: const char character3[] = {14,10,17,17,31,31,31,0};
+[v _character3 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _character3
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
 -> -> 0 `i `uc
+..
 ]
-[v _number_of_task `uc ~T0 @X0 1 e ]
-[i _number_of_task
+"19
+[; ;application.c: 19: const char character4[] = {14,10,17,31,31,31,31,0};
+[v _character4 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _character4
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
 -> -> 0 `i `uc
+..
 ]
-[v _back `uc ~T0 @X0 1 e ]
-[i _back
+"20
+[; ;application.c: 20: const char character5[] = {14,10,31,31,31,31,31,0};
+[v _character5 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _character5
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
 -> -> 0 `i `uc
+..
+]
+"21
+[; ;application.c: 21: const char character6[] = {14,14,31,31,31,31,31,0};
+[v _character6 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _character6
+:U ..
+-> -> 14 `i `uc
+-> -> 14 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"22
+[; ;application.c: 22: const char blt[] = {6,21,13,6,13,21,6,0};
+[v _blt `Cuc ~T0 @X0 -> 8 `i e ]
+[i _blt
+:U ..
+-> -> 6 `i `uc
+-> -> 21 `i `uc
+-> -> 13 `i `uc
+-> -> 6 `i `uc
+-> -> 13 `i `uc
+-> -> 21 `i `uc
+-> -> 6 `i `uc
+-> -> 0 `i `uc
+..
+]
+"23
+[; ;application.c: 23: const char Shab[] = {31,21,14,4,4,4,4,0};
+[v _Shab `Cuc ~T0 @X0 -> 8 `i e ]
+[i _Shab
+:U ..
+-> -> 31 `i `uc
+-> -> 21 `i `uc
+-> -> 14 `i `uc
+-> -> 4 `i `uc
+-> -> 4 `i `uc
+-> -> 4 `i `uc
+-> -> 4 `i `uc
+-> -> 0 `i `uc
+..
+]
+"24
+[; ;application.c: 24: const char shab_bat1[] = {24,24,24,24,24,24,24,0};
+[v _shab_bat1 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _shab_bat1
+:U ..
+-> -> 24 `i `uc
+-> -> 24 `i `uc
+-> -> 24 `i `uc
+-> -> 24 `i `uc
+-> -> 24 `i `uc
+-> -> 24 `i `uc
+-> -> 24 `i `uc
+-> -> 0 `i `uc
+..
+]
+"25
+[; ;application.c: 25: const char shab_bat2[] = {28,28,28,28,28,28,28,0};
+[v _shab_bat2 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _shab_bat2
+:U ..
+-> -> 28 `i `uc
+-> -> 28 `i `uc
+-> -> 28 `i `uc
+-> -> 28 `i `uc
+-> -> 28 `i `uc
+-> -> 28 `i `uc
+-> -> 28 `i `uc
+-> -> 0 `i `uc
+..
+]
+"26
+[; ;application.c: 26: const char shab_bat3[] = {30,30,30,30,30,30,30,0};
+[v _shab_bat3 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _shab_bat3
+:U ..
+-> -> 30 `i `uc
+-> -> 30 `i `uc
+-> -> 30 `i `uc
+-> -> 30 `i `uc
+-> -> 30 `i `uc
+-> -> 30 `i `uc
+-> -> 30 `i `uc
+-> -> 0 `i `uc
+..
+]
+"27
+[; ;application.c: 27: const char mesg1[] = {31,24,22,17,16,31,0,0};
+[v _mesg1 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _mesg1
+:U ..
+-> -> 31 `i `uc
+-> -> 24 `i `uc
+-> -> 22 `i `uc
+-> -> 17 `i `uc
+-> -> 16 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"28
+[; ;application.c: 28: const char mesg2[] = {31,3,13,17,1,31,0,0};
+[v _mesg2 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _mesg2
+:U ..
+-> -> 31 `i `uc
+-> -> 3 `i `uc
+-> -> 13 `i `uc
+-> -> 17 `i `uc
+-> -> 1 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"26
-[; ;application.c: 26: int main() {
+"30
+[; ;application.c: 30: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"27
-[; ;application.c: 27:     led_initialize(&led_0);
-[e ( _led_initialize (1 &U _led_0 ]
-"28
-[; ;application.c: 28:     led_initialize(&led_1);
-[e ( _led_initialize (1 &U _led_1 ]
-"29
-[; ;application.c: 29:     led_initialize(&led_2);
-[e ( _led_initialize (1 &U _led_2 ]
-"30
-[; ;application.c: 30:     button_initialize(&btn);
-[e ( _button_initialize (1 &U _btn ]
 "31
-[; ;application.c: 31:     button_get_status(&btn, &btn_status);
-[e ( _button_get_status (2 , &U _btn -> &U _btn_status `*E3086 ]
+[; ;application.c: 31:     lcd_intialize(&lcd_1);
+[e ( _lcd_intialize (1 -> &U _lcd_1 `*CS310 ]
 "32
-[; ;application.c: 32:     while (1) {
-[e :U 310 ]
-{
+[; ;application.c: 32:     lcd_send_custome_char(&lcd_1, 4, 20, character6, 0);
+[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 4 `i `uc -> -> 20 `i `uc &U _character6 -> -> 0 `i `uc ]
 "33
-[; ;application.c: 33:         button_get_status(&btn, &btn_status);
-[e ( _button_get_status (2 , &U _btn -> &U _btn_status `*E3086 ]
+[; ;application.c: 33:     lcd_send_custome_char(&lcd_1, 1, 19, blt, 1);
+[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 19 `i `uc &U _blt -> -> 1 `i `uc ]
+"34
+[; ;application.c: 34:     lcd_send_custome_char(&lcd_1, 4, 1, Shab, 2);
+[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 4 `i `uc -> -> 1 `i `uc &U _Shab -> -> 2 `i `uc ]
+"35
+[; ;application.c: 35:     lcd_send_custome_char(&lcd_1, 3, 1, shab_bat1, 3);
+[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 3 `i `uc -> -> 1 `i `uc &U _shab_bat1 -> -> 3 `i `uc ]
+"36
+[; ;application.c: 36:     lcd_send_custome_char(&lcd_1, 3, 20, shab_bat1, 3);
+[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 3 `i `uc -> -> 20 `i `uc &U _shab_bat1 -> -> 3 `i `uc ]
+"37
+[; ;application.c: 37:     lcd_send_custome_char(&lcd_1, 2, 1, shab_bat2, 4);
+[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 2 `i `uc -> -> 1 `i `uc &U _shab_bat2 -> -> 4 `i `uc ]
+"38
+[; ;application.c: 38:     lcd_send_custome_char(&lcd_1, 2, 20, shab_bat2, 4);
+[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 2 `i `uc -> -> 20 `i `uc &U _shab_bat2 -> -> 4 `i `uc ]
 "39
-[; ;application.c: 39:         if ((btn_status == BUTTON_PRESSED) && back == 0) {
-[e $ ! && == -> _btn_status `i -> . `E3086 1 `i == -> _back `i -> 0 `i 312  ]
-{
+[; ;application.c: 39:     lcd_send_custome_char(&lcd_1, 1, 20, shab_bat3, 4);
+[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 20 `i `uc &U _shab_bat3 -> -> 4 `i `uc ]
+"40
+[; ;application.c: 40:     lcd_send_custome_char(&lcd_1, 1, 2, mesg1, 5);
+[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 2 `i `uc &U _mesg1 -> -> 5 `i `uc ]
 "41
-[; ;application.c: 41:             number_of_task = number_of_click % 5;
-[e = _number_of_task -> % -> _number_of_click `i -> 5 `i `uc ]
+[; ;application.c: 41:     lcd_send_custome_char(&lcd_1, 1, 3, mesg2, 6);
+[e ( _lcd_send_custome_char (4 , , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 3 `i `uc &U _mesg2 -> -> 6 `i `uc ]
 "42
-[; ;application.c: 42:             switch (number_of_task) {
-[e $U 314  ]
-{
+[; ;application.c: 42:     lcd_send_string_data_pos(&lcd_1, 2, 2, "3 messages");
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 2 `i `uc -> -> 2 `i `uc :s 1C ]
 "43
-[; ;application.c: 43:                 case 0:
-[e :U 315 ]
+[; ;application.c: 43:     lcd_send_string_data_pos(&lcd_1, 3, 5, "received");
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 3 `i `uc -> -> 5 `i `uc :s 2C ]
 "44
-[; ;application.c: 44:                     task_0();
-[e ( _task_0 ..  ]
+[; ;application.c: 44:     lcd_send_string_data_pos(&lcd_1, 4, 9, "Read");
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 4 `i `uc -> -> 9 `i `uc :s 3C ]
 "45
-[; ;application.c: 45:                     break;
-[e $U 313  ]
+[; ;application.c: 45:     while (1) {
+[e :U 313 ]
+{
 "46
-[; ;application.c: 46:                 case 1:
-[e :U 316 ]
+[; ;application.c: 46:         lcd_send_string_data_pos(&lcd_1, 1, 6, "ES Diploma");
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 1 `i `uc -> -> 6 `i `uc :s 4C ]
 "47
-[; ;application.c: 47:                     task_1();
-[e ( _task_1 ..  ]
+[; ;application.c: 47:         lcd_send_string_data_pos(&lcd_1, 4, 9, "Read");_delay((unsigned long)((500)*(8000000UL/4000.0)));
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 4 `i `uc -> -> 9 `i `uc :s 5C ]
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "48
-[; ;application.c: 48:                     break;
-[e $U 313  ]
-"49
-[; ;application.c: 49:                 case 2:
-[e :U 317 ]
-"50
-[; ;application.c: 50:                     task_2();
-[e ( _task_2 ..  ]
-"51
-[; ;application.c: 51:                     break;
-[e $U 313  ]
-"52
-[; ;application.c: 52:                 case 3:
-[e :U 318 ]
+[; ;application.c: 48:         lcd_send_string_data_pos(&lcd_1, 4, 9, "    ");_delay((unsigned long)((500)*(8000000UL/4000.0)));
+[e ( _lcd_send_string_data_pos (4 , , , -> &U _lcd_1 `*CS310 -> -> 4 `i `uc -> -> 9 `i `uc :s 6C ]
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "53
-[; ;application.c: 53:                     task_3();
-[e ( _task_3 ..  ]
-"54
-[; ;application.c: 54:                     break;
-[e $U 313  ]
-"55
-[; ;application.c: 55:                 case 4:
-[e :U 319 ]
-"56
-[; ;application.c: 56:                     task_4();
-[e ( _task_4 ..  ]
-"57
-[; ;application.c: 57:                     break;
-[e $U 313  ]
-"58
-[; ;application.c: 58:             }
+[; ;application.c: 53:     }
 }
+[e :U 312 ]
 [e $U 313  ]
 [e :U 314 ]
-[e [\ -> _number_of_task `i , $ -> 0 `i 315
- , $ -> 1 `i 316
- , $ -> 2 `i 317
- , $ -> 3 `i 318
- , $ -> 4 `i 319
- 313 ]
-[e :U 313 ]
-"59
-[; ;application.c: 59:             number_of_click++;
-[e ++ _number_of_click -> -> 1 `i `uc ]
-"60
-[; ;application.c: 60:             back = 1;
-[e = _back -> -> 1 `i `uc ]
-"61
-[; ;application.c: 61:         } else if ((btn_status == BUTTON_NOT_PRESSED)) {
+"54
+[; ;application.c: 54: }
+[e :UE 311 ]
 }
-[e $U 320  ]
-[e :U 312 ]
-[e $ ! == -> _btn_status `i -> . `E3086 0 `i 321  ]
-{
-"62
-[; ;application.c: 62:             back = 0;
-[e = _back -> -> 0 `i `uc ]
-"63
-[; ;application.c: 63:         }
-}
-[e :U 321 ]
-[e :U 320 ]
-"64
-[; ;application.c: 64:     }
-}
-[e :U 309 ]
-[e $U 310  ]
-[e :U 311 ]
-"65
-[; ;application.c: 65: }
-[e :UE 308 ]
-}
-"67
-[; ;application.c: 67: void task_0(void) {
-[v _task_0 `(v ~T0 @X0 1 ef ]
-{
-[e :U _task_0 ]
-[f ]
-"68
-[; ;application.c: 68:     led_turn_on(&led_0);
-[e ( _led_turn_on (1 &U _led_0 ]
-"69
-[; ;application.c: 69:     _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"70
-[; ;application.c: 70:     led_turn_off(&led_0);
-[e ( _led_turn_off (1 &U _led_0 ]
-"71
-[; ;application.c: 71: }
-[e :UE 322 ]
-}
-"73
-[; ;application.c: 73: void task_1(void) {
-[v _task_1 `(v ~T0 @X0 1 ef ]
-{
-[e :U _task_1 ]
-[f ]
-"74
-[; ;application.c: 74:     led_turn_on(&led_1);
-[e ( _led_turn_on (1 &U _led_1 ]
-"75
-[; ;application.c: 75:     _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"76
-[; ;application.c: 76:     led_turn_off(&led_1);
-[e ( _led_turn_off (1 &U _led_1 ]
-"77
-[; ;application.c: 77:     _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"78
-[; ;application.c: 78:     led_turn_on(&led_1);
-[e ( _led_turn_on (1 &U _led_1 ]
-"79
-[; ;application.c: 79:     _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"80
-[; ;application.c: 80:     led_turn_off(&led_1);
-[e ( _led_turn_off (1 &U _led_1 ]
-"81
-[; ;application.c: 81: }
-[e :UE 323 ]
-}
-"83
-[; ;application.c: 83: void task_2(void) {
-[v _task_2 `(v ~T0 @X0 1 ef ]
-{
-[e :U _task_2 ]
-[f ]
-"84
-[; ;application.c: 84:     led_turn_on(&led_2);
-[e ( _led_turn_on (1 &U _led_2 ]
-"85
-[; ;application.c: 85:     _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"86
-[; ;application.c: 86:     led_turn_off(&led_2);
-[e ( _led_turn_off (1 &U _led_2 ]
-"87
-[; ;application.c: 87:     _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"88
-[; ;application.c: 88:     led_turn_on(&led_2);
-[e ( _led_turn_on (1 &U _led_2 ]
-"89
-[; ;application.c: 89:     _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"90
-[; ;application.c: 90:     led_turn_off(&led_2);
-[e ( _led_turn_off (1 &U _led_2 ]
-"91
-[; ;application.c: 91:     _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"92
-[; ;application.c: 92:     led_turn_on(&led_2);
-[e ( _led_turn_on (1 &U _led_2 ]
-"93
-[; ;application.c: 93:     _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"94
-[; ;application.c: 94:     led_turn_off(&led_2);
-[e ( _led_turn_off (1 &U _led_2 ]
-"95
-[; ;application.c: 95: }
-[e :UE 324 ]
-}
-"97
-[; ;application.c: 97: void task_3(void) {
-[v _task_3 `(v ~T0 @X0 1 ef ]
-{
-[e :U _task_3 ]
-[f ]
-"98
-[; ;application.c: 98:     led_turn_on(&led_0);
-[e ( _led_turn_on (1 &U _led_0 ]
-"99
-[; ;application.c: 99:     led_turn_on(&led_1);
-[e ( _led_turn_on (1 &U _led_1 ]
-"100
-[; ;application.c: 100:     led_turn_on(&led_2);
-[e ( _led_turn_on (1 &U _led_2 ]
-"101
-[; ;application.c: 101: }
-[e :UE 325 ]
-}
-"103
-[; ;application.c: 103: void task_4(void) {
-[v _task_4 `(v ~T0 @X0 1 ef ]
-{
-[e :U _task_4 ]
-[f ]
-"104
-[; ;application.c: 104:     led_turn_off(&led_0);
-[e ( _led_turn_off (1 &U _led_0 ]
-"105
-[; ;application.c: 105:     led_turn_off(&led_1);
-[e ( _led_turn_off (1 &U _led_1 ]
-"106
-[; ;application.c: 106:     led_turn_off(&led_2);
-[e ( _led_turn_off (1 &U _led_2 ]
-"107
-[; ;application.c: 107: }
-[e :UE 326 ]
-}
+[a 1C 51 32 109 101 115 115 97 103 101 115 0 ]
+[a 2C 114 101 99 101 105 118 101 100 0 ]
+[a 3C 82 101 97 100 0 ]
+[a 5C 82 101 97 100 0 ]
+[a 4C 69 83 32 68 105 112 108 111 109 97 0 ]
+[a 6C 32 32 32 32 0 ]

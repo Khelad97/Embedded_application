@@ -10,10 +10,16 @@
 #include "mcal_gpio.h"
 #include"../../std_types.h"
 
-static volatile uint8_t *tris_register[] = {&TRISA, &TRISB, &TRISC, &TRISD, &TRISE}; // input or output 
-static volatile uint8_t *lat_register[] = {&LATA, &LATB, &LATC, &LATD, &LATE}; // set high or low 
-static volatile uint8_t *port_register[] = {&PORTA, &PORTB, &PORTC, &PORTD, &PORTE}; // read status 
-
+static volatile uint8_t *tris_register[] = {&TRISA, &TRISB, &TRISC, &TRISD, &TRISE};  // input or output 
+static volatile uint8_t *lat_register[] = {&LATA, &LATB, &LATC, &LATD, &LATE};        // set high or low 
+static volatile uint8_t *port_register[] = {&PORTA, &PORTB, &PORTC, &PORTD, &PORTE};  // read status 
+/**
+ * 
+ * @param port
+ * @param pin
+ * @param direction
+ * @return 
+ */
 ret_status gpio_pin_direction_intialize(port_index port, pin_index pin, direction_t direction) {
     ret_status ret = R_NOK;
     if (pin > PORT_PIN_MAX_NUMBERS - 1) {

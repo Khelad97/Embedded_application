@@ -5,103 +5,52 @@
  * Created on October 22, 2020, 8:09 PM
  */
 
-
 #include "application.h"
-
-led_t led_0 = {. port_info.port_name = PORTC_INDEX, .port_info.pin = PIN0, .led_stutus = LED_OFF};
-led_t led_1 = {. port_info.port_name = PORTC_INDEX, .port_info.pin = PIN1, .led_stutus = LED_OFF};
-led_t led_2 = {. port_info.port_name = PORTC_INDEX, .port_info.pin = PIN2, .led_stutus = LED_OFF};
-
-button_t btn = {.port_name = PORTD_INDEX, .pin = PIN0, .button_status = BUTTON_NOT_PRESSED};
-
-uint8_t btn_status = ZERO_INIT;
-uint8_t number_of_click = ZERO_INIT, number_of_task = ZERO_INIT, back = ZERO_INIT;
-
-void task_0(void);
-void task_1(void);
-void task_2(void);
-void task_3(void);
-void task_4(void);
+lcd_t lcd_1 = {
+    .lcd_data_port = PORTC_INDEX,
+    .lcd_rs_port=PORTD_INDEX,
+    .lcd_en_port=PORTD_INDEX,
+    .lcd_rs_pin = PIN0,
+    .lcd_en_pin = PIN1
+};
+const char character1[] = {14,10,17,17,17,17,31,0};
+const char character2[] = {14,10,17,17,17,31,31,0};
+const char character3[] = {14,10,17,17,31,31,31,0};
+const char character4[] = {14,10,17,31,31,31,31,0};
+const char character5[] = {14,10,31,31,31,31,31,0};
+const char character6[] = {14,14,31,31,31,31,31,0};
+const char blt[] = {6,21,13,6,13,21,6,0};
+const char Shab[] = {31,21,14,4,4,4,4,0};
+const char shab_bat1[] = {24,24,24,24,24,24,24,0};
+const char shab_bat2[] = {28,28,28,28,28,28,28,0};
+const char shab_bat3[] = {30,30,30,30,30,30,30,0};
+const char mesg1[] = {31,24,22,17,16,31,0,0};
+const char mesg2[] = {31,3,13,17,1,31,0,0};
 
 int main() {
-    led_initialize(&led_0);
-    led_initialize(&led_1);
-    led_initialize(&led_2);
-    button_initialize(&btn);
-    button_get_status(&btn, &btn_status);
+    lcd_intialize(&lcd_1);
+    lcd_send_custome_char(&lcd_1, 4, 20, character6, 0);
+    lcd_send_custome_char(&lcd_1, 1, 19, blt, 1);
+    lcd_send_custome_char(&lcd_1, 4, 1, Shab, 2);
+    lcd_send_custome_char(&lcd_1, 3, 1, shab_bat1, 3);
+    lcd_send_custome_char(&lcd_1, 3, 20, shab_bat1, 3);
+    lcd_send_custome_char(&lcd_1, 2, 1, shab_bat2, 4);
+    lcd_send_custome_char(&lcd_1, 2, 20, shab_bat2, 4);
+    lcd_send_custome_char(&lcd_1, 1, 20, shab_bat3, 4);
+    lcd_send_custome_char(&lcd_1, 1, 2, mesg1, 5);
+    lcd_send_custome_char(&lcd_1, 1, 3, mesg2, 6);
+    lcd_send_string_data_pos(&lcd_1, 2, 2, "3 messages");
+    lcd_send_string_data_pos(&lcd_1, 3, 5, "received");
+    lcd_send_string_data_pos(&lcd_1, 4, 9, "Read");
     while (TRUE) {
-        button_get_status(&btn, &btn_status);
-        /**
-         * 
-         * @return 
-         */
-
-        if ((btn_status == BUTTON_PRESSED) && back == 0) {
-
-            number_of_task = number_of_click % 5;
-            switch (number_of_task) {
-                case 0:
-                    task_0();
-                    break;
-                case 1:
-                    task_1();
-                    break;
-                case 2:
-                    task_2();
-                    break;
-                case 3:
-                    task_3();
-                    break;
-                case 4:
-                    task_4();
-                    break;
-            }
-            number_of_click++;
-            back = 1;
-        } else if ((btn_status == BUTTON_NOT_PRESSED)) {
-            back = 0;
-        }
+        lcd_send_string_data_pos(&lcd_1, 1, 6, "ES Diploma");
+        lcd_send_string_data_pos(&lcd_1, 4, 9, "Read");__delay_ms(500);
+        lcd_send_string_data_pos(&lcd_1, 4, 9, "    ");__delay_ms(500);
+        #if CHAR_LCD_MODE==4
+        lcd_send_string_data_pos(&lcd_2, 1, 8, "Testing");
+        lcd_send_string_data_pos(&lcd_2, 2, 4, "LCD 4 Bit Mode");
+        #endif
     }
 }
 
-void task_0(void) {
-    led_turn_on(&led_0);
-    __delay_ms(1000);
-    led_turn_off(&led_0);
-}
 
-void task_1(void) {
-    led_turn_on(&led_1);
-    __delay_ms(1000);
-    led_turn_off(&led_1);
-    __delay_ms(1000);
-    led_turn_on(&led_1);
-    __delay_ms(1000);
-    led_turn_off(&led_1);
-}
-
-void task_2(void) {
-    led_turn_on(&led_2);
-    __delay_ms(1000);
-    led_turn_off(&led_2);
-    __delay_ms(1000);
-    led_turn_on(&led_2);
-    __delay_ms(1000);
-    led_turn_off(&led_2);
-    __delay_ms(1000);
-    led_turn_on(&led_2);
-    __delay_ms(1000);
-    led_turn_off(&led_2);
-}
-
-void task_3(void) {
-    led_turn_on(&led_0);
-    led_turn_on(&led_1);
-    led_turn_on(&led_2);
-}
-
-void task_4(void) {
-    led_turn_off(&led_0);
-    led_turn_off(&led_1);
-    led_turn_off(&led_2);
-}

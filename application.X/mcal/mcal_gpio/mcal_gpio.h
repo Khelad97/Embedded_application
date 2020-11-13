@@ -7,12 +7,16 @@
 
 #ifndef MCAL_GPIO_H
 #define	MCAL_GPIO_H
-
+#include <stdio.h>
 #include"pic18f46k20.h"
 #include "../../std_types.h"
 
 #define PORT_PIN_MAX_NUMBERS 8UL
 #define PORT_MAX_NUMBERS 5UL
+#define PORT_DIRECTION_OUTPUT 0X00
+#define PORT_DIRECTION_INPUT  0XFF
+#define PORT_ALL_CLEAR 0X00
+#define PORT_ALL_SET 0XFF;
 
 typedef enum {
     PIN_LOW,

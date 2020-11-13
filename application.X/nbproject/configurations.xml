@@ -8,8 +8,17 @@
         <logicalFolder name="ecu_button" displayName="ecu_button" projectFiles="true">
           <itemPath>ecu/ecu_button/ecu_button.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="ecu_lcd" displayName="ecu_lcd" projectFiles="true">
+          <itemPath>ecu/ecu_lcd/ecu_lcd.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="ecu_led" displayName="ecu_led" projectFiles="true">
           <itemPath>ecu/ecu_led/ecu_led.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="ecu_motor" displayName="ecu_motor" projectFiles="true">
+          <itemPath>ecu/ecu_motor/ecu_motor.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="ecu_relay" displayName="ecu_relay" projectFiles="true">
+          <itemPath>ecu/ecu_relay/ecu_relay.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="mcal" displayName="mcal" projectFiles="true">
@@ -32,8 +41,17 @@
         <logicalFolder name="ecu_button" displayName="ecu_button" projectFiles="true">
           <itemPath>ecu/ecu_button/ecu_button.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="ecu_lcd" displayName="ecu_lcd" projectFiles="true">
+          <itemPath>ecu/ecu_lcd/ecu_lcd.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="ecu_led" displayName="ecu_led" projectFiles="true">
           <itemPath>ecu/ecu_led/ecu_led.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="ecu_motor" displayName="ecu_motor" projectFiles="true">
+          <itemPath>ecu/ecu_motor/ecu_motor.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="ecu_relay" displayName="ecu_relay" projectFiles="true">
+          <itemPath>ecu/ecu_relay/ecu_relay.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="mcal" displayName="mcal" projectFiles="true">

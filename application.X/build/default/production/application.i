@@ -14,9 +14,8 @@
 
 
 
-
 # 1 "./application.h" 1
-# 11 "./application.h"
+# 12 "./application.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -174,7 +173,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "./application.h" 2
+# 12 "./application.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 3
@@ -234,7 +233,7 @@ uldiv_t uldiv (unsigned long, unsigned long);
 
 
 size_t __ctype_get_mb_cur_max(void);
-# 12 "./application.h" 2
+# 13 "./application.h" 2
 
 # 1 "./std_types.h" 1
 # 11 "./std_types.h"
@@ -249,7 +248,7 @@ typedef enum {
     R_NOK,
     R_OK
 } ret_status;
-# 13 "./application.h" 2
+# 14 "./application.h" 2
 
 # 1 "./device_config.h" 1
 # 11 "./device_config.h"
@@ -4989,12 +4988,12 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
 # 11 "./device_config.h" 2
-# 14 "./application.h" 2
+# 15 "./application.h" 2
 
 # 1 "./ecu/ecu_led/ecu_led.h" 1
-# 11 "./ecu/ecu_led/ecu_led.h"
+# 12 "./ecu/ecu_led/ecu_led.h"
 # 1 "./ecu/ecu_led/../../mcal/mcal_gpio/mcal_gpio.h" 1
-# 17 "./ecu/ecu_led/../../mcal/mcal_gpio/mcal_gpio.h"
+# 21 "./ecu/ecu_led/../../mcal/mcal_gpio/mcal_gpio.h"
 typedef enum {
     PIN_LOW,
     PIN_HIGH
@@ -5035,7 +5034,7 @@ ret_status gpio_port_get_direction_status(port_index port, direction_t *directio
 ret_status gpio_port_write_value(port_index port, uint8_t value);
 ret_status gpio_port_read_value(port_index port, uint8_t *value);
 ret_status gpio_port_toggle_value(port_index port);
-# 11 "./ecu/ecu_led/ecu_led.h" 2
+# 12 "./ecu/ecu_led/ecu_led.h" 2
 
 
 typedef enum {
@@ -5059,7 +5058,7 @@ ret_status led_turn_on(led_t *led);
 ret_status led_turn_off(led_t *led);
 
 ret_status led_turn_toggle(led_t *led);
-# 15 "./application.h" 2
+# 16 "./application.h" 2
 
 # 1 "./ecu/ecu_button/ecu_button.h" 1
 # 13 "./ecu/ecu_button/ecu_button.h"
@@ -5076,104 +5075,122 @@ typedef struct {
 
 ret_status button_initialize(button_t *btn);
 ret_status button_get_status(button_t *btn ,button_status *btn_status);
-# 16 "./application.h" 2
-# 9 "application.c" 2
+# 17 "./application.h" 2
 
+# 1 "./ecu/ecu_relay/ecu_relay.h" 1
+# 14 "./ecu/ecu_relay/ecu_relay.h"
+typedef enum {
+    RELAY_OFF,
+    RELAY_ON
+} relay_status_t;
 
-led_t led_0 = {. port_info.port_name = PORTC_INDEX, .port_info.pin = PIN0, .led_stutus = LED_OFF};
-led_t led_1 = {. port_info.port_name = PORTC_INDEX, .port_info.pin = PIN1, .led_stutus = LED_OFF};
-led_t led_2 = {. port_info.port_name = PORTC_INDEX, .port_info.pin = PIN2, .led_stutus = LED_OFF};
+typedef struct {
+    uint8_t port_name : 4;
+    uint8_t pin : 3;
+    uint8_t relay_stutus : 1;
+} relay_t;
 
-button_t btn = {.port_name = PORTD_INDEX, .pin = PIN0, .button_status = BUTTON_NOT_PRESSED};
+ret_status relay_initialize(relay_t *relay);
 
-uint8_t btn_status = 0;
-uint8_t number_of_click = 0, number_of_task = 0, back = 0;
+ret_status relay_turn_on(relay_t *relay);
 
-void task_0(void);
-void task_1(void);
-void task_2(void);
-void task_3(void);
-void task_4(void);
+ret_status relay_turn_off(relay_t *relay);
+# 18 "./application.h" 2
+
+# 1 "./ecu/ecu_motor/ecu_motor.h" 1
+# 14 "./ecu/ecu_motor/ecu_motor.h"
+typedef enum {
+    MOTOR_OFF,
+    MOTOR_ON
+} motor_status;
+
+typedef struct {
+    relay_t relay_1;
+    relay_t relay_2;
+} motor_t;
+
+ret_status motot_initialize(motor_t *motor);
+
+ret_status motor_rotate_right(motor_t *motor);
+
+ret_status motor_rotate_left(motor_t *motor);
+
+ret_status motor_stop(motor_t *motor);
+# 19 "./application.h" 2
+
+# 1 "./ecu/ecu_lcd/ecu_lcd.h" 1
+# 31 "./ecu/ecu_lcd/ecu_lcd.h"
+typedef struct {
+
+    uint8_t lcd_data_port : 4;
+    uint8_t lcd_en_port : 4;
+    uint8_t lcd_rs_port : 4;
+    uint8_t lcd_en_pin : 3;
+    uint8_t lcd_rs_pin : 3;
+    uint8_t lcd_status : 6;
+# 49 "./ecu/ecu_lcd/ecu_lcd.h"
+} lcd_t;
+
+void lcd_intialize(const lcd_t *_lcd);
+void lcd_set_cursor(const lcd_t *lcd, uint8_t row, uint8_t coulmn);
+void lcd_send_enable(const lcd_t *lcd);
+void lcd_send_4bit(const lcd_t *lcd, uint8_t data);
+void lcd_send_command(const lcd_t *lcd, uint8_t command);
+void lcd_send_char_data(const lcd_t *lcd, uint8_t data);
+void lcd_send_char_data_pos(const lcd_t *lcd, uint8_t row, uint8_t coulmn, uint8_t data);
+void lcd_send_string_data_current_pos(const lcd_t *lcd, uint8_t *data);
+void lcd_send_string_data_pos(const lcd_t *lcd, uint8_t row, uint8_t coulmn, uint8_t *data);
+void lcd_send_custome_char(const lcd_t *lcd, uint8_t row, uint8_t coulmn, const char arr[], uint8_t pos);
+void lcd_clear_display(const lcd_t *lcd);
+void byte_to_string(uint8_t number, uint8_t *output);
+void short_to_string(uint16_t number, uint8_t *output);
+void int_to_string(uint32_t number, uint8_t *output);
+# 20 "./application.h" 2
+# 8 "application.c" 2
+
+lcd_t lcd_1 = {
+    .lcd_data_port = PORTC_INDEX,
+    .lcd_rs_port=PORTD_INDEX,
+    .lcd_en_port=PORTD_INDEX,
+    .lcd_rs_pin = PIN0,
+    .lcd_en_pin = PIN1
+};
+const char character1[] = {14,10,17,17,17,17,31,0};
+const char character2[] = {14,10,17,17,17,31,31,0};
+const char character3[] = {14,10,17,17,31,31,31,0};
+const char character4[] = {14,10,17,31,31,31,31,0};
+const char character5[] = {14,10,31,31,31,31,31,0};
+const char character6[] = {14,14,31,31,31,31,31,0};
+const char blt[] = {6,21,13,6,13,21,6,0};
+const char Shab[] = {31,21,14,4,4,4,4,0};
+const char shab_bat1[] = {24,24,24,24,24,24,24,0};
+const char shab_bat2[] = {28,28,28,28,28,28,28,0};
+const char shab_bat3[] = {30,30,30,30,30,30,30,0};
+const char mesg1[] = {31,24,22,17,16,31,0,0};
+const char mesg2[] = {31,3,13,17,1,31,0,0};
 
 int main() {
-    led_initialize(&led_0);
-    led_initialize(&led_1);
-    led_initialize(&led_2);
-    button_initialize(&btn);
-    button_get_status(&btn, &btn_status);
+    lcd_intialize(&lcd_1);
+    lcd_send_custome_char(&lcd_1, 4, 20, character6, 0);
+    lcd_send_custome_char(&lcd_1, 1, 19, blt, 1);
+    lcd_send_custome_char(&lcd_1, 4, 1, Shab, 2);
+    lcd_send_custome_char(&lcd_1, 3, 1, shab_bat1, 3);
+    lcd_send_custome_char(&lcd_1, 3, 20, shab_bat1, 3);
+    lcd_send_custome_char(&lcd_1, 2, 1, shab_bat2, 4);
+    lcd_send_custome_char(&lcd_1, 2, 20, shab_bat2, 4);
+    lcd_send_custome_char(&lcd_1, 1, 20, shab_bat3, 4);
+    lcd_send_custome_char(&lcd_1, 1, 2, mesg1, 5);
+    lcd_send_custome_char(&lcd_1, 1, 3, mesg2, 6);
+    lcd_send_string_data_pos(&lcd_1, 2, 2, "3 messages");
+    lcd_send_string_data_pos(&lcd_1, 3, 5, "received");
+    lcd_send_string_data_pos(&lcd_1, 4, 9, "Read");
     while (1) {
-        button_get_status(&btn, &btn_status);
+        lcd_send_string_data_pos(&lcd_1, 1, 6, "ES Diploma");
+        lcd_send_string_data_pos(&lcd_1, 4, 9, "Read");_delay((unsigned long)((500)*(8000000UL/4000.0)));
+        lcd_send_string_data_pos(&lcd_1, 4, 9, "    ");_delay((unsigned long)((500)*(8000000UL/4000.0)));
 
 
 
 
-
-        if ((btn_status == BUTTON_PRESSED) && back == 0) {
-
-            number_of_task = number_of_click % 5;
-            switch (number_of_task) {
-                case 0:
-                    task_0();
-                    break;
-                case 1:
-                    task_1();
-                    break;
-                case 2:
-                    task_2();
-                    break;
-                case 3:
-                    task_3();
-                    break;
-                case 4:
-                    task_4();
-                    break;
-            }
-            number_of_click++;
-            back = 1;
-        } else if ((btn_status == BUTTON_NOT_PRESSED)) {
-            back = 0;
-        }
     }
-}
-
-void task_0(void) {
-    led_turn_on(&led_0);
-    _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-    led_turn_off(&led_0);
-}
-
-void task_1(void) {
-    led_turn_on(&led_1);
-    _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-    led_turn_off(&led_1);
-    _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-    led_turn_on(&led_1);
-    _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-    led_turn_off(&led_1);
-}
-
-void task_2(void) {
-    led_turn_on(&led_2);
-    _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-    led_turn_off(&led_2);
-    _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-    led_turn_on(&led_2);
-    _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-    led_turn_off(&led_2);
-    _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-    led_turn_on(&led_2);
-    _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-    led_turn_off(&led_2);
-}
-
-void task_3(void) {
-    led_turn_on(&led_0);
-    led_turn_on(&led_1);
-    led_turn_on(&led_2);
-}
-
-void task_4(void) {
-    led_turn_off(&led_0);
-    led_turn_off(&led_1);
-    led_turn_off(&led_2);
 }

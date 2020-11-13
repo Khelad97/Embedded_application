@@ -4,9 +4,7 @@
  *
  * Created on October 24, 2020, 8:14 PM
  */
-
 #include <stdlib.h>
-
 #include "ecu_led.h"
 
 /**
