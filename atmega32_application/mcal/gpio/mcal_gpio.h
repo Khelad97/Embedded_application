@@ -10,7 +10,7 @@
 #ifndef MCAL_GPIO_H_
 #define MCAL_GPIO_H_
 
-#include "atmega32_application.h"
+#include "device_configuration.h"
 
 #define PORT_PIN_MAX_NUMBERS 8U
 #define PORT_MAX_NUMBERS 4U

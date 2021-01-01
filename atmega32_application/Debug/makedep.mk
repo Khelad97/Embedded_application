@@ -4,9 +4,15 @@
 
 atmega32_application.c
 
-ecu_button.c
+ecu\keypad\ecu_keypad.c
 
-ecu_led.c
+ecu\lcd\ecu_lcd.c
 
-mcal_gpio.c
+ecu\led\ecu_led.c
+
+ecu\motor\ecu_motor.c
+
+ecu\relay\ecu_relay.c
+
+mcal\gpio\mcal_gpio.c
 

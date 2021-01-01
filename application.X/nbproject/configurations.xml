@@ -8,6 +8,9 @@
         <logicalFolder name="ecu_button" displayName="ecu_button" projectFiles="true">
           <itemPath>ecu/ecu_button/ecu_button.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="ecu_keypad" displayName="ecu_keypad" projectFiles="true">
+          <itemPath>ecu/ecu_keypad/ecu_keypad.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="ecu_lcd" displayName="ecu_lcd" projectFiles="true">
           <itemPath>ecu/ecu_lcd/ecu_lcd.h</itemPath>
         </logicalFolder>
@@ -22,8 +25,19 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="mcal" displayName="mcal" projectFiles="true">
+        <logicalFolder name="interrupt" displayName="interrupt" projectFiles="true">
+          <itemPath>mcal/interrupt/mcal_external_interrupt.h</itemPath>
+          <itemPath>mcal/interrupt/mcal_interrupt_config.h</itemPath>
+          <itemPath>mcal/interrupt/mcal_interrupt_manager.h</itemPath>
+          <itemPath>mcal/interrupt/mcal_timer_interrupt.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="mcal_gpio" displayName="mcal_gpio" projectFiles="true">
           <itemPath>mcal/mcal_gpio/mcal_gpio.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="timers" displayName="timers" projectFiles="true">
+          <itemPath>mcal/timers/mcal_timer0.h</itemPath>
+          <itemPath>mcal/timers/mcal_timer1.h</itemPath>
+          <itemPath>mcal/timers/mcal_timer2.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>application.h</itemPath>
@@ -41,6 +55,9 @@
         <logicalFolder name="ecu_button" displayName="ecu_button" projectFiles="true">
           <itemPath>ecu/ecu_button/ecu_button.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="ecu_keypad" displayName="ecu_keypad" projectFiles="true">
+          <itemPath>ecu/ecu_keypad/ecu_keypad.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="ecu_lcd" displayName="ecu_lcd" projectFiles="true">
           <itemPath>ecu/ecu_lcd/ecu_lcd.c</itemPath>
         </logicalFolder>
@@ -55,8 +72,17 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="mcal" displayName="mcal" projectFiles="true">
+        <logicalFolder name="interrupt" displayName="interrupt" projectFiles="true">
+          <itemPath>mcal/interrupt/mcal_external_interrupt.c</itemPath>
+          <itemPath>mcal/interrupt/mcal_interrupt_manager.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="mcal_gpio" displayName="mcal_gpio" projectFiles="true">
           <itemPath>mcal/mcal_gpio/mcal_gpio.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="timers" displayName="timers" projectFiles="true">
+          <itemPath>mcal/timers/mcal_timer0.c</itemPath>
+          <itemPath>mcal/timers/mcal_timer1.c</itemPath>
+          <itemPath>mcal/timers/mcal_timer2.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>application.c</itemPath>

@@ -8,7 +8,10 @@
 #ifndef MCAL_GPIO_H
 #define	MCAL_GPIO_H
 #include <stdio.h>
-#include"pic18f46k20.h"
+#include <stdlib.h>
+#include <pic18f46k20.h>
+#include <pic18.h>
+#include "../../device_config.h"
 #include "../../std_types.h"
 
 #define PORT_PIN_MAX_NUMBERS 8UL
@@ -47,6 +50,7 @@ typedef enum {
     PORTE_INDEX
 } port_index;
 
+/*pin section function definition */
 ret_status gpio_pin_direction_intialize(port_index port, pin_index pin, direction_t direction);
 ret_status gpio_pin_get_direction_status(port_index port, pin_index pin, direction_t *direction);
 ret_status gpio_pin_write_value(port_index port, pin_index pin, pin_logic logic);

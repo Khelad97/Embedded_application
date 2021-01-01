@@ -235,20 +235,479 @@ uldiv_t uldiv (unsigned long, unsigned long);
 size_t __ctype_get_mb_cur_max(void);
 # 13 "./application.h" 2
 
+
 # 1 "./std_types.h" 1
-# 11 "./std_types.h"
-typedef unsigned char uint8_t;
-typedef unsigned short uint16_t;
-typedef unsigned int uint32_t;
+# 12 "./std_types.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 1 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 142 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long intptr_t;
+# 158 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef signed char int8_t;
-typedef signed short int16_t;
-typedef signed int int32_t;
-# 30 "./std_types.h"
+
+
+
+
+typedef short int16_t;
+# 173 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 188 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 209 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 229 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
+
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+typedef int24_t int_fast24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+typedef uint24_t uint_fast24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int16_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint16_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 2 3
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 33 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef float float_t;
+
+
+
+
+typedef double double_t;
+# 15 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 2 3
+# 42 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 3
+int __fpclassifyf(float);
+
+
+
+
+
+
+
+int __signbitf(float);
+# 59 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 3
+double acos(double);
+float acosf(float);
+long double acosl(long double);
+
+
+
+double acosh(double);
+float acoshf(float);
+long double acoshl(long double);
+
+
+
+double asin(double);
+float asinf(float);
+long double asinl(long double);
+
+
+
+double asinh(double);
+float asinhf(float);
+long double asinhl(long double);
+
+
+
+double atan(double);
+float atanf(float);
+long double atanl(long double);
+
+
+
+double atan2(double, double);
+float atan2f(float, float);
+long double atan2l(long double, long double);
+
+
+
+double atanh(double);
+float atanhf(float);
+long double atanhl(long double);
+
+
+
+double cbrt(double);
+float cbrtf(float);
+long double cbrtl(long double);
+
+
+
+double ceil(double);
+float ceilf(float);
+long double ceill(long double);
+
+
+
+double copysign(double, double);
+float copysignf(float, float);
+long double copysignl(long double, long double);
+
+
+
+double cos(double);
+float cosf(float);
+long double cosl(long double);
+
+
+
+double cosh(double);
+float coshf(float);
+long double coshl(long double);
+
+
+
+double erf(double);
+float erff(float);
+long double erfl(long double);
+
+
+
+double erfc(double);
+float erfcf(float);
+long double erfcl(long double);
+
+
+
+double exp(double);
+float expf(float);
+long double expl(long double);
+
+
+
+double exp2(double);
+float exp2f(float);
+long double exp2l(long double);
+
+
+
+double expm1(double);
+float expm1f(float);
+long double expm1l(long double);
+
+
+
+double fabs(double);
+float fabsf(float);
+long double fabsl(long double);
+
+
+
+double fdim(double, double);
+float fdimf(float, float);
+long double fdiml(long double, long double);
+
+
+
+double floor(double);
+float floorf(float);
+long double floorl(long double);
+
+
+
+double fma(double, double, double);
+float fmaf(float, float, float);
+long double fmal(long double, long double, long double);
+
+
+
+double fmax(double, double);
+float fmaxf(float, float);
+long double fmaxl(long double, long double);
+
+
+
+double fmin(double, double);
+float fminf(float, float);
+long double fminl(long double, long double);
+
+
+
+double fmod(double, double);
+float fmodf(float, float);
+long double fmodl(long double, long double);
+
+
+
+double frexp(double, int *);
+float frexpf(float, int *);
+long double frexpl(long double, int *);
+
+
+
+double hypot(double, double);
+float hypotf(float, float);
+long double hypotl(long double, long double);
+
+
+
+int ilogb(double);
+int ilogbf(float);
+int ilogbl(long double);
+
+
+
+double ldexp(double, int);
+float ldexpf(float, int);
+long double ldexpl(long double, int);
+
+
+
+double lgamma(double);
+float lgammaf(float);
+long double lgammal(long double);
+
+
+
+long long llrint(double);
+long long llrintf(float);
+long long llrintl(long double);
+
+
+
+long long llround(double);
+long long llroundf(float);
+long long llroundl(long double);
+
+
+
+double log(double);
+float logf(float);
+long double logl(long double);
+
+
+
+double log10(double);
+float log10f(float);
+long double log10l(long double);
+
+
+
+double log1p(double);
+float log1pf(float);
+long double log1pl(long double);
+
+
+
+double log2(double);
+float log2f(float);
+long double log2l(long double);
+
+
+
+double logb(double);
+float logbf(float);
+long double logbl(long double);
+
+
+
+long lrint(double);
+long lrintf(float);
+long lrintl(long double);
+
+
+
+long lround(double);
+long lroundf(float);
+long lroundl(long double);
+
+
+
+double modf(double, double *);
+float modff(float, float *);
+long double modfl(long double, long double *);
+
+
+
+double nan(const char *);
+float nanf(const char *);
+long double nanl(const char *);
+
+
+
+double nearbyint(double);
+float nearbyintf(float);
+long double nearbyintl(long double);
+
+
+
+double nextafter(double, double);
+float nextafterf(float, float);
+long double nextafterl(long double, long double);
+
+
+
+double nexttoward(double, long double);
+float nexttowardf(float, long double);
+long double nexttowardl(long double, long double);
+
+
+
+
+double pow(double, double);
+__attribute__((nonreentrant)) float powf(float, float);
+long double powl(long double, long double);
+
+
+
+double remainder(double, double);
+float remainderf(float, float);
+long double remainderl(long double, long double);
+
+
+
+double remquo(double, double, int *);
+float remquof(float, float, int *);
+long double remquol(long double, long double, int *);
+
+
+
+double rint(double);
+float rintf(float);
+long double rintl(long double);
+
+
+
+double round(double);
+float roundf(float);
+long double roundl(long double);
+
+
+
+double scalbln(double, long);
+float scalblnf(float, long);
+long double scalblnl(long double, long);
+
+
+
+double scalbn(double, int);
+float scalbnf(float, int);
+long double scalbnl(long double, int);
+
+
+
+double sin(double);
+float sinf(float);
+long double sinl(long double);
+
+
+
+double sinh(double);
+float sinhf(float);
+long double sinhl(long double);
+
+
+
+double sqrt(double);
+float sqrtf(float);
+long double sqrtl(long double);
+
+
+
+double tan(double);
+float tanf(float);
+long double tanl(long double);
+
+
+
+double tanh(double);
+float tanhf(float);
+long double tanhl(long double);
+
+
+
+double tgamma(double);
+float tgammaf(float);
+long double tgammal(long double);
+
+
+
+double trunc(double);
+float truncf(float);
+long double truncl(long double);
+# 423 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 3
+extern int signgam;
+
+double j0(double);
+double j1(double);
+double jn(int, double);
+
+double y0(double);
+double y1(double);
+double yn(int, double);
+# 12 "./std_types.h" 2
+# 26 "./std_types.h"
 typedef enum {
     R_NOK,
     R_OK
 } ret_status;
-# 14 "./application.h" 2
+# 15 "./application.h" 2
 
 # 1 "./device_config.h" 1
 # 11 "./device_config.h"
@@ -4988,12 +5447,12 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
 # 11 "./device_config.h" 2
-# 15 "./application.h" 2
+# 16 "./application.h" 2
 
 # 1 "./ecu/ecu_led/ecu_led.h" 1
 # 12 "./ecu/ecu_led/ecu_led.h"
 # 1 "./ecu/ecu_led/../../mcal/mcal_gpio/mcal_gpio.h" 1
-# 21 "./ecu/ecu_led/../../mcal/mcal_gpio/mcal_gpio.h"
+# 24 "./ecu/ecu_led/../../mcal/mcal_gpio/mcal_gpio.h"
 typedef enum {
     PIN_LOW,
     PIN_HIGH
@@ -5023,6 +5482,7 @@ typedef enum {
     PORTE_INDEX
 } port_index;
 
+
 ret_status gpio_pin_direction_intialize(port_index port, pin_index pin, direction_t direction);
 ret_status gpio_pin_get_direction_status(port_index port, pin_index pin, direction_t *direction);
 ret_status gpio_pin_write_value(port_index port, pin_index pin, pin_logic logic);
@@ -5043,11 +5503,8 @@ typedef enum {
 } led_status;
 
 typedef struct {
-
-    struct {
-        uint8_t port_name : 4;
-        uint8_t pin : 4;
-    } port_info;
+    uint8_t port_name : 4;
+    uint8_t pin : 4;
     led_status led_stutus;
 } led_t;
 
@@ -5058,7 +5515,7 @@ ret_status led_turn_on(led_t *led);
 ret_status led_turn_off(led_t *led);
 
 ret_status led_turn_toggle(led_t *led);
-# 16 "./application.h" 2
+# 17 "./application.h" 2
 
 # 1 "./ecu/ecu_button/ecu_button.h" 1
 # 13 "./ecu/ecu_button/ecu_button.h"
@@ -5075,7 +5532,7 @@ typedef struct {
 
 ret_status button_initialize(button_t *btn);
 ret_status button_get_status(button_t *btn ,button_status *btn_status);
-# 17 "./application.h" 2
+# 18 "./application.h" 2
 
 # 1 "./ecu/ecu_relay/ecu_relay.h" 1
 # 14 "./ecu/ecu_relay/ecu_relay.h"
@@ -5095,7 +5552,7 @@ ret_status relay_initialize(relay_t *relay);
 ret_status relay_turn_on(relay_t *relay);
 
 ret_status relay_turn_off(relay_t *relay);
-# 18 "./application.h" 2
+# 19 "./application.h" 2
 
 # 1 "./ecu/ecu_motor/ecu_motor.h" 1
 # 14 "./ecu/ecu_motor/ecu_motor.h"
@@ -5116,10 +5573,10 @@ ret_status motor_rotate_right(motor_t *motor);
 ret_status motor_rotate_left(motor_t *motor);
 
 ret_status motor_stop(motor_t *motor);
-# 19 "./application.h" 2
+# 20 "./application.h" 2
 
 # 1 "./ecu/ecu_lcd/ecu_lcd.h" 1
-# 31 "./ecu/ecu_lcd/ecu_lcd.h"
+# 30 "./ecu/ecu_lcd/ecu_lcd.h"
 typedef struct {
 
     uint8_t lcd_data_port : 4;
@@ -5128,10 +5585,10 @@ typedef struct {
     uint8_t lcd_en_pin : 3;
     uint8_t lcd_rs_pin : 3;
     uint8_t lcd_status : 6;
-# 49 "./ecu/ecu_lcd/ecu_lcd.h"
+# 48 "./ecu/ecu_lcd/ecu_lcd.h"
 } lcd_t;
 
-void lcd_intialize(const lcd_t *_lcd);
+void lcd_intialize(const lcd_t *lcd);
 void lcd_set_cursor(const lcd_t *lcd, uint8_t row, uint8_t coulmn);
 void lcd_send_enable(const lcd_t *lcd);
 void lcd_send_4bit(const lcd_t *lcd, uint8_t data);
@@ -5142,44 +5599,218 @@ void lcd_send_string_data_current_pos(const lcd_t *lcd, uint8_t *data);
 void lcd_send_string_data_pos(const lcd_t *lcd, uint8_t row, uint8_t coulmn, uint8_t *data);
 void lcd_send_custome_char(const lcd_t *lcd, uint8_t row, uint8_t coulmn, const char arr[], uint8_t pos);
 void lcd_clear_display(const lcd_t *lcd);
+
 void byte_to_string(uint8_t number, uint8_t *output);
 void short_to_string(uint16_t number, uint8_t *output);
 void int_to_string(uint32_t number, uint8_t *output);
-# 20 "./application.h" 2
+# 21 "./application.h" 2
+
+# 1 "./ecu/ecu_keypad/ecu_keypad.h" 1
+# 16 "./ecu/ecu_keypad/ecu_keypad.h"
+typedef struct{
+    uint8_t port_name : 4;
+    uint8_t pin_number : 4;
+}keypad_pin_t;
+
+typedef struct{
+    keypad_pin_t keypad_rows[4];
+    keypad_pin_t keypad_columns[4];
+}keypad_t;
+
+ret_status keypad_initialize(const keypad_t *_keypad);
+uint8_t keypad_read_value(const keypad_t *_keypad);
+# 22 "./application.h" 2
+
+# 1 "./mcal/timers/mcal_timer0.h" 1
+# 14 "./mcal/timers/mcal_timer0.h"
+# 1 "./mcal/timers/../interrupt/mcal_timer_interrupt.h" 1
+# 11 "./mcal/timers/../interrupt/mcal_timer_interrupt.h"
+# 1 "./mcal/timers/../interrupt/mcal_interrupt_config.h" 1
+# 31 "./mcal/timers/../interrupt/mcal_interrupt_config.h"
+typedef enum{
+    LOW_PRIORITY,
+    HIGH_PRIORITY
+}priority_config;
+# 11 "./mcal/timers/../interrupt/mcal_timer_interrupt.h" 2
+# 14 "./mcal/timers/mcal_timer0.h" 2
+# 67 "./mcal/timers/mcal_timer0.h"
+typedef struct {
+    uint8_t timer_register_mode : 1;
+    uint8_t timer_mode : 1;
+    uint8_t timer_prescaler_mode : 1;
+    uint8_t timer_interrupt_mode : 1;
+    uint8_t timer_current_edge_mode : 1;
+    uint8_t timer_prescaler_value : 3;
+    uint16_t timer_preload_value;
+    void(* TMR0_InterruptHandler)(void);
+} timer0_t;
+
+
+ret_status timer0_initilize(const timer0_t *timer0);
+ret_status timer0_read_timer(uint16_t *timer_value);
+ret_status timer0_write_timer(uint16_t timer_val);
+
+void TMR0_ISR(void);
+void TMR0_callBack(void);
+# 23 "./application.h" 2
+
+# 1 "./mcal/timers/mcal_timer1.h" 1
+# 58 "./mcal/timers/mcal_timer1.h"
+typedef struct {
+    uint8_t timer_register_mode : 1;
+    uint8_t timer_mode : 1;
+    uint8_t timer_prescaler_mode : 1;
+    uint8_t timer_interrupt_mode : 1;
+    uint8_t timer_current_edge_mode : 1;
+    uint8_t timer_prescaler_value : 3;
+    uint16_t timer_preload_value;
+    void(* TMR0_InterruptHandler)(void);
+} timer1_t;
+
+
+ret_status timer1_initilize(const timer1_t *timer1);
+ret_status timer1_read_timer(uint16_t *timer_value);
+ret_status timer1_write_timer(uint16_t timer_val);
+
+void TMR1_ISR(void);
+void TMR1_callBack(void);
+# 24 "./application.h" 2
+
+# 1 "./mcal/timers/mcal_timer2.h" 1
+# 63 "./mcal/timers/mcal_timer2.h"
+typedef struct {
+    uint8_t timer_interrupt_mode : 1;
+    uint8_t timer_prescaler_value : 2;
+    uint8_t timer_postscaler_value : 4;
+uint8_t:
+    1;
+    uint8_t timer_preload_value;
+    void(* TMR2_InterruptHandler)(void);
+} timer2_t;
+
+ret_status timer2_initilize(const timer2_t *timer0);
+ret_status timer2_read_timer(uint8_t *timer_value);
+ret_status timer2_write_timer(uint8_t timer_val);
+
+void TMR2_ISR(void);
+void TMR2_callBack(void);
+# 25 "./application.h" 2
+
+# 1 "./mcal/interrupt/mcal_external_interrupt.h" 1
+# 47 "./mcal/interrupt/mcal_external_interrupt.h"
+typedef enum{
+    EXTERNAL_INT0,
+    EXTERNAL_INT1,
+    EXTERNAL_INT2
+}ext_int_source;
+
+typedef enum{
+    INTERRUPT_FALLING_EDGE,
+    INTERRUPT_RISING_EDGE
+}ext_int_edge;
+
+typedef struct{
+    void (* EXT_InterruptHandler)(void);
+    uint8_t port_name : 4;
+    uint8_t pin : 4;
+    ext_int_source int_source;
+    ext_int_edge edge;
+    priority_config priority;
+}ext_int_config;
+
+void interrupt_external_enable(const ext_int_config *int_config);
+void interrupt_external_disable(const ext_int_config *int_config);
+
+
+
+
+
+void INT0_ISR(void);
+
+
+
+
+
+
+void INT0_CallBack(void);
+
+
+
+
+
+void INT1_ISR(void);
+
+
+
+
+
+
+void INT1_CallBack(void);
+
+
+
+
+
+void INT2_ISR(void);
+
+
+
+
+
+
+void INT2_CallBack(void);
+# 26 "./application.h" 2
+
+
+# 1 "./mcal/interrupt/mcal_interrupt_manager.h" 1
+# 14 "./mcal/interrupt/mcal_interrupt_manager.h"
+void interrupt_priority_enable(void);
+void interrupt_priority_disable(void);
+# 28 "./application.h" 2
+
+
+
+
+
+void timer0_DefaultInterruptHandler(void);
+void application_initilaze(void);
 # 8 "application.c" 2
 
-lcd_t lcd_1 = {
-    .lcd_data_port = PORTC_INDEX,
-    .lcd_rs_port = PORTD_INDEX,
-    .lcd_en_port = PORTD_INDEX,
-    .lcd_rs_pin = PIN0,
-    .lcd_en_pin = PIN1
+
+
+led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN0, .led_stutus = LED_OFF};
+led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN1, .led_stutus = LED_OFF};
+led_t led3 = {.port_name = PORTC_INDEX, .pin = PIN2, .led_stutus = LED_OFF};
+led_t led4 = {.port_name = PORTC_INDEX, .pin = PIN3, .led_stutus = LED_OFF};
+
+timer0_t timer_0 = {
+    .TMR0_InterruptHandler = timer0_DefaultInterruptHandler,
+    .timer_register_mode = 0,
+    .timer_mode = 1,
+    .timer_prescaler_mode = 1,
+    .timer_prescaler_value = 3U,
+    .timer_preload_value = 3036,
+    .timer_interrupt_mode = 1,
+    .timer_current_edge_mode = 0
 };
 
 int main() {
-    lcd_intialize(&lcd_1);
-
-    lcd_send_string_data_pos(&lcd_1, 1, 1, "Time :");
-    uint16_t h,m,s,hours[4],min[4],sec[4];
-
+    application_initilaze();
     while (1) {
-        for (h = 0; h < 12; h++) {
-            for (m = 0; m < 60; m++) {
-                for (s = 0; s < 60; s++) {
-                    byte_to_string(h,&hours);
-                    byte_to_string(m,&min);
-                    byte_to_string(s,&sec);
-                    lcd_send_string_data_pos(&lcd_1, 1, 7, hours);
-                    lcd_send_string_data_pos(&lcd_1, 1, 9, ":");
-                    lcd_send_string_data_pos(&lcd_1, 1, 10, min);
-                    lcd_send_string_data_pos(&lcd_1, 1, 12, ":");
-                    lcd_send_string_data_pos(&lcd_1, 1, 13, sec);
-                }
-                lcd_send_string_data_pos(&lcd_1, 1, 13, "  ");
-            }
-            lcd_send_string_data_pos(&lcd_1, 1, 10, " ");
-        }
-
 
     }
+}
+
+void application_initilaze(void) {
+    (INTCONbits.GIE = 1);
+    (INTCONbits.PEIE = 1);
+    led_initialize(&led1);
+    led_initialize(&led2);
+    led_initialize(&led3);
+    led_initialize(&led4);
+    timer0_initilize(&timer_0);
+}
+
+void timer0_DefaultInterruptHandler() {
+    led_turn_toggle(&led1);
 }

@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/F:/project%20embedded/application.X/mcal/timers/mcal_timer2.h</file>
+            <file>file:/F:/project%20embedded/application.X/std_types.h</file>
+            <file>file:/F:/project%20embedded/application.X/mcal/timers/mcal_timer0.h</file>
+            <file>file:/F:/project%20embedded/application.X/mcal/interrupt/mcal_timer_interrupt.h</file>
+            <file>file:/F:/project%20embedded/application.X/mcal/timers/mcal_timer0.c</file>
+            <file>file:/F:/project%20embedded/application.X/mcal/timers/mcal_timer2.c</file>
+            <file>file:/F:/project%20embedded/application.X/mcal/interrupt/mcal_interrupt_manager.c</file>
+        </group>
     </open-files>
 </project-private>

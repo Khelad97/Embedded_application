@@ -73,27 +73,58 @@
     <Compile Include="atmega32_application.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ecu_button.c">
+    <Compile Include="device_configuration.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ecu_button.h">
+    <Compile Include="ecu\keypad\ecu_keypad.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ecu_led.c">
+    <Compile Include="ecu\keypad\ecu_keypad.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ecu_led.h">
+    <Compile Include="ecu\lcd\ecu_lcd.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="mcal_gpio.c">
+    <Compile Include="ecu\lcd\ecu_lcd.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="mcal_gpio.h">
+    <Compile Include="ecu\led\ecu_led.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ecu\led\ecu_led.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ecu\motor\ecu_motor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ecu\motor\ecu_motor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ecu\relay\ecu_relay.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ecu\relay\ecu_relay.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mcal\gpio\mcal_gpio.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mcal\gpio\mcal_gpio.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="std_types.h">
       <SubType>compile</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ecu\led" />
+    <Folder Include="ecu\lcd" />
+    <Folder Include="ecu\motor" />
+    <Folder Include="ecu\keypad" />
+    <Folder Include="ecu\relay" />
+    <Folder Include="mcal" />
+    <Folder Include="mcal\gpio" />
+    <Folder Include="ecu" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

@@ -7,13 +7,9 @@
 
 #ifndef STD_TYPES_H
 #define	STD_TYPES_H
-
-typedef unsigned char uint8_t;
-typedef unsigned short uint16_t;
-typedef unsigned int uint32_t;
-typedef signed char int8_t;
-typedef signed short int16_t;
-typedef signed int int32_t;
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 #define SET_BIT(reg,bit)  (reg|=(1<<bit))
 #define CLR_BIT(reg,bit)  (reg&=(~(1<<bit)))

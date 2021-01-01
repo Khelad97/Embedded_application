@@ -177,6 +177,66 @@ char *ctermid(char *);
 char *tempnam(const char *, const char *);
 # 10 "ecu/ecu_lcd/../../mcal/mcal_gpio/mcal_gpio.h" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 1 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 18 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int wchar_t;
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 2 3
+
+
+int atoi (const char *);
+long atol (const char *);
+long long atoll (const char *);
+double atof (const char *);
+
+float strtof (const char *restrict, char **restrict);
+double strtod (const char *restrict, char **restrict);
+long double strtold (const char *restrict, char **restrict);
+
+
+
+long strtol (const char *restrict, char **restrict, int);
+unsigned long strtoul (const char *restrict, char **restrict, int);
+long long strtoll (const char *restrict, char **restrict, int);
+unsigned long long strtoull (const char *restrict, char **restrict, int);
+
+int rand (void);
+void srand (unsigned);
+
+          void abort (void);
+int atexit (void (*) (void));
+          void exit (int);
+          void _Exit (int);
+
+void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
+
+__attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
+
+int abs (int);
+long labs (long);
+long long llabs (long long);
+
+typedef struct { int quot, rem; } div_t;
+typedef struct { long quot, rem; } ldiv_t;
+typedef struct { long long quot, rem; } lldiv_t;
+
+div_t div (int, int);
+ldiv_t ldiv (long, long);
+lldiv_t lldiv (long long, long long);
+
+typedef struct { unsigned int quot, rem; } udiv_t;
+typedef struct { unsigned long quot, rem; } uldiv_t;
+udiv_t udiv (unsigned int, unsigned int);
+uldiv_t uldiv (unsigned long, unsigned long);
+
+
+
+
+
+size_t __ctype_get_mb_cur_max(void);
+# 11 "ecu/ecu_lcd/../../mcal/mcal_gpio/mcal_gpio.h" 2
+
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\proc\\pic18f46k20.h" 1 3
 # 44 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\proc\\pic18f46k20.h" 3
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\__at.h" 1 3
@@ -4838,68 +4898,17 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 11 "ecu/ecu_lcd/../../mcal/mcal_gpio/mcal_gpio.h" 2
-
-# 1 "ecu/ecu_lcd/../../mcal/mcal_gpio/../../std_types.h" 1
-# 11 "ecu/ecu_lcd/../../mcal/mcal_gpio/../../std_types.h"
-typedef unsigned char uint8_t;
-typedef unsigned short uint16_t;
-typedef unsigned int uint32_t;
-typedef signed char int8_t;
-typedef signed short int16_t;
-typedef signed int int32_t;
-# 30 "ecu/ecu_lcd/../../mcal/mcal_gpio/../../std_types.h"
-typedef enum {
-    R_NOK,
-    R_OK
-} ret_status;
 # 12 "ecu/ecu_lcd/../../mcal/mcal_gpio/mcal_gpio.h" 2
-# 21 "ecu/ecu_lcd/../../mcal/mcal_gpio/mcal_gpio.h"
-typedef enum {
-    PIN_LOW,
-    PIN_HIGH
-} pin_logic;
 
-typedef enum {
-    DIRECTION_OUTPUT,
-    DIRECTION_INPUT
-} direction_t;
-
-typedef enum {
-    PIN0,
-    PIN1,
-    PIN2,
-    PIN3,
-    PIN4,
-    PIN5,
-    PIN6,
-    PIN7
-} pin_index;
-
-typedef enum {
-    PORTA_INDEX,
-    PORTB_INDEX,
-    PORTC_INDEX,
-    PORTD_INDEX,
-    PORTE_INDEX
-} port_index;
-
-ret_status gpio_pin_direction_intialize(port_index port, pin_index pin, direction_t direction);
-ret_status gpio_pin_get_direction_status(port_index port, pin_index pin, direction_t *direction);
-ret_status gpio_pin_write_value(port_index port, pin_index pin, pin_logic logic);
-ret_status gpio_pin_read_value(port_index port, pin_index pin, pin_logic *logic);
-ret_status gpio_pin_toggle_value(port_index port, pin_index pin);
-
-ret_status gpio_port_direction_intialize(port_index port, direction_t direction);
-ret_status gpio_port_get_direction_status(port_index port, direction_t *direction);
-ret_status gpio_port_write_value(port_index port, uint8_t value);
-ret_status gpio_port_read_value(port_index port, uint8_t *value);
-ret_status gpio_port_toggle_value(port_index port);
-# 12 "ecu/ecu_lcd/ecu_lcd.h" 2
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\pic18.h" 1 3
 
 
-# 1 "ecu/ecu_lcd/../../device_config.h" 1
-# 11 "ecu/ecu_lcd/../../device_config.h"
+
+
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\htc.h" 1 3
+
+
+
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4909,76 +4918,7 @@ extern double __fpnormalize(double);
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 1 3
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 18 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int wchar_t;
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 2 3
-
-
-int atoi (const char *);
-long atol (const char *);
-long long atoll (const char *);
-double atof (const char *);
-
-float strtof (const char *restrict, char **restrict);
-double strtod (const char *restrict, char **restrict);
-long double strtold (const char *restrict, char **restrict);
-
-
-
-long strtol (const char *restrict, char **restrict, int);
-unsigned long strtoul (const char *restrict, char **restrict, int);
-long long strtoll (const char *restrict, char **restrict, int);
-unsigned long long strtoull (const char *restrict, char **restrict, int);
-
-int rand (void);
-void srand (unsigned);
-
-          void abort (void);
-int atexit (void (*) (void));
-          void exit (int);
-          void _Exit (int);
-
-void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
-
-__attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
-
-int abs (int);
-long labs (long);
-long long llabs (long long);
-
-typedef struct { int quot, rem; } div_t;
-typedef struct { long quot, rem; } ldiv_t;
-typedef struct { long long quot, rem; } lldiv_t;
-
-div_t div (int, int);
-ldiv_t ldiv (long, long);
-lldiv_t lldiv (long long, long long);
-
-typedef struct { unsigned int quot, rem; } udiv_t;
-typedef struct { unsigned long quot, rem; } uldiv_t;
-udiv_t udiv (unsigned int, unsigned int);
-uldiv_t uldiv (unsigned long, unsigned long);
-
-
-
-
-
-size_t __ctype_get_mb_cur_max(void);
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 2 3
-
-
-
-
-
-
-
-
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 3
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 # 24 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
@@ -4991,15 +4931,7 @@ extern void __builtin_software_breakpoint(void);
 
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
+# 33 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
 # 5 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\htc.h" 2 3
 # 6 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\pic18.h" 2 3
 
@@ -5040,10 +4972,527 @@ extern __attribute__((nonreentrant)) void _delay(unsigned long);
 extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
-# 33 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 11 "ecu/ecu_lcd/../../device_config.h" 2
-# 14 "ecu/ecu_lcd/ecu_lcd.h" 2
-# 31 "ecu/ecu_lcd/ecu_lcd.h"
+# 13 "ecu/ecu_lcd/../../mcal/mcal_gpio/mcal_gpio.h" 2
+
+# 1 "ecu/ecu_lcd/../../mcal/mcal_gpio/../../device_config.h" 1
+# 14 "ecu/ecu_lcd/../../mcal/mcal_gpio/mcal_gpio.h" 2
+
+# 1 "ecu/ecu_lcd/../../mcal/mcal_gpio/../../std_types.h" 1
+# 12 "ecu/ecu_lcd/../../mcal/mcal_gpio/../../std_types.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 1 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 142 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long intptr_t;
+# 158 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef signed char int8_t;
+
+
+
+
+typedef short int16_t;
+# 173 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 188 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 209 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 229 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
+
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+typedef int24_t int_fast24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+typedef uint24_t uint_fast24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int16_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint16_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 2 3
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 33 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef float float_t;
+
+
+
+
+typedef double double_t;
+# 15 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 2 3
+# 42 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 3
+int __fpclassifyf(float);
+
+
+
+
+
+
+
+int __signbitf(float);
+# 59 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 3
+double acos(double);
+float acosf(float);
+long double acosl(long double);
+
+
+
+double acosh(double);
+float acoshf(float);
+long double acoshl(long double);
+
+
+
+double asin(double);
+float asinf(float);
+long double asinl(long double);
+
+
+
+double asinh(double);
+float asinhf(float);
+long double asinhl(long double);
+
+
+
+double atan(double);
+float atanf(float);
+long double atanl(long double);
+
+
+
+double atan2(double, double);
+float atan2f(float, float);
+long double atan2l(long double, long double);
+
+
+
+double atanh(double);
+float atanhf(float);
+long double atanhl(long double);
+
+
+
+double cbrt(double);
+float cbrtf(float);
+long double cbrtl(long double);
+
+
+
+double ceil(double);
+float ceilf(float);
+long double ceill(long double);
+
+
+
+double copysign(double, double);
+float copysignf(float, float);
+long double copysignl(long double, long double);
+
+
+
+double cos(double);
+float cosf(float);
+long double cosl(long double);
+
+
+
+double cosh(double);
+float coshf(float);
+long double coshl(long double);
+
+
+
+double erf(double);
+float erff(float);
+long double erfl(long double);
+
+
+
+double erfc(double);
+float erfcf(float);
+long double erfcl(long double);
+
+
+
+double exp(double);
+float expf(float);
+long double expl(long double);
+
+
+
+double exp2(double);
+float exp2f(float);
+long double exp2l(long double);
+
+
+
+double expm1(double);
+float expm1f(float);
+long double expm1l(long double);
+
+
+
+double fabs(double);
+float fabsf(float);
+long double fabsl(long double);
+
+
+
+double fdim(double, double);
+float fdimf(float, float);
+long double fdiml(long double, long double);
+
+
+
+double floor(double);
+float floorf(float);
+long double floorl(long double);
+
+
+
+double fma(double, double, double);
+float fmaf(float, float, float);
+long double fmal(long double, long double, long double);
+
+
+
+double fmax(double, double);
+float fmaxf(float, float);
+long double fmaxl(long double, long double);
+
+
+
+double fmin(double, double);
+float fminf(float, float);
+long double fminl(long double, long double);
+
+
+
+double fmod(double, double);
+float fmodf(float, float);
+long double fmodl(long double, long double);
+
+
+
+double frexp(double, int *);
+float frexpf(float, int *);
+long double frexpl(long double, int *);
+
+
+
+double hypot(double, double);
+float hypotf(float, float);
+long double hypotl(long double, long double);
+
+
+
+int ilogb(double);
+int ilogbf(float);
+int ilogbl(long double);
+
+
+
+double ldexp(double, int);
+float ldexpf(float, int);
+long double ldexpl(long double, int);
+
+
+
+double lgamma(double);
+float lgammaf(float);
+long double lgammal(long double);
+
+
+
+long long llrint(double);
+long long llrintf(float);
+long long llrintl(long double);
+
+
+
+long long llround(double);
+long long llroundf(float);
+long long llroundl(long double);
+
+
+
+double log(double);
+float logf(float);
+long double logl(long double);
+
+
+
+double log10(double);
+float log10f(float);
+long double log10l(long double);
+
+
+
+double log1p(double);
+float log1pf(float);
+long double log1pl(long double);
+
+
+
+double log2(double);
+float log2f(float);
+long double log2l(long double);
+
+
+
+double logb(double);
+float logbf(float);
+long double logbl(long double);
+
+
+
+long lrint(double);
+long lrintf(float);
+long lrintl(long double);
+
+
+
+long lround(double);
+long lroundf(float);
+long lroundl(long double);
+
+
+
+double modf(double, double *);
+float modff(float, float *);
+long double modfl(long double, long double *);
+
+
+
+double nan(const char *);
+float nanf(const char *);
+long double nanl(const char *);
+
+
+
+double nearbyint(double);
+float nearbyintf(float);
+long double nearbyintl(long double);
+
+
+
+double nextafter(double, double);
+float nextafterf(float, float);
+long double nextafterl(long double, long double);
+
+
+
+double nexttoward(double, long double);
+float nexttowardf(float, long double);
+long double nexttowardl(long double, long double);
+
+
+
+
+double pow(double, double);
+__attribute__((nonreentrant)) float powf(float, float);
+long double powl(long double, long double);
+
+
+
+double remainder(double, double);
+float remainderf(float, float);
+long double remainderl(long double, long double);
+
+
+
+double remquo(double, double, int *);
+float remquof(float, float, int *);
+long double remquol(long double, long double, int *);
+
+
+
+double rint(double);
+float rintf(float);
+long double rintl(long double);
+
+
+
+double round(double);
+float roundf(float);
+long double roundl(long double);
+
+
+
+double scalbln(double, long);
+float scalblnf(float, long);
+long double scalblnl(long double, long);
+
+
+
+double scalbn(double, int);
+float scalbnf(float, int);
+long double scalbnl(long double, int);
+
+
+
+double sin(double);
+float sinf(float);
+long double sinl(long double);
+
+
+
+double sinh(double);
+float sinhf(float);
+long double sinhl(long double);
+
+
+
+double sqrt(double);
+float sqrtf(float);
+long double sqrtl(long double);
+
+
+
+double tan(double);
+float tanf(float);
+long double tanl(long double);
+
+
+
+double tanh(double);
+float tanhf(float);
+long double tanhl(long double);
+
+
+
+double tgamma(double);
+float tgammaf(float);
+long double tgammal(long double);
+
+
+
+double trunc(double);
+float truncf(float);
+long double truncl(long double);
+# 423 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\math.h" 3
+extern int signgam;
+
+double j0(double);
+double j1(double);
+double jn(int, double);
+
+double y0(double);
+double y1(double);
+double yn(int, double);
+# 12 "ecu/ecu_lcd/../../mcal/mcal_gpio/../../std_types.h" 2
+# 26 "ecu/ecu_lcd/../../mcal/mcal_gpio/../../std_types.h"
+typedef enum {
+    R_NOK,
+    R_OK
+} ret_status;
+# 15 "ecu/ecu_lcd/../../mcal/mcal_gpio/mcal_gpio.h" 2
+# 24 "ecu/ecu_lcd/../../mcal/mcal_gpio/mcal_gpio.h"
+typedef enum {
+    PIN_LOW,
+    PIN_HIGH
+} pin_logic;
+
+typedef enum {
+    DIRECTION_OUTPUT,
+    DIRECTION_INPUT
+} direction_t;
+
+typedef enum {
+    PIN0,
+    PIN1,
+    PIN2,
+    PIN3,
+    PIN4,
+    PIN5,
+    PIN6,
+    PIN7
+} pin_index;
+
+typedef enum {
+    PORTA_INDEX,
+    PORTB_INDEX,
+    PORTC_INDEX,
+    PORTD_INDEX,
+    PORTE_INDEX
+} port_index;
+
+
+ret_status gpio_pin_direction_intialize(port_index port, pin_index pin, direction_t direction);
+ret_status gpio_pin_get_direction_status(port_index port, pin_index pin, direction_t *direction);
+ret_status gpio_pin_write_value(port_index port, pin_index pin, pin_logic logic);
+ret_status gpio_pin_read_value(port_index port, pin_index pin, pin_logic *logic);
+ret_status gpio_pin_toggle_value(port_index port, pin_index pin);
+
+ret_status gpio_port_direction_intialize(port_index port, direction_t direction);
+ret_status gpio_port_get_direction_status(port_index port, direction_t *direction);
+ret_status gpio_port_write_value(port_index port, uint8_t value);
+ret_status gpio_port_read_value(port_index port, uint8_t *value);
+ret_status gpio_port_toggle_value(port_index port);
+# 12 "ecu/ecu_lcd/ecu_lcd.h" 2
+# 30 "ecu/ecu_lcd/ecu_lcd.h"
 typedef struct {
 
     uint8_t lcd_data_port : 4;
@@ -5052,10 +5501,10 @@ typedef struct {
     uint8_t lcd_en_pin : 3;
     uint8_t lcd_rs_pin : 3;
     uint8_t lcd_status : 6;
-# 49 "ecu/ecu_lcd/ecu_lcd.h"
+# 48 "ecu/ecu_lcd/ecu_lcd.h"
 } lcd_t;
 
-void lcd_intialize(const lcd_t *_lcd);
+void lcd_intialize(const lcd_t *lcd);
 void lcd_set_cursor(const lcd_t *lcd, uint8_t row, uint8_t coulmn);
 void lcd_send_enable(const lcd_t *lcd);
 void lcd_send_4bit(const lcd_t *lcd, uint8_t data);
@@ -5066,6 +5515,7 @@ void lcd_send_string_data_current_pos(const lcd_t *lcd, uint8_t *data);
 void lcd_send_string_data_pos(const lcd_t *lcd, uint8_t row, uint8_t coulmn, uint8_t *data);
 void lcd_send_custome_char(const lcd_t *lcd, uint8_t row, uint8_t coulmn, const char arr[], uint8_t pos);
 void lcd_clear_display(const lcd_t *lcd);
+
 void byte_to_string(uint8_t number, uint8_t *output);
 void short_to_string(uint16_t number, uint8_t *output);
 void int_to_string(uint32_t number, uint8_t *output);
@@ -5084,11 +5534,11 @@ void lcd_intialize(const lcd_t *lcd) {
     gpio_pin_write_value(lcd->lcd_en_port, lcd->lcd_en_pin, PIN_LOW);
     gpio_pin_direction_intialize(lcd->lcd_rs_port, lcd->lcd_rs_pin, DIRECTION_OUTPUT);
     gpio_pin_write_value(lcd->lcd_rs_port, lcd->lcd_rs_pin, PIN_LOW);
-    _delay((unsigned long)((40)*(8000000UL/4000.0)));
+    _delay((unsigned long)((40)*(4000000UL/4000.0)));
     lcd_send_command(lcd, 0x38);
-    _delay((unsigned long)((5)*(8000000UL/4000.0)));
+    _delay((unsigned long)((5)*(4000000UL/4000.0)));
     lcd_send_command(lcd, 0x38);
-    _delay((unsigned long)((300)*(8000000UL/4000000.0)));
+    _delay((unsigned long)((300)*(4000000UL/4000000.0)));
     lcd_send_command(lcd, 0x38);
 
     lcd_send_command(lcd, 0X01);
@@ -5097,7 +5547,7 @@ void lcd_intialize(const lcd_t *lcd) {
     lcd_send_command(lcd, 0X0C);
     lcd_send_command(lcd, 0x38);
     lcd_send_command(lcd, 0x80);
-# 56 "ecu/ecu_lcd/ecu_lcd.c"
+# 57 "ecu/ecu_lcd/ecu_lcd.c"
 }
 
 
@@ -5107,7 +5557,7 @@ void lcd_intialize(const lcd_t *lcd) {
 void lcd_send_enable(const lcd_t *lcd) {
 
     gpio_pin_write_value(lcd->lcd_en_port, lcd->lcd_en_pin, PIN_HIGH);
-    _delay((unsigned long)((200)*(8000000UL/4000000.0)));
+    _delay((unsigned long)((200)*(4000000UL/4000000.0)));
     gpio_pin_write_value(lcd->lcd_en_port, lcd->lcd_en_pin, PIN_LOW);
 
 
@@ -5123,17 +5573,22 @@ void lcd_send_enable(const lcd_t *lcd) {
 
 
 void lcd_set_cursor(const lcd_t *lcd, uint8_t row, uint8_t coulmn) {
-    coulmn--;
+    coulmn=coulmn-1;
     switch (row) {
-        case 1: lcd_send_command(lcd, (0x80 + coulmn));
+        case 1:
+            lcd_send_command(lcd, (0x80 + coulmn));
             break;
-        case 2: lcd_send_command(lcd, (0xC0 + coulmn));
+        case 2:
+            lcd_send_command(lcd, (0xC0 + coulmn));
             break;
-        case 3: lcd_send_command(lcd, (0x94 + coulmn));
+        case 3:
+            lcd_send_command(lcd, (0x94 + coulmn));
             break;
-        case 4: lcd_send_command(lcd, (0xD4 + coulmn));
+        case 4:
+            lcd_send_command(lcd, (0xD4 + coulmn));
             break;
-        default:;
+        default:
+            break;
     }
 }
 
@@ -5142,14 +5597,8 @@ void lcd_set_cursor(const lcd_t *lcd, uint8_t row, uint8_t coulmn) {
 
 
 
-
 void lcd_send_4bit(const lcd_t *lcd, uint8_t data) {
-
-
-
-
-
-
+# 119 "ecu/ecu_lcd/ecu_lcd.c"
 }
 
 void lcd_send_command(const lcd_t *lcd, uint8_t command) {
@@ -5157,10 +5606,15 @@ void lcd_send_command(const lcd_t *lcd, uint8_t command) {
     gpio_pin_write_value(lcd->lcd_rs_port, lcd->lcd_rs_pin, PIN_LOW);
     gpio_port_write_value(lcd->lcd_data_port, command);
     lcd_send_enable(lcd);
-    _delay((unsigned long)((2)*(8000000UL/4000.0)));
-# 125 "ecu/ecu_lcd/ecu_lcd.c"
-}
+    _delay((unsigned long)((2)*(4000000UL/4000.0)));
 
+
+
+
+
+
+
+}
 
 
 
@@ -5172,16 +5626,17 @@ void lcd_send_char_data(const lcd_t *lcd, uint8_t data) {
     gpio_pin_write_value(lcd->lcd_rs_port, lcd->lcd_rs_pin, PIN_HIGH);
     gpio_port_write_value(lcd->lcd_data_port, data);
     lcd_send_enable(lcd);
-# 146 "ecu/ecu_lcd/ecu_lcd.c"
-}
-# 156 "ecu/ecu_lcd/ecu_lcd.c"
-void lcd_send_char_data_pos(const lcd_t *lcd, uint8_t row, uint8_t coulmn, uint8_t data) {
 
-    lcd_send_command(lcd, 0x02);
+
+
+
+
+
+}
+# 162 "ecu/ecu_lcd/ecu_lcd.c"
+void lcd_send_char_data_pos(const lcd_t *lcd, uint8_t row, uint8_t coulmn, uint8_t data) {
     lcd_set_cursor(lcd, row, coulmn);
     lcd_send_char_data(lcd, data);
-
-
 }
 
 
@@ -5194,19 +5649,19 @@ void lcd_send_string_data_current_pos(const lcd_t *lcd, uint8_t *data) {
 
     while (*data) {
         lcd_send_char_data(lcd, *data++);
-        _delay((unsigned long)((1)*(8000000UL/4000.0)));
+        _delay((unsigned long)((1)*(4000000UL/4000.0)));
     }
 }
-# 187 "ecu/ecu_lcd/ecu_lcd.c"
+# 189 "ecu/ecu_lcd/ecu_lcd.c"
 void lcd_send_string_data_pos(const lcd_t *lcd, uint8_t row, uint8_t coulmn, uint8_t * data) {
-    lcd_send_command(lcd, 0x02);
+
     lcd_set_cursor(lcd, row, coulmn);
     while (*data) {
         lcd_send_char_data(lcd, *data++);
-        _delay((unsigned long)((1)*(8000000UL/4000.0)));
+        _delay((unsigned long)((1)*(4000000UL/4000.0)));
     }
 }
-# 205 "ecu/ecu_lcd/ecu_lcd.c"
+# 207 "ecu/ecu_lcd/ecu_lcd.c"
 void lcd_send_custome_char(const lcd_t *lcd, uint8_t row, uint8_t coulmn, const char arr[], uint8_t pos) {
 
     uint8_t l_counter = 0;

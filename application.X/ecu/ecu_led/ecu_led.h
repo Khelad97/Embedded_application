@@ -17,11 +17,8 @@ typedef enum {
 } led_status;
 
 typedef struct {
-
-    struct {
-        uint8_t port_name : 4;
-        uint8_t pin : 4;
-    } port_info;
+    uint8_t port_name : 4;
+    uint8_t pin : 4;
     led_status led_stutus;
 } led_t;
 

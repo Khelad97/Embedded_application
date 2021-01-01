@@ -30,15 +30,26 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS := 
+SUBDIRS :=  \
+../ecu/led \
+../ecu/lcd \
+../ecu/motor \
+../ecu/keypad \
+../ecu/relay \
+../mcal \
+../mcal/gpio \
+../ecu
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../atmega32_application.c \
-../ecu_button.c \
-../ecu_led.c \
-../mcal_gpio.c
+../ecu/keypad/ecu_keypad.c \
+../ecu/lcd/ecu_lcd.c \
+../ecu/led/ecu_led.c \
+../ecu/motor/ecu_motor.c \
+../ecu/relay/ecu_relay.c \
+../mcal/gpio/mcal_gpio.c
 
 
 PREPROCESSING_SRCS += 
@@ -49,30 +60,42 @@ ASM_SRCS +=
 
 OBJS +=  \
 atmega32_application.o \
-ecu_button.o \
-ecu_led.o \
-mcal_gpio.o
+ecu/keypad/ecu_keypad.o \
+ecu/lcd/ecu_lcd.o \
+ecu/led/ecu_led.o \
+ecu/motor/ecu_motor.o \
+ecu/relay/ecu_relay.o \
+mcal/gpio/mcal_gpio.o
 
 
 OBJS_AS_ARGS +=  \
 atmega32_application.o \
-ecu_button.o \
-ecu_led.o \
-mcal_gpio.o
+ecu/keypad/ecu_keypad.o \
+ecu/lcd/ecu_lcd.o \
+ecu/led/ecu_led.o \
+ecu/motor/ecu_motor.o \
+ecu/relay/ecu_relay.o \
+mcal/gpio/mcal_gpio.o
 
 
 C_DEPS +=  \
 atmega32_application.d \
-ecu_button.d \
-ecu_led.d \
-mcal_gpio.d
+ecu/keypad/ecu_keypad.d \
+ecu/lcd/ecu_lcd.d \
+ecu/led/ecu_led.d \
+ecu/motor/ecu_motor.d \
+ecu/relay/ecu_relay.d \
+mcal/gpio/mcal_gpio.d
 
 
 C_DEPS_AS_ARGS +=  \
 atmega32_application.d \
-ecu_button.d \
-ecu_led.d \
-mcal_gpio.d
+ecu/keypad/ecu_keypad.d \
+ecu/lcd/ecu_lcd.d \
+ecu/led/ecu_led.d \
+ecu/motor/ecu_motor.d \
+ecu/relay/ecu_relay.d \
+mcal/gpio/mcal_gpio.d
 
 
 OUTPUT_FILE_PATH +=atmega32_application.elf
@@ -93,7 +116,49 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 
 
 
+
+
+
+
+
+
 ./%.o: .././%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g1 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
+	@echo Finished building: $<
+
+ecu/keypad/%.o: ../ecu/keypad/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g1 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
+	@echo Finished building: $<
+
+ecu/lcd/%.o: ../ecu/lcd/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g1 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
+	@echo Finished building: $<
+
+ecu/led/%.o: ../ecu/led/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g1 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
+	@echo Finished building: $<
+
+ecu/motor/%.o: ../ecu/motor/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g1 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
+	@echo Finished building: $<
+
+ecu/relay/%.o: ../ecu/relay/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g1 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
+	@echo Finished building: $<
+
+mcal/gpio/%.o: ../mcal/gpio/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g1 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 

@@ -9,17 +9,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S306 . relay_1 relay_2 ]
 "15 ecu/ecu_motor/ecu_motor.c
 [; ;ecu/ecu_motor/ecu_motor.c: 15: ret_status motot_initialize(motor_t *motor) {
-[c E2976 0 1 .. ]
-[n E2976 . R_NOK R_OK  ]
+[c E3455 0 1 .. ]
+[n E3455 . R_NOK R_OK  ]
 "25 ecu/ecu_motor/../ecu_relay/ecu_relay.h
 [; ;ecu/ecu_motor/../ecu_relay/ecu_relay.h: 25: ret_status relay_initialize(relay_t *relay);
-[v _relay_initialize `(E2976 ~T0 @X0 0 ef1`*S305 ]
+[v _relay_initialize `(E3455 ~T0 @X0 0 ef1`*S305 ]
 "27
 [; ;ecu/ecu_motor/../ecu_relay/ecu_relay.h: 27: ret_status relay_turn_on(relay_t *relay);
-[v _relay_turn_on `(E2976 ~T0 @X0 0 ef1`*S305 ]
+[v _relay_turn_on `(E3455 ~T0 @X0 0 ef1`*S305 ]
 "29
 [; ;ecu/ecu_motor/../ecu_relay/ecu_relay.h: 29: ret_status relay_turn_off(relay_t *relay);
-[v _relay_turn_off `(E2976 ~T0 @X0 0 ef1`*S305 ]
+[v _relay_turn_off `(E3455 ~T0 @X0 0 ef1`*S305 ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -463,15 +463,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "15 ecu/ecu_motor/ecu_motor.c
 [; ;ecu/ecu_motor/ecu_motor.c: 15: ret_status motot_initialize(motor_t *motor) {
-[v _motot_initialize `(E2976 ~T0 @X0 1 ef1`*S306 ]
+[v _motot_initialize `(E3455 ~T0 @X0 1 ef1`*S306 ]
 {
 [e :U _motot_initialize ]
 [v _motor `*S306 ~T0 @X0 1 r1 ]
 [f ]
 "16
 [; ;ecu/ecu_motor/ecu_motor.c: 16:     ret_status ret = R_NOK;
-[v _ret `E2976 ~T0 @X0 1 a ]
-[e = _ret . `E2976 0 ]
+[v _ret `E3455 ~T0 @X0 1 a ]
+[e = _ret . `E3455 0 ]
 "17
 [; ;ecu/ecu_motor/ecu_motor.c: 17:     if ((((void*)0) == motor)) {
 [e $ ! == -> -> -> 0 `i `*v `*S306 _motor 308  ]
@@ -494,7 +494,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _relay_initialize (1 &U . *U _motor 1 ]
 "22
 [; ;ecu/ecu_motor/ecu_motor.c: 22:         return R_OK;
-[e ) . `E2976 1 ]
+[e ) . `E3455 1 ]
 [e $UE 307  ]
 "23
 [; ;ecu/ecu_motor/ecu_motor.c: 23:     }
@@ -506,15 +506,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "31
 [; ;ecu/ecu_motor/ecu_motor.c: 31: ret_status motor_rotate_right(motor_t *motor) {
-[v _motor_rotate_right `(E2976 ~T0 @X0 1 ef1`*S306 ]
+[v _motor_rotate_right `(E3455 ~T0 @X0 1 ef1`*S306 ]
 {
 [e :U _motor_rotate_right ]
 [v _motor `*S306 ~T0 @X0 1 r1 ]
 [f ]
 "32
 [; ;ecu/ecu_motor/ecu_motor.c: 32:     ret_status ret = R_NOK;
-[v _ret `E2976 ~T0 @X0 1 a ]
-[e = _ret . `E2976 0 ]
+[v _ret `E3455 ~T0 @X0 1 a ]
+[e = _ret . `E3455 0 ]
 "34
 [; ;ecu/ecu_motor/ecu_motor.c: 34:     if ((((void*)0) == motor)) {
 [e $ ! == -> -> -> 0 `i `*v `*S306 _motor 311  ]
@@ -537,7 +537,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _relay_turn_off (1 &U . *U _motor 1 ]
 "39
 [; ;ecu/ecu_motor/ecu_motor.c: 39:         return R_OK;
-[e ) . `E2976 1 ]
+[e ) . `E3455 1 ]
 [e $UE 310  ]
 "40
 [; ;ecu/ecu_motor/ecu_motor.c: 40:     }
@@ -549,15 +549,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "48
 [; ;ecu/ecu_motor/ecu_motor.c: 48: ret_status motor_rotate_left(motor_t *motor) {
-[v _motor_rotate_left `(E2976 ~T0 @X0 1 ef1`*S306 ]
+[v _motor_rotate_left `(E3455 ~T0 @X0 1 ef1`*S306 ]
 {
 [e :U _motor_rotate_left ]
 [v _motor `*S306 ~T0 @X0 1 r1 ]
 [f ]
 "49
 [; ;ecu/ecu_motor/ecu_motor.c: 49:     ret_status ret = R_NOK;
-[v _ret `E2976 ~T0 @X0 1 a ]
-[e = _ret . `E2976 0 ]
+[v _ret `E3455 ~T0 @X0 1 a ]
+[e = _ret . `E3455 0 ]
 "51
 [; ;ecu/ecu_motor/ecu_motor.c: 51:     if ((((void*)0) == motor)) {
 [e $ ! == -> -> -> 0 `i `*v `*S306 _motor 314  ]
@@ -580,7 +580,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _relay_turn_off (1 &U . *U _motor 0 ]
 "56
 [; ;ecu/ecu_motor/ecu_motor.c: 56:         return R_OK;
-[e ) . `E2976 1 ]
+[e ) . `E3455 1 ]
 [e $UE 313  ]
 "57
 [; ;ecu/ecu_motor/ecu_motor.c: 57:     }
@@ -592,15 +592,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "64
 [; ;ecu/ecu_motor/ecu_motor.c: 64: ret_status motor_stop(motor_t *motor) {
-[v _motor_stop `(E2976 ~T0 @X0 1 ef1`*S306 ]
+[v _motor_stop `(E3455 ~T0 @X0 1 ef1`*S306 ]
 {
 [e :U _motor_stop ]
 [v _motor `*S306 ~T0 @X0 1 r1 ]
 [f ]
 "65
 [; ;ecu/ecu_motor/ecu_motor.c: 65:     ret_status ret = R_NOK;
-[v _ret `E2976 ~T0 @X0 1 a ]
-[e = _ret . `E2976 0 ]
+[v _ret `E3455 ~T0 @X0 1 a ]
+[e = _ret . `E3455 0 ]
 "67
 [; ;ecu/ecu_motor/ecu_motor.c: 67:     if ((((void*)0) == motor)) {
 [e $ ! == -> -> -> 0 `i `*v `*S306 _motor 317  ]
@@ -623,7 +623,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _relay_turn_off (1 &U . *U _motor 1 ]
 "72
 [; ;ecu/ecu_motor/ecu_motor.c: 72:         return R_OK;
-[e ) . `E2976 1 ]
+[e ) . `E3455 1 ]
 [e $UE 316  ]
 "73
 [; ;ecu/ecu_motor/ecu_motor.c: 73:     }

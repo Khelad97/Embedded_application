@@ -6,40 +6,41 @@
  */
 
 #include "application.h"
-lcd_t lcd_1 = {
-    .lcd_data_port = PORTC_INDEX,
-    .lcd_rs_port = PORTD_INDEX,
-    .lcd_en_port = PORTD_INDEX,
-    .lcd_rs_pin = PIN0,
-    .lcd_en_pin = PIN1
+#include "mcal/timers/mcal_timer0.h"
+
+led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN0, .led_stutus = LED_OFF};
+led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN1, .led_stutus = LED_OFF};
+led_t led3 = {.port_name = PORTC_INDEX, .pin = PIN2, .led_stutus = LED_OFF};
+led_t led4 = {.port_name = PORTC_INDEX, .pin = PIN3, .led_stutus = LED_OFF};
+
+timer0_t timer_0 = {
+    .TMR0_InterruptHandler = timer0_DefaultInterruptHandler,
+    .timer_register_mode = TIMER0_16BIT_MODE,
+    .timer_mode = TIMER0_TIMER_MODE,
+    .timer_prescaler_mode = TIMER0_PRESCALER_ON_MODE,
+    .timer_prescaler_value = TIMER0_PRESCALER_DIV_BY_16,
+    .timer_preload_value = 3036,
+    .timer_interrupt_mode = TIMER0_INTERRUPT_EN,
+    .timer_current_edge_mode = TIMER0_RISING_MODE
 };
 
 int main() {
-    lcd_intialize(&lcd_1);
-
-    lcd_send_string_data_pos(&lcd_1, 1, 1, "Time :");
-    uint16_t h,m,s,hours[4],min[4],sec[4];
-    
+    application_initilaze();
     while (TRUE) {
-        for (h = 0; h < 12; h++) {
-            for (m = 0; m < 60; m++) {
-                for (s = 0; s < 60; s++) {
-                    byte_to_string(h,&hours);
-                    byte_to_string(m,&min);
-                    byte_to_string(s,&sec);
-                    lcd_send_string_data_pos(&lcd_1, 1, 7, hours);
-                    lcd_send_string_data_pos(&lcd_1, 1, 9, ":");
-                    lcd_send_string_data_pos(&lcd_1, 1, 10, min);
-                    lcd_send_string_data_pos(&lcd_1, 1, 12, ":");
-                    lcd_send_string_data_pos(&lcd_1, 1, 13, sec);
-                }
-                lcd_send_string_data_pos(&lcd_1, 1, 13, "  ");
-            }
-            lcd_send_string_data_pos(&lcd_1, 1, 10, " ");
-        }
-        
 
     }
 }
 
+void application_initilaze(void) {
+    ENABLE_GLOBAL_INTERRUPT();
+    ENABLE_PERIPHERAL_INTERRUPT();
+    led_initialize(&led1);
+    led_initialize(&led2);
+    led_initialize(&led3);
+    led_initialize(&led4);
+    timer0_initilize(&timer_0);
+}
 
+void timer0_DefaultInterruptHandler() {
+    led_turn_toggle(&led1);
+}

@@ -10,13 +10,12 @@
 
 
 #include"../../mcal/mcal_gpio/mcal_gpio.h"
-#include "pic18f46k20.h"
-#include"../../device_config.h"
+
 #define CHAR_LCD_MODE 8
 /************* LCD commands *************/
-#define _LCD_CLEAR              0X01
-#define _LCD_RETURN_HOME        0x02
-#define _LCD_ENTRY_MODE         0X06
+#define _LCD_CLEAR                      0X01
+#define _LCD_RETURN_HOME                0x02
+#define _LCD_ENTRY_MODE                 0X06
 #define _LCD_CURSOR_OFF_DISPLAY_ON      0X0C
 #define _LCD_CURSOR_OFF_DISPLAY_OFF     0x08
 #define _LCD_CURSOR_ON_BLINK_ON         0x0F
@@ -48,7 +47,7 @@ typedef struct {
 #endif
 } lcd_t;
 
-void lcd_intialize(const lcd_t *_lcd);
+void lcd_intialize(const lcd_t *lcd);
 void lcd_set_cursor(const lcd_t *lcd, uint8_t row, uint8_t coulmn);
 void lcd_send_enable(const lcd_t *lcd);
 void lcd_send_4bit(const lcd_t *lcd, uint8_t data);
@@ -59,11 +58,9 @@ void lcd_send_string_data_current_pos(const lcd_t *lcd, uint8_t *data);
 void lcd_send_string_data_pos(const lcd_t *lcd, uint8_t row, uint8_t coulmn, uint8_t *data);
 void lcd_send_custome_char(const lcd_t *lcd, uint8_t row, uint8_t coulmn, const char arr[], uint8_t pos);
 void lcd_clear_display(const lcd_t *lcd);
+
 void byte_to_string(uint8_t number, uint8_t *output);
 void short_to_string(uint16_t number, uint8_t *output);
 void int_to_string(uint32_t number, uint8_t *output);
 
-
-
 #endif	/* ECU_LCD_H */
-

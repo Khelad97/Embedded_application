@@ -8,4 +8,12 @@ ecu/ecu_led/../../mcal/mcal_gpio/mcal_gpio.h  \
 ecu/ecu_button/ecu_button.h  \
 ecu/ecu_relay/ecu_relay.h  \
 ecu/ecu_motor/ecu_motor.h  \
-ecu/ecu_lcd/ecu_lcd.h 
+ecu/ecu_lcd/ecu_lcd.h  \
+ecu/ecu_keypad/ecu_keypad.h  \
+mcal/timers/mcal_timer0.h  \
+mcal/timers/../interrupt/mcal_timer_interrupt.h  \
+mcal/timers/../interrupt/mcal_interrupt_config.h  \
+mcal/timers/mcal_timer1.h  \
+mcal/timers/mcal_timer2.h  \
+mcal/interrupt/mcal_external_interrupt.h  \
+mcal/interrupt/mcal_interrupt_manager.h 
