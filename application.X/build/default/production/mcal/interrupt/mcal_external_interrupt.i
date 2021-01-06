@@ -5500,7 +5500,7 @@ typedef enum{
     HIGH_PRIORITY
 }priority_config;
 # 11 "mcal/interrupt/mcal_external_interrupt.h" 2
-# 47 "mcal/interrupt/mcal_external_interrupt.h"
+# 56 "mcal/interrupt/mcal_external_interrupt.h"
 typedef enum{
     EXTERNAL_INT0,
     EXTERNAL_INT1,
@@ -5521,8 +5521,17 @@ typedef struct{
     priority_config priority;
 }ext_int_config;
 
+typedef struct{
+    void (* EXT_InterruptHandler)(void);
+    uint8_t port_name : 4;
+    uint8_t pin : 4;
+    priority_config priority;
+}rbx_ext_int_config;
+
 void interrupt_external_enable(const ext_int_config *int_config);
 void interrupt_external_disable(const ext_int_config *int_config);
+void interrupt_external_RBx_enable(const rbx_ext_int_config *int_config);
+void interrupt_external_RBx_disable(const rbx_ext_int_config *int_config);
 
 
 
@@ -5562,12 +5571,29 @@ void INT2_ISR(void);
 
 
 void INT2_CallBack(void);
+
+
+void RB4_ISR(void);
+void RB5_ISR(void);
+void RB6_ISR(void);
+void RB7_ISR(void);
+
+
+void RB4_CallBack(void);
+void RB5_CallBack(void);
+void RB6_CallBack(void);
+void RB7_CallBack(void);
 # 8 "mcal/interrupt/mcal_external_interrupt.c" 2
 
 
-static void (*INT0_InterruptHandler)(void);
-static void (*INT1_InterruptHandler)(void);
-static void (*INT2_InterruptHandler)(void);
+static void (*INT0_InterruptHandler)(void) = ((void*)0);
+static void (*INT1_InterruptHandler)(void) = ((void*)0);
+static void (*INT2_InterruptHandler)(void) = ((void*)0);
+
+static void (*RB4_InterruptHandler)(void) = ((void*)0);
+static void (*RB5_InterruptHandler)(void) = ((void*)0);
+static void (*RB6_InterruptHandler)(void) = ((void*)0);
+static void (*RB7_InterruptHandler)(void) = ((void*)0);
 
 
 
@@ -5579,7 +5605,7 @@ void interrupt_external_enable(const ext_int_config *int_config){
         (INTCONbits.INT0IF = 0);
         if(int_config->edge == INTERRUPT_RISING_EDGE){
             (INTCON2bits.INTEDG0 = 1);
-        }else{ INTCON2bits.INTEDG0 = INTERRUPT_FALLING_EDGE;}
+        }else{ (INTCON2bits.INTEDG0 = 0);}
         INT0_InterruptHandler = int_config->EXT_InterruptHandler;
         gpio_pin_direction_intialize(int_config->port_name, int_config->pin, DIRECTION_INPUT);
         (INTCONbits.INT0IE = 1);
@@ -5632,6 +5658,7 @@ void interrupt_external_disable(const ext_int_config *int_config){
 
 void INT0_ISR(void){
     (INTCONbits.INT0IF = 0);
+
     INT0_CallBack();
 }
 
@@ -5660,5 +5687,71 @@ void INT2_ISR(void){
 void INT2_CallBack(void){
 
     if(INT2_InterruptHandler){ INT2_InterruptHandler(); }
+    else{}
+}
+
+
+
+void interrupt_external_RBx_enable(const rbx_ext_int_config *int_config){
+    (INTCONbits.RBIF = 0);
+    if(int_config->priority == HIGH_PRIORITY){
+        (INTCON2bits.RBIP = 1);
+    }else{ (INTCON2bits.RBIP = 0); }
+    gpio_pin_direction_intialize(int_config->port_name, int_config->pin, DIRECTION_INPUT);
+    switch(int_config->pin){
+        case PIN4 : RB4_InterruptHandler = int_config->EXT_InterruptHandler; break;
+        case PIN5 : RB5_InterruptHandler = int_config->EXT_InterruptHandler; break;
+        case PIN6 : RB6_InterruptHandler = int_config->EXT_InterruptHandler; break;
+        case PIN7 : RB7_InterruptHandler = int_config->EXT_InterruptHandler; break;
+        default :;
+    }
+    (INTCONbits.RBIE = 1);
+}
+
+void interrupt_external_RBx_disable(const rbx_ext_int_config *int_config){
+    (INTCONbits.RBIE = 0);
+}
+
+void RB4_ISR(void){
+    (INTCONbits.RBIF = 0);
+    RB4_CallBack();
+}
+
+void RB5_ISR(void){
+    (INTCONbits.RBIF = 0);
+    RB5_CallBack();
+}
+
+void RB6_ISR(void){
+    (INTCONbits.RBIF = 0);
+    RB6_CallBack();
+}
+
+void RB7_ISR(void){
+    (INTCONbits.RBIF = 0);
+    RB7_CallBack();
+}
+
+void RB4_CallBack(void){
+
+    if(RB4_InterruptHandler){ RB4_InterruptHandler(); }
+    else{}
+}
+
+void RB5_CallBack(void){
+
+    if(RB5_InterruptHandler){ RB5_InterruptHandler(); }
+    else{}
+}
+
+void RB6_CallBack(void){
+
+    if(RB6_InterruptHandler){ RB6_InterruptHandler(); }
+    else{}
+}
+
+void RB7_CallBack(void){
+
+    if(RB7_InterruptHandler){ RB7_InterruptHandler(); }
     else{}
 }

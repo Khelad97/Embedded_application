@@ -43,6 +43,15 @@
 /* This routine set the edge detect of the extern interrupt to positive edge */
 #define EXT_INT2_fallingEdgeSet()           (INTCON2bits.INTEDG2 = 0)
 
+/* This routine clears the interrupt flag for the external interrupt, RBx */
+#define EXT_RBx_InterruptFlagClear()       (INTCONbits.RBIF = 0)
+/* This routine clears the interrupt enable for the external interrupt, RBx */
+#define EXT_RBx_InterruptDisable()         (INTCONbits.RBIE = 0)
+/* This routine sets the interrupt enable for the external interrupt, RBx */
+#define EXT_RBx_InterruptEnable()          (INTCONbits.RBIE  = 1)
+
+#define EXT_RBx_Priority_High()            (INTCON2bits.RBIP = 1)
+#define EXT_RBx_Priority_Low()             (INTCON2bits.RBIP = 0)
 
 typedef enum{
     EXTERNAL_INT0,
@@ -64,8 +73,17 @@ typedef struct{
     priority_config priority;
 }ext_int_config; 
 
+typedef struct{
+    void (* EXT_InterruptHandler)(void);
+    uint8_t port_name : 4;
+    uint8_t pin : 4; 
+    priority_config priority;
+}rbx_ext_int_config;
+
 void interrupt_external_enable(const ext_int_config *int_config);
 void interrupt_external_disable(const ext_int_config *int_config);
+void interrupt_external_RBx_enable(const rbx_ext_int_config *int_config);
+void interrupt_external_RBx_disable(const rbx_ext_int_config *int_config);
 
 /**
  @Summary Interrupt Service Routine for EXT_INT0 - INT0 pin
@@ -105,5 +123,17 @@ void INT2_ISR(void);
               It also allows for a non-specific interrupt handler to be called at runtime.
  */
 void INT2_CallBack(void);
+
+
+void RB4_ISR(void);
+void RB5_ISR(void);
+void RB6_ISR(void);
+void RB7_ISR(void);
+
+
+void RB4_CallBack(void);
+void RB5_CallBack(void);
+void RB6_CallBack(void);
+void RB7_CallBack(void);
 
 #endif	/* MCAL_EXTERNAL_INTERRUPT_H */

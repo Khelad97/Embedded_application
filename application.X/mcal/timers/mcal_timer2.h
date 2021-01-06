@@ -61,11 +61,10 @@
 #define TIMER2_REGISTER_CLEAR  ((uint8_t )0U)
 
 typedef struct {
-    uint8_t timer_interrupt_mode : 1;
-    uint8_t timer_prescaler_value : 2;
+    uint8_t timer_interrupt_mode   : 1;
+    uint8_t timer_prescaler_value  : 2;
     uint8_t timer_postscaler_value : 4;
-uint8_t:
-    1;
+    uint8_t                        : 1;
     uint8_t timer_preload_value;
     void(* TMR2_InterruptHandler)(void);
 } timer2_t;

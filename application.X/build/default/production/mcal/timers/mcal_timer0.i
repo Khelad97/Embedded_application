@@ -5503,6 +5503,11 @@ typedef enum{
     HIGH_PRIORITY
 }priority_config;
 # 11 "mcal/timers/../interrupt/mcal_timer_interrupt.h" 2
+# 30 "mcal/timers/../interrupt/mcal_timer_interrupt.h"
+void TMR0_ISR(void);
+void TMR1_ISR(void);
+void TMR2_ISR(void);
+void TMR3_ISR(void);
 # 14 "mcal/timers/mcal_timer0.h" 2
 # 67 "mcal/timers/mcal_timer0.h"
 typedef struct {

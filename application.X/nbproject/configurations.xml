@@ -38,6 +38,7 @@
           <itemPath>mcal/timers/mcal_timer0.h</itemPath>
           <itemPath>mcal/timers/mcal_timer1.h</itemPath>
           <itemPath>mcal/timers/mcal_timer2.h</itemPath>
+          <itemPath>mcal/timers/mcal_timer3.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>application.h</itemPath>
@@ -83,6 +84,7 @@
           <itemPath>mcal/timers/mcal_timer0.c</itemPath>
           <itemPath>mcal/timers/mcal_timer1.c</itemPath>
           <itemPath>mcal/timers/mcal_timer2.c</itemPath>
+          <itemPath>mcal/timers/mcal_timer3.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>application.c</itemPath>

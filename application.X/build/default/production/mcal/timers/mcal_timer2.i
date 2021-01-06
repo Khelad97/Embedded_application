@@ -5497,14 +5497,18 @@ typedef enum{
     HIGH_PRIORITY
 }priority_config;
 # 11 "mcal/timers/../interrupt/mcal_timer_interrupt.h" 2
+# 30 "mcal/timers/../interrupt/mcal_timer_interrupt.h"
+void TMR0_ISR(void);
+void TMR1_ISR(void);
+void TMR2_ISR(void);
+void TMR3_ISR(void);
 # 14 "mcal/timers/mcal_timer2.h" 2
 # 63 "mcal/timers/mcal_timer2.h"
 typedef struct {
     uint8_t timer_interrupt_mode : 1;
     uint8_t timer_prescaler_value : 2;
     uint8_t timer_postscaler_value : 4;
-uint8_t:
-    1;
+    uint8_t : 1;
     uint8_t timer_preload_value;
     void(* TMR2_InterruptHandler)(void);
 } timer2_t;
@@ -5572,7 +5576,7 @@ static __attribute__((inline)) void timer_interrupt_mode(const timer2_t *timer2)
         (PIR1bits.TMR2IF = 0);
         (PIE1bits.TMR2IE = 1);
     } else {
-        (INTCONbits.TMR0IE = 0);
+        (PIE1bits.TMR2IE = 0);
         TMR2_InterruptHandler = ((void*)0);
     }
 }

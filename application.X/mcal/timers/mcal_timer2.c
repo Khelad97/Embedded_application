@@ -53,10 +53,10 @@ static inline void timer_interrupt_mode(const timer2_t *timer2) {
         TMR2_InterruptHandler = timer2->TMR2_InterruptHandler;
         ENABLE_GLOBAL_INTERRUPT();
         ENABLE_PERIPHERAL_INTERRUPT();
-        TIMER2_PERIPHERAL_FLAG_CLEAR();
-        TIMER2_PERIPHERAL_ENABLE();
+        TIMER2_INTERRUPT_FLAG_CLEAR();
+        TIMER2_INTERRUPT_ENABLE();
     } else {
-        TIMER0_INTERRUPT_DISABLE();
+        TIMER2_INTERRUPT_DISABLE();
         TMR2_InterruptHandler = NULL;
     }
 }
@@ -107,7 +107,7 @@ ret_status timer2_write_timer(uint8_t timer_val) {
  * 
  */
 void TMR2_ISR(void) {
-    TIMER2_PERIPHERAL_FLAG_CLEAR();
+    TIMER2_INTERRUPT_FLAG_CLEAR();
     timer2_write_timer(timer2_preload);
     TMR2_callBack();
 }

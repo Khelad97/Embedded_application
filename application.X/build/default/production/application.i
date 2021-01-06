@@ -5632,6 +5632,11 @@ typedef enum{
     HIGH_PRIORITY
 }priority_config;
 # 11 "./mcal/timers/../interrupt/mcal_timer_interrupt.h" 2
+# 30 "./mcal/timers/../interrupt/mcal_timer_interrupt.h"
+void TMR0_ISR(void);
+void TMR1_ISR(void);
+void TMR2_ISR(void);
+void TMR3_ISR(void);
 # 14 "./mcal/timers/mcal_timer0.h" 2
 # 67 "./mcal/timers/mcal_timer0.h"
 typedef struct {
@@ -5655,25 +5660,23 @@ void TMR0_callBack(void);
 # 23 "./application.h" 2
 
 # 1 "./mcal/timers/mcal_timer1.h" 1
-# 58 "./mcal/timers/mcal_timer1.h"
+# 50 "./mcal/timers/mcal_timer1.h"
 typedef struct {
     uint8_t timer_register_mode : 1;
-    uint8_t timer_mode : 1;
-    uint8_t timer_prescaler_mode : 1;
+    uint8_t timer_counter_mode : 1;
     uint8_t timer_interrupt_mode : 1;
-    uint8_t timer_current_edge_mode : 1;
-    uint8_t timer_prescaler_value : 3;
+    uint8_t timer_prescaler_value : 2;
+    uint8_t reserved : 3;
     uint16_t timer_preload_value;
-    void(* TMR0_InterruptHandler)(void);
+    void (* TMR1_InterruptHandler)(void);
 } timer1_t;
 
-
-ret_status timer1_initilize(const timer1_t *timer1);
+ret_status timer1_initialize(const timer1_t *timer_obj);
 ret_status timer1_read_timer(uint16_t *timer_value);
-ret_status timer1_write_timer(uint16_t timer_val);
+ret_status timer1_write_timer(uint16_t timer_value);
 
 void TMR1_ISR(void);
-void TMR1_callBack(void);
+void TMR1_CallBack(void);
 # 24 "./application.h" 2
 
 # 1 "./mcal/timers/mcal_timer2.h" 1
@@ -5682,8 +5685,7 @@ typedef struct {
     uint8_t timer_interrupt_mode : 1;
     uint8_t timer_prescaler_value : 2;
     uint8_t timer_postscaler_value : 4;
-uint8_t:
-    1;
+    uint8_t : 1;
     uint8_t timer_preload_value;
     void(* TMR2_InterruptHandler)(void);
 } timer2_t;
@@ -5697,7 +5699,7 @@ void TMR2_callBack(void);
 # 25 "./application.h" 2
 
 # 1 "./mcal/interrupt/mcal_external_interrupt.h" 1
-# 47 "./mcal/interrupt/mcal_external_interrupt.h"
+# 56 "./mcal/interrupt/mcal_external_interrupt.h"
 typedef enum{
     EXTERNAL_INT0,
     EXTERNAL_INT1,
@@ -5718,8 +5720,17 @@ typedef struct{
     priority_config priority;
 }ext_int_config;
 
+typedef struct{
+    void (* EXT_InterruptHandler)(void);
+    uint8_t port_name : 4;
+    uint8_t pin : 4;
+    priority_config priority;
+}rbx_ext_int_config;
+
 void interrupt_external_enable(const ext_int_config *int_config);
 void interrupt_external_disable(const ext_int_config *int_config);
+void interrupt_external_RBx_enable(const rbx_ext_int_config *int_config);
+void interrupt_external_RBx_disable(const rbx_ext_int_config *int_config);
 
 
 
@@ -5759,6 +5770,18 @@ void INT2_ISR(void);
 
 
 void INT2_CallBack(void);
+
+
+void RB4_ISR(void);
+void RB5_ISR(void);
+void RB6_ISR(void);
+void RB7_ISR(void);
+
+
+void RB4_CallBack(void);
+void RB5_CallBack(void);
+void RB6_CallBack(void);
+void RB7_CallBack(void);
 # 26 "./application.h" 2
 
 
