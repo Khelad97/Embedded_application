@@ -5626,7 +5626,7 @@ uint8_t keypad_read_value(const keypad_t *_keypad);
 # 1 "./mcal/timers/../interrupt/mcal_timer_interrupt.h" 1
 # 11 "./mcal/timers/../interrupt/mcal_timer_interrupt.h"
 # 1 "./mcal/timers/../interrupt/mcal_interrupt_config.h" 1
-# 31 "./mcal/timers/../interrupt/mcal_interrupt_config.h"
+# 34 "./mcal/timers/../interrupt/mcal_interrupt_config.h"
 typedef enum{
     LOW_PRIORITY,
     HIGH_PRIORITY
@@ -5786,10 +5786,84 @@ void RB7_CallBack(void);
 
 
 # 1 "./mcal/interrupt/mcal_interrupt_manager.h" 1
-# 14 "./mcal/interrupt/mcal_interrupt_manager.h"
+# 13 "./mcal/interrupt/mcal_interrupt_manager.h"
+# 1 "./mcal/timers/../interrupt/mcal_timers_interrupt.h" 1
+# 29 "./mcal/timers/../interrupt/mcal_timers_interrupt.h"
+void TMR0_ISR(void);
+void TMR1_ISR(void);
+void TMR2_ISR(void);
+void TMR3_ISR(void);
+# 13 "./mcal/interrupt/mcal_interrupt_manager.h" 2
+
+# 1 "./mcal/timers/../interrupt/mcal_usart_interrupt.h" 1
+# 17 "./mcal/timers/../interrupt/mcal_usart_interrupt.h"
+typedef enum{
+    USART_INT_TX_ENABLE = 0,
+    USART_INT_TX_DISABLE,
+    USART_INT_RX_ENABLE,
+    USART_INT_RX_DISABLE
+}usart_int_t;
+
+void usart_interrupt_enable(usart_int_t state);
+void usart_clear_tx_interrupt_flag(void);
+void usart_clear_rx_interrupt_flag(void);
+
+void EUSART_Transmit_ISR(void);
+void EUSART_Receive_ISR(void);
+# 14 "./mcal/interrupt/mcal_interrupt_manager.h" 2
+
+
 void interrupt_priority_enable(void);
 void interrupt_priority_disable(void);
 # 28 "./application.h" 2
+
+
+# 1 "./mcal/uart/uart.h" 1
+# 40 "./mcal/uart/uart.h"
+typedef union {
+    struct {
+        uint8_t ferr : 1;
+        uint8_t oerr : 1;
+        uint8_t reserved : 6;
+    };
+    uint8_t status;
+}eusart_status_t;
+
+typedef enum{
+    BAUDRATE_ASYN_8BIT_lOW_SPEED,
+    BAUDRATE_ASYN_8BIT_HIGH_SPEED,
+    BAUDRATE_ASYN_16BIT_lOW_SPEED,
+    BAUDRATE_ASYN_16BIT_HIGH_SPEED,
+    BAUDRATE_SYN_8BIT,
+    BAUDRATE_SYN_16BIT
+}baudrate_gen_t;
+
+typedef struct{
+    uint8_t transmit_enable : 1;
+    uint8_t receiver_enable : 1;
+    uint8_t transmit_9bits_config : 1;
+    uint8_t receive_9bits_config : 1;
+    uint8_t EUSART_sync_async_mode : 1;
+    uint8_t address_detection : 1;
+    uint8_t reserved : 2;
+}eusart_config_t;
+
+typedef struct{
+    uint32_t baudrate;
+    baudrate_gen_t baudrate_gen_gonfig;
+    eusart_status_t EUSART_RxLastError;
+    eusart_config_t eusart_config;
+    void (*EUSART_TxDefaultInterruptHandler)(void);
+    void (*EUSART_RxDefaultInterruptHandler)(void);
+    void (*EUSART_FramingErrorHandler)(void);
+    void (*EUSART_OverrunErrorHandler)(void);
+    void (*EUSART_ErrorHandler)(void);
+}usart_t;
+
+void EUSART_Initialize(const usart_t *usart_obj);
+void EUSART_Write(uint8_t txData);
+uint8_t EUSART_Read(void);
+# 30 "./application.h" 2
 
 
 
@@ -5797,43 +5871,80 @@ void interrupt_priority_disable(void);
 
 void timer0_DefaultInterruptHandler(void);
 void application_initilaze(void);
+void INT2_DefaultInterruptHandler(void);
+
+void RB4_DefaultInterruptHandler(void);
+void RB5_DefaultInterruptHandler(void);
+void RB6_DefaultInterruptHandler(void);
+void RB7_DefaultInterruptHandler(void);
+
+void Timer0_DefaultInterruptHandler(void);
+void Timer1_DefaultInterruptHandler(void);
+void Timer2_DefaultInterruptHandler(void);
+void Timer3_DefaultInterruptHandler(void);
+
+void EUSART_TxDefaultInterruptHandler(void);
+void EUSART_RxDefaultInterruptHandler(void);
 # 8 "application.c" 2
 
 
+button_t button1 = {.port_name = PORTC_INDEX, .pin = PIN0, .button_status = BUTTON_NOT_PRESSED};
+button_t button2 = {.port_name = PORTC_INDEX, .pin = PIN1, .button_status = BUTTON_NOT_PRESSED};
 
-led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN0, .led_stutus = LED_OFF};
-led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN1, .led_stutus = LED_OFF};
-led_t led3 = {.port_name = PORTC_INDEX, .pin = PIN2, .led_stutus = LED_OFF};
-led_t led4 = {.port_name = PORTC_INDEX, .pin = PIN3, .led_stutus = LED_OFF};
+led_t led1 = {.port_name = PORTD_INDEX, .pin = PIN0, .led_stutus = LED_OFF};
+led_t led2 = {.port_name = PORTD_INDEX, .pin = PIN1, .led_stutus = LED_OFF};
 
-timer0_t timer_0 = {
-    .TMR0_InterruptHandler = timer0_DefaultInterruptHandler,
-    .timer_register_mode = 0,
-    .timer_mode = 1,
-    .timer_prescaler_mode = 1,
-    .timer_prescaler_value = 3U,
-    .timer_preload_value = 3036,
-    .timer_interrupt_mode = 1,
-    .timer_current_edge_mode = 0
+usart_t uart1 = {
+    .baudrate = 9600,
+    .eusart_config.EUSART_sync_async_mode = 0,
+    .eusart_config.transmit_enable = 1,
+    .eusart_config.receiver_enable = 1,
+    .baudrate_gen_gonfig = BAUDRATE_ASYN_8BIT_lOW_SPEED,
+    .EUSART_ErrorHandler = ((void*)0),
+    .EUSART_FramingErrorHandler = ((void*)0),
+    .EUSART_OverrunErrorHandler = ((void*)0),
+    .EUSART_RxDefaultInterruptHandler = EUSART_RxDefaultInterruptHandler,
+    .EUSART_TxDefaultInterruptHandler = EUSART_TxDefaultInterruptHandler
 };
 
-int main() {
-    application_initilaze();
-    while (1) {
+uint8_t but_val, flag = 0, val;
 
+uint8_t task1 = '1';
+uint8_t task2 = '2';
+
+int main(void) {
+    application_initilaze();
+
+    while (1) {
     }
 }
 
 void application_initilaze(void) {
     (INTCONbits.GIE = 1);
     (INTCONbits.PEIE = 1);
+
+    EUSART_Initialize(&uart1);
+    button_initialize(&button1);
     led_initialize(&led1);
     led_initialize(&led2);
-    led_initialize(&led3);
-    led_initialize(&led4);
-    timer0_initilize(&timer_0);
 }
 
-void timer0_DefaultInterruptHandler() {
-    led_turn_toggle(&led1);
+void EUSART_TxDefaultInterruptHandler(void) {
+
+
+}
+
+void EUSART_RxDefaultInterruptHandler(void) {
+    val = EUSART_Read();
+    if ('1' == val) {
+        led_turn_on(&led1);
+  _delay((unsigned long)((500)*(8000000UL/4000.0)));
+  led_turn_off(&led1);
+    } else if ('2' == val) {
+        led_turn_on(&led2);
+  _delay((unsigned long)((500)*(8000000UL/4000.0)));
+  led_turn_off(&led2);
+
+    } else {
+    }
 }

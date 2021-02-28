@@ -641,8 +641,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ecu/ecu_keypad/ecu_keypad.c: 57:         gpio_pin_write_value(_keypad->keypad_rows[l_row_counter].port_name, _keypad->keypad_rows[l_row_counter].pin_number, PIN_HIGH);
 [e ( _gpio_pin_write_value (3 , , -> . *U + &U . *U __keypad 0 * -> _l_row_counter `ux -> -> # *U &U . *U __keypad 0 `ui `ux 0 `E3477 -> . *U + &U . *U __keypad 0 * -> _l_row_counter `ux -> -> # *U &U . *U __keypad 0 `ui `ux 1 `E3467 . `E3459 1 ]
 "58
-[; ;ecu/ecu_keypad/ecu_keypad.c: 58:         _delay((unsigned long)((50)*(4000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+[; ;ecu/ecu_keypad/ecu_keypad.c: 58:         _delay((unsigned long)((50)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "59
 [; ;ecu/ecu_keypad/ecu_keypad.c: 59:         for (l_col_counter = 0; l_col_counter < 4; l_col_counter++) {
 {

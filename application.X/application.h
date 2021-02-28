@@ -27,10 +27,26 @@
 #include"mcal/interrupt/mcal_interrupt_config.h"
 #include"mcal/interrupt/mcal_interrupt_manager.h"
 #include"mcal/interrupt/mcal_timer_interrupt.h"
+#include "mcal/uart/uart.h"
+
 #define LED_SEQ_NUMBER 8
 
 
 void timer0_DefaultInterruptHandler(void);
 void application_initilaze(void);
+void INT2_DefaultInterruptHandler(void);
+
+void RB4_DefaultInterruptHandler(void);
+void RB5_DefaultInterruptHandler(void);
+void RB6_DefaultInterruptHandler(void);
+void RB7_DefaultInterruptHandler(void);
+
+void Timer0_DefaultInterruptHandler(void);
+void Timer1_DefaultInterruptHandler(void);
+void Timer2_DefaultInterruptHandler(void);
+void Timer3_DefaultInterruptHandler(void);
+
+void EUSART_TxDefaultInterruptHandler(void);
+void EUSART_RxDefaultInterruptHandler(void);
 #endif	/* APPLICATION_H */
 

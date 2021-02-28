@@ -5494,7 +5494,7 @@ ret_status gpio_port_write_value(port_index port, uint8_t value);
 ret_status gpio_port_read_value(port_index port, uint8_t *value);
 ret_status gpio_port_toggle_value(port_index port);
 # 13 "mcal/interrupt/mcal_interrupt_config.h" 2
-# 31 "mcal/interrupt/mcal_interrupt_config.h"
+# 34 "mcal/interrupt/mcal_interrupt_config.h"
 typedef enum{
     LOW_PRIORITY,
     HIGH_PRIORITY
@@ -5587,100 +5587,38 @@ void RB6_CallBack(void);
 void RB7_CallBack(void);
 # 12 "mcal/interrupt/mcal_interrupt_manager.h" 2
 
-# 1 "mcal/interrupt/mcal_timer_interrupt.h" 1
-# 30 "mcal/interrupt/mcal_timer_interrupt.h"
+# 1 "mcal/interrupt/mcal_timers_interrupt.h" 1
+# 29 "mcal/interrupt/mcal_timers_interrupt.h"
 void TMR0_ISR(void);
 void TMR1_ISR(void);
 void TMR2_ISR(void);
 void TMR3_ISR(void);
 # 13 "mcal/interrupt/mcal_interrupt_manager.h" 2
 
+# 1 "mcal/interrupt/mcal_usart_interrupt.h" 1
+# 17 "mcal/interrupt/mcal_usart_interrupt.h"
+typedef enum{
+    USART_INT_TX_ENABLE = 0,
+    USART_INT_TX_DISABLE,
+    USART_INT_RX_ENABLE,
+    USART_INT_RX_DISABLE
+}usart_int_t;
+
+void usart_interrupt_enable(usart_int_t state);
+void usart_clear_tx_interrupt_flag(void);
+void usart_clear_rx_interrupt_flag(void);
+
+void EUSART_Transmit_ISR(void);
+void EUSART_Receive_ISR(void);
+# 14 "mcal/interrupt/mcal_interrupt_manager.h" 2
+
+
 void interrupt_priority_enable(void);
 void interrupt_priority_disable(void);
 # 8 "mcal/interrupt/mcal_interrupt_manager.c" 2
 
-# 1 "mcal/interrupt/../timers/mcal_timer0.h" 1
-# 67 "mcal/interrupt/../timers/mcal_timer0.h"
-typedef struct {
-    uint8_t timer_register_mode : 1;
-    uint8_t timer_mode : 1;
-    uint8_t timer_prescaler_mode : 1;
-    uint8_t timer_interrupt_mode : 1;
-    uint8_t timer_current_edge_mode : 1;
-    uint8_t timer_prescaler_value : 3;
-    uint16_t timer_preload_value;
-    void(* TMR0_InterruptHandler)(void);
-} timer0_t;
 
-
-ret_status timer0_initilize(const timer0_t *timer0);
-ret_status timer0_read_timer(uint16_t *timer_value);
-ret_status timer0_write_timer(uint16_t timer_val);
-
-void TMR0_ISR(void);
-void TMR0_callBack(void);
-# 9 "mcal/interrupt/mcal_interrupt_manager.c" 2
-
-# 1 "mcal/interrupt/../timers/mcal_timer1.h" 1
-# 50 "mcal/interrupt/../timers/mcal_timer1.h"
-typedef struct {
-    uint8_t timer_register_mode : 1;
-    uint8_t timer_counter_mode : 1;
-    uint8_t timer_interrupt_mode : 1;
-    uint8_t timer_prescaler_value : 2;
-    uint8_t reserved : 3;
-    uint16_t timer_preload_value;
-    void (* TMR1_InterruptHandler)(void);
-} timer1_t;
-
-ret_status timer1_initialize(const timer1_t *timer_obj);
-ret_status timer1_read_timer(uint16_t *timer_value);
-ret_status timer1_write_timer(uint16_t timer_value);
-
-void TMR1_ISR(void);
-void TMR1_CallBack(void);
-# 10 "mcal/interrupt/mcal_interrupt_manager.c" 2
-
-# 1 "mcal/interrupt/../timers/mcal_timer2.h" 1
-# 63 "mcal/interrupt/../timers/mcal_timer2.h"
-typedef struct {
-    uint8_t timer_interrupt_mode : 1;
-    uint8_t timer_prescaler_value : 2;
-    uint8_t timer_postscaler_value : 4;
-    uint8_t : 1;
-    uint8_t timer_preload_value;
-    void(* TMR2_InterruptHandler)(void);
-} timer2_t;
-
-ret_status timer2_initilize(const timer2_t *timer0);
-ret_status timer2_read_timer(uint8_t *timer_value);
-ret_status timer2_write_timer(uint8_t timer_val);
-
-void TMR2_ISR(void);
-void TMR2_callBack(void);
-# 11 "mcal/interrupt/mcal_interrupt_manager.c" 2
-
-# 1 "mcal/interrupt/../timers/mcal_timer3.h" 1
-# 67 "mcal/interrupt/../timers/mcal_timer3.h"
-typedef struct {
-    uint8_t preScaler_value :2;
-    uint8_t clock_sorce :1;
-    uint8_t timer_register_mode :1;
-    uint8_t timer_interrupt_mode :1;
-    uint8_t Synchronize_external_clk :1;
-    uint8_t timer3_and_timer1_ccpx :2;
-    uint16_t timer_preload_value;
-    void(* TMR3_InterruptHandler)(void);
-} timer3_t;
-
-ret_status timer3_initialize(const timer3_t *timer_obj);
-ret_status timer3_read_timer(uint16_t *timer_value);
-ret_status timer3_write_timer(uint16_t timer_value);
-
-void TMR3_ISR(void);
-void TMR3_CallBack(void);
-# 12 "mcal/interrupt/mcal_interrupt_manager.c" 2
-
+static volatile uint8_t rb4_flag = 0, rb5_flag = 0, rb6_flag = 0, rb7_flag = 0;
 
 void interrupt_priority_enable(void){
     RCONbits.IPEN = 1;
@@ -5708,16 +5646,26 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManagerHigh (void){
     }
     else{}
 
+
     if((PIE1bits.TMR2IE == 1) && (PIR1bits.TMR2IF == 1)){
         TMR2_ISR();
     }
     else{}
+
 
     if((PIE2bits.TMR3IE == 1) && (PIR2bits.TMR3IF == 1)){
         TMR3_ISR();
     }
     else{}
 
+
+    if(PIE1bits.TX1IE == 1 && PIR1bits.TX1IF == 1){
+        EUSART_Transmit_ISR();
+    }else{ }
+
+    if(PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1){
+        EUSART_Receive_ISR();
+    }else{ }
 }
 
 void __attribute__((picinterrupt(("low_priority")))) INTERRUPT_InterruptManagerLow (void){
@@ -5730,4 +5678,45 @@ void __attribute__((picinterrupt(("low_priority")))) INTERRUPT_InterruptManagerL
         INT2_ISR();
     }
     else{}
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB4 == 1)){
+        rb4_flag = 1;
+        RB4_ISR();
+    }
+    else if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB4 == 0) && (rb4_flag == 1)){
+        rb4_flag = 0;
+        RB4_ISR();
+    }
+    else{}
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB5 == 1)){
+        rb5_flag = 1;
+        RB5_ISR();
+    }
+    else if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB5 == 0) && (rb5_flag == 1)){
+        rb5_flag = 0;
+        RB5_ISR();
+    }
+    else{}
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB6 == 1)){
+        rb6_flag = 1;
+        RB6_ISR();
+    }
+    else if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB6 == 0) && (rb6_flag == 1)){
+        rb6_flag = 0;
+        RB6_ISR();
+    }
+    else{}
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB7 == 1)){
+        rb7_flag = 1;
+        RB7_ISR();
+    }
+    else if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB7 == 0) && (rb7_flag == 1)){
+        rb7_flag = 1;
+        RB7_ISR();
+    }
+    else{}
+
 }

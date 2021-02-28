@@ -70,7 +70,6 @@ ret_status timer3_initialize(const timer3_t *timer) {
     timer3_clock_sorce(timer);
     timer3_CCPx_mode(timer);
     timer3_Interrupt(timer);
-    /* Update Timer Pre-load Value*/
     timer3_write_timer(timer->timer_preload_value);
     timer3_preload = timer->timer_preload_value;
     TIMER3_ENABLE();

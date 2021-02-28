@@ -5560,7 +5560,7 @@ uint8_t keypad_read_value(const keypad_t *_keypad) {
             gpio_pin_write_value(_keypad->keypad_rows[l_counter].port_name, _keypad->keypad_rows[l_counter].pin_number, PIN_LOW);
         }
         gpio_pin_write_value(_keypad->keypad_rows[l_row_counter].port_name, _keypad->keypad_rows[l_row_counter].pin_number, PIN_HIGH);
-        _delay((unsigned long)((50)*(4000000UL/4000.0)));
+        _delay((unsigned long)((50)*(8000000UL/4000.0)));
         for (l_col_counter = 0; l_col_counter < 4; l_col_counter++) {
             gpio_pin_read_value(_keypad->keypad_columns[l_col_counter].port_name, _keypad->keypad_columns[l_col_counter].pin_number, &logic);
             if (PIN_HIGH == logic) {

@@ -6,41 +6,68 @@
  */
 
 #include "application.h"
-#include "mcal/timers/mcal_timer0.h"
 
-led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN0, .led_stutus = LED_OFF};
-led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN1, .led_stutus = LED_OFF};
-led_t led3 = {.port_name = PORTC_INDEX, .pin = PIN2, .led_stutus = LED_OFF};
-led_t led4 = {.port_name = PORTC_INDEX, .pin = PIN3, .led_stutus = LED_OFF};
+button_t button1= {.port_name = PORTC_INDEX, .pin = PIN0,.button_status=BUTTON_NOT_PRESSED};
+button_t button2= {.port_name = PORTC_INDEX, .pin = PIN1,.button_status=BUTTON_NOT_PRESSED};
 
-timer0_t timer_0 = {
-    .TMR0_InterruptHandler = timer0_DefaultInterruptHandler,
-    .timer_register_mode = TIMER0_16BIT_MODE,
-    .timer_mode = TIMER0_TIMER_MODE,
-    .timer_prescaler_mode = TIMER0_PRESCALER_ON_MODE,
-    .timer_prescaler_value = TIMER0_PRESCALER_DIV_BY_16,
-    .timer_preload_value = 3036,
-    .timer_interrupt_mode = TIMER0_INTERRUPT_EN,
-    .timer_current_edge_mode = TIMER0_RISING_MODE
+usart_t uart1 = {
+    .baudrate = 9600,
+    .eusart_config.EUSART_sync_async_mode = EUSART_ASYNCHRONOUS_MODE,
+    .eusart_config.transmit_enable = EUSART_TX_ENABLE,
+    .eusart_config.receiver_enable = EUSART_RX_ENABLE,
+    .baudrate_gen_gonfig = BAUDRATE_ASYN_8BIT_lOW_SPEED,
+    .EUSART_ErrorHandler = NULL,
+    .EUSART_FramingErrorHandler = NULL,
+    .EUSART_OverrunErrorHandler = NULL,
+    .EUSART_RxDefaultInterruptHandler = EUSART_RxDefaultInterruptHandler,
+    .EUSART_TxDefaultInterruptHandler = EUSART_TxDefaultInterruptHandler
 };
 
-int main() {
+uint8_t but_val,but_val_1,flag=0,flag1=0;
+
+uint8_t task1='1';
+uint8_t task2='2';
+int main(void) {
     application_initilaze();
-    while (TRUE) {
-
-    }
+    
+      while(TRUE){
+      button_get_status(&button1,&but_val);
+      if(but_val==1&&flag==0){
+        EUSART_Write(task1);
+        flag=1;
+        __delay_ms(200);
+      }else{
+      flag=0;
+       __delay_ms(100);
+      }
+    
+    button_get_status(&button2,&but_val_1);
+      if(but_val_1==1&&flag1==0){
+        EUSART_Write(task2);
+        flag1=1;
+        __delay_ms(200);
+      }else{
+      flag1=0;
+       __delay_ms(100);
+      }
+}
+    return (EXIT_SUCCESS);
 }
 
-void application_initilaze(void) {
-    ENABLE_GLOBAL_INTERRUPT();
-    ENABLE_PERIPHERAL_INTERRUPT();
-    led_initialize(&led1);
-    led_initialize(&led2);
-    led_initialize(&led3);
-    led_initialize(&led4);
-    timer0_initilize(&timer_0);
+void application_initilaze(void){
+   ENABLE_GLOBAL_INTERRUPT();
+   ENABLE_PERIPHERAL_INTERRUPT();
+   //interrupt_priority_enable();
+   EUSART_Initialize(&uart1);
+   button_initialize(&button1);
+   button_initialize(&button2);
 }
 
-void timer0_DefaultInterruptHandler() {
-    led_turn_toggle(&led1);
+void EUSART_TxDefaultInterruptHandler(void){
+   
+    
+}
+
+void EUSART_RxDefaultInterruptHandler(void){
+    
 }

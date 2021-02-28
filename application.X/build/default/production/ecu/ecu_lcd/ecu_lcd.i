@@ -5534,11 +5534,11 @@ void lcd_intialize(const lcd_t *lcd) {
     gpio_pin_write_value(lcd->lcd_en_port, lcd->lcd_en_pin, PIN_LOW);
     gpio_pin_direction_intialize(lcd->lcd_rs_port, lcd->lcd_rs_pin, DIRECTION_OUTPUT);
     gpio_pin_write_value(lcd->lcd_rs_port, lcd->lcd_rs_pin, PIN_LOW);
-    _delay((unsigned long)((40)*(4000000UL/4000.0)));
+    _delay((unsigned long)((40)*(8000000UL/4000.0)));
     lcd_send_command(lcd, 0x38);
-    _delay((unsigned long)((5)*(4000000UL/4000.0)));
+    _delay((unsigned long)((5)*(8000000UL/4000.0)));
     lcd_send_command(lcd, 0x38);
-    _delay((unsigned long)((300)*(4000000UL/4000000.0)));
+    _delay((unsigned long)((300)*(8000000UL/4000000.0)));
     lcd_send_command(lcd, 0x38);
 
     lcd_send_command(lcd, 0X01);
@@ -5557,7 +5557,7 @@ void lcd_intialize(const lcd_t *lcd) {
 void lcd_send_enable(const lcd_t *lcd) {
 
     gpio_pin_write_value(lcd->lcd_en_port, lcd->lcd_en_pin, PIN_HIGH);
-    _delay((unsigned long)((200)*(4000000UL/4000000.0)));
+    _delay((unsigned long)((200)*(8000000UL/4000000.0)));
     gpio_pin_write_value(lcd->lcd_en_port, lcd->lcd_en_pin, PIN_LOW);
 
 
@@ -5606,7 +5606,7 @@ void lcd_send_command(const lcd_t *lcd, uint8_t command) {
     gpio_pin_write_value(lcd->lcd_rs_port, lcd->lcd_rs_pin, PIN_LOW);
     gpio_port_write_value(lcd->lcd_data_port, command);
     lcd_send_enable(lcd);
-    _delay((unsigned long)((2)*(4000000UL/4000.0)));
+    _delay((unsigned long)((2)*(8000000UL/4000.0)));
 
 
 
@@ -5649,7 +5649,7 @@ void lcd_send_string_data_current_pos(const lcd_t *lcd, uint8_t *data) {
 
     while (*data) {
         lcd_send_char_data(lcd, *data++);
-        _delay((unsigned long)((1)*(4000000UL/4000.0)));
+        _delay((unsigned long)((1)*(8000000UL/4000.0)));
     }
 }
 # 189 "ecu/ecu_lcd/ecu_lcd.c"
@@ -5658,7 +5658,7 @@ void lcd_send_string_data_pos(const lcd_t *lcd, uint8_t row, uint8_t coulmn, uin
     lcd_set_cursor(lcd, row, coulmn);
     while (*data) {
         lcd_send_char_data(lcd, *data++);
-        _delay((unsigned long)((1)*(4000000UL/4000.0)));
+        _delay((unsigned long)((1)*(8000000UL/4000.0)));
     }
 }
 # 207 "ecu/ecu_lcd/ecu_lcd.c"

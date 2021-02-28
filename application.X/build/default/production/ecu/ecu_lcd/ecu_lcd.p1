@@ -507,20 +507,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ecu/ecu_lcd/ecu_lcd.c: 21:     gpio_pin_write_value(lcd->lcd_rs_port, lcd->lcd_rs_pin, PIN_LOW);
 [e ( _gpio_pin_write_value (3 , , -> . *U _lcd 2 `E3477 -> . *U _lcd 4 `E3467 . `E3459 0 ]
 "22
-[; ;ecu/ecu_lcd/ecu_lcd.c: 22:     _delay((unsigned long)((40)*(4000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+[; ;ecu/ecu_lcd/ecu_lcd.c: 22:     _delay((unsigned long)((40)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "23
 [; ;ecu/ecu_lcd/ecu_lcd.c: 23:     lcd_send_command(lcd, 0x38);
 [e ( _lcd_send_command (2 , _lcd -> -> 56 `i `uc ]
 "24
-[; ;ecu/ecu_lcd/ecu_lcd.c: 24:     _delay((unsigned long)((5)*(4000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+[; ;ecu/ecu_lcd/ecu_lcd.c: 24:     _delay((unsigned long)((5)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "25
 [; ;ecu/ecu_lcd/ecu_lcd.c: 25:     lcd_send_command(lcd, 0x38);
 [e ( _lcd_send_command (2 , _lcd -> -> 56 `i `uc ]
 "26
-[; ;ecu/ecu_lcd/ecu_lcd.c: 26:     _delay((unsigned long)((300)*(4000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+[; ;ecu/ecu_lcd/ecu_lcd.c: 26:     _delay((unsigned long)((300)*(8000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
 "27
 [; ;ecu/ecu_lcd/ecu_lcd.c: 27:     lcd_send_command(lcd, 0x38);
 [e ( _lcd_send_command (2 , _lcd -> -> 56 `i `uc ]
@@ -557,8 +557,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ecu/ecu_lcd/ecu_lcd.c: 65:     gpio_pin_write_value(lcd->lcd_en_port, lcd->lcd_en_pin, PIN_HIGH);
 [e ( _gpio_pin_write_value (3 , , -> . *U _lcd 1 `E3477 -> . *U _lcd 3 `E3467 . `E3459 1 ]
 "66
-[; ;ecu/ecu_lcd/ecu_lcd.c: 66:     _delay((unsigned long)((200)*(4000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+[; ;ecu/ecu_lcd/ecu_lcd.c: 66:     _delay((unsigned long)((200)*(8000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
 "67
 [; ;ecu/ecu_lcd/ecu_lcd.c: 67:     gpio_pin_write_value(lcd->lcd_en_port, lcd->lcd_en_pin, PIN_LOW);
 [e ( _gpio_pin_write_value (3 , , -> . *U _lcd 1 `E3477 -> . *U _lcd 3 `E3467 . `E3459 0 ]
@@ -669,8 +669,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ecu/ecu_lcd/ecu_lcd.c: 125:     lcd_send_enable(lcd);
 [e ( _lcd_send_enable (1 _lcd ]
 "126
-[; ;ecu/ecu_lcd/ecu_lcd.c: 126:     _delay((unsigned long)((2)*(4000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+[; ;ecu/ecu_lcd/ecu_lcd.c: 126:     _delay((unsigned long)((2)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "134
 [; ;ecu/ecu_lcd/ecu_lcd.c: 134: }
 [e :UE 317 ]
@@ -733,8 +733,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ecu/ecu_lcd/ecu_lcd.c: 176:         lcd_send_char_data(lcd, *data++);
 [e ( _lcd_send_char_data (2 , _lcd *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
 "177
-[; ;ecu/ecu_lcd/ecu_lcd.c: 177:         _delay((unsigned long)((1)*(4000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+[; ;ecu/ecu_lcd/ecu_lcd.c: 177:         _delay((unsigned long)((1)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "178
 [; ;ecu/ecu_lcd/ecu_lcd.c: 178:     }
 }
@@ -769,8 +769,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ecu/ecu_lcd/ecu_lcd.c: 193:         lcd_send_char_data(lcd, *data++);
 [e ( _lcd_send_char_data (2 , _lcd *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
 "194
-[; ;ecu/ecu_lcd/ecu_lcd.c: 194:         _delay((unsigned long)((1)*(4000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+[; ;ecu/ecu_lcd/ecu_lcd.c: 194:         _delay((unsigned long)((1)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "195
 [; ;ecu/ecu_lcd/ecu_lcd.c: 195:     }
 }

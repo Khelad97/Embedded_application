@@ -1,29 +1,61 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"11 application.c
-[; ;application.c: 11: led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN0, .led_stutus = LED_OFF};
+"18 ./ecu/ecu_button/ecu_button.h
+[; ;./ecu/ecu_button/ecu_button.h: 18: typedef struct {
+[s S306 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S306 . port_name pin button_status ]
+"10 application.c
+[; ;application.c: 10: button_t button1 = {.port_name = PORTC_INDEX, .pin = PIN0, .button_status = BUTTON_NOT_PRESSED};
+[c E3477 0 1 2 3 4 .. ]
+[n E3477 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+[c E3467 0 1 2 3 4 5 6 7 .. ]
+[n E3467 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
+[c E3534 0 1 .. ]
+[n E3534 . BUTTON_NOT_PRESSED BUTTON_PRESSED  ]
+"13
+[; ;application.c: 13: led_t led1 = {.port_name = PORTD_INDEX, .pin = PIN0, .led_stutus = LED_OFF};
 [c E3517 0 1 .. ]
 [n E3517 . LED_OFF LED_ON  ]
 "19 ./ecu/ecu_led/ecu_led.h
 [; ;./ecu/ecu_led/ecu_led.h: 19: typedef struct {
 [s S305 :4 `uc 1 :4 `uc 1 `E3517 1 ]
 [n S305 . port_name pin led_stutus ]
-"11 application.c
-[; ;application.c: 11: led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN0, .led_stutus = LED_OFF};
-[c E3477 0 1 2 3 4 .. ]
-[n E3477 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-[c E3467 0 1 2 3 4 5 6 7 .. ]
-[n E3467 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
-[v F3663 `(v ~T0 @X0 0 tf ]
-"67 ./mcal/timers/mcal_timer0.h
-[; ;./mcal/timers/mcal_timer0.h: 67: typedef struct {
-[s S312 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 `us 1 `*F3663 1 ]
-[n S312 . timer_register_mode timer_mode timer_prescaler_mode timer_interrupt_mode timer_current_edge_mode timer_prescaler_value timer_preload_value TMR0_InterruptHandler ]
-"33 ./application.h
-[; ;./application.h: 33: void timer0_DefaultInterruptHandler(void);
-[v _timer0_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
+"16 application.c
+[; ;application.c: 16: usart_t uart1 = {
+[c E3781 0 1 2 3 4 5 .. ]
+[n E3781 . BAUDRATE_ASYN_8BIT_lOW_SPEED BAUDRATE_ASYN_8BIT_HIGH_SPEED BAUDRATE_ASYN_16BIT_lOW_SPEED BAUDRATE_ASYN_16BIT_HIGH_SPEED BAUDRATE_SYN_8BIT BAUDRATE_SYN_16BIT  ]
+"41 ./mcal/uart/uart.h
+[; ;./mcal/uart/uart.h: 41:     struct {
+[s S318 :1 `uc 1 :1 `uc 1 :6 `uc 1 ]
+[n S318 . ferr oerr reserved ]
+"40
+[; ;./mcal/uart/uart.h: 40: typedef union {
+[u S317 `S318 1 `uc 1 ]
+[n S317 . . status ]
+"58
+[; ;./mcal/uart/uart.h: 58: typedef struct{
+[s S319 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 ]
+[n S319 . transmit_enable receiver_enable transmit_9bits_config receive_9bits_config EUSART_sync_async_mode address_detection reserved ]
+[v F3804 `(v ~T0 @X0 0 tf ]
+[v F3806 `(v ~T0 @X0 0 tf ]
+[v F3808 `(v ~T0 @X0 0 tf ]
+[v F3810 `(v ~T0 @X0 0 tf ]
+[v F3812 `(v ~T0 @X0 0 tf ]
+"68
+[; ;./mcal/uart/uart.h: 68: typedef struct{
+[s S320 `ul 1 `E3781 1 `S317 1 `S319 1 `*F3804 1 `*F3806 1 `*F3808 1 `*F3810 1 `*F3812 1 ]
+[n S320 . baudrate baudrate_gen_gonfig EUSART_RxLastError eusart_config EUSART_TxDefaultInterruptHandler EUSART_RxDefaultInterruptHandler EUSART_FramingErrorHandler EUSART_OverrunErrorHandler EUSART_ErrorHandler ]
+"49 ./application.h
+[; ;./application.h: 49: void EUSART_TxDefaultInterruptHandler(void);
+[v _EUSART_TxDefaultInterruptHandler `(v ~T0 @X0 0 ef ]
+"50
+[; ;./application.h: 50: void EUSART_RxDefaultInterruptHandler(void);
+[v _EUSART_RxDefaultInterruptHandler `(v ~T0 @X0 0 ef ]
+[v F3839 `(v ~T0 @X0 0 tf ]
+[v F3840 `(v ~T0 @X0 0 tf ]
+[v F3841 `(v ~T0 @X0 0 tf ]
 [p mainexit ]
-"34
-[; ;./application.h: 34: void application_initilaze(void);
+"36
+[; ;./application.h: 36: void application_initilaze(void);
 [v _application_initilaze `(v ~T0 @X0 0 ef ]
 "7049 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h: 7049:     struct {
@@ -44,19 +76,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7075
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h: 7075: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS298 ~T0 @X0 0 e@4082 ]
-"37 application.c
-[; ;application.c: 37:     led_initialize(&led1);
+"80 ./mcal/uart/uart.h
+[; ;./mcal/uart/uart.h: 80: void EUSART_Initialize(const usart_t *usart_obj);
+[v _EUSART_Initialize `(v ~T0 @X0 0 ef1`*CS320 ]
+"46 application.c
+[; ;application.c: 46:     button_initialize(&button1);
 [c E919 0 1 .. ]
 [n E919 . R_NOK R_OK  ]
+"24 ./ecu/ecu_button/ecu_button.h
+[; ;./ecu/ecu_button/ecu_button.h: 24: ret_status button_initialize(button_t *btn);
+[v _button_initialize `(E919 ~T0 @X0 0 ef1`*S306 ]
 "25 ./ecu/ecu_led/ecu_led.h
 [; ;./ecu/ecu_led/ecu_led.h: 25: ret_status led_initialize(led_t *led);
 [v _led_initialize `(E919 ~T0 @X0 0 ef1`*S305 ]
-"79 ./mcal/timers/mcal_timer0.h
-[; ;./mcal/timers/mcal_timer0.h: 79: ret_status timer0_initilize(const timer0_t *timer0);
-[v _timer0_initilize `(E919 ~T0 @X0 0 ef1`*CS312 ]
-"31 ./ecu/ecu_led/ecu_led.h
-[; ;./ecu/ecu_led/ecu_led.h: 31: ret_status led_turn_toggle(led_t *led);
-[v _led_turn_toggle `(E919 ~T0 @X0 0 ef1`*S305 ]
+"82 ./mcal/uart/uart.h
+[; ;./mcal/uart/uart.h: 82: uint8_t EUSART_Read(void);
+[v _EUSART_Read `(uc ~T0 @X0 0 ef ]
+"27 ./ecu/ecu_led/ecu_led.h
+[; ;./ecu/ecu_led/ecu_led.h: 27: ret_status led_turn_on(led_t *led);
+[v _led_turn_on `(E919 ~T0 @X0 0 ef1`*S305 ]
+[v F3451 `(v ~T0 @X0 1 tf1`ul ]
+"203 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
+[v __delay `JF3451 ~T0 @X0 0 e ]
+[p i __delay ]
+"29 ./ecu/ecu_led/ecu_led.h
+[; ;./ecu/ecu_led/ecu_led.h: 29: ret_status led_turn_off(led_t *led);
+[v _led_turn_off `(E919 ~T0 @X0 0 ef1`*S305 ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -498,136 +543,222 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7352
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h: 7352: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"11 application.c
-[; ;application.c: 11: led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN0, .led_stutus = LED_OFF};
+"10 application.c
+[; ;application.c: 10: button_t button1 = {.port_name = PORTC_INDEX, .pin = PIN0, .button_status = BUTTON_NOT_PRESSED};
+[v _button1 `S306 ~T0 @X0 1 e ]
+[i _button1
+:U ..
+:U ..
+-> . `E3477 2 `uc
+-> . `E3467 0 `uc
+-> . `E3534 0 `uc
+..
+..
+]
+"11
+[; ;application.c: 11: button_t button2 = {.port_name = PORTC_INDEX, .pin = PIN1, .button_status = BUTTON_NOT_PRESSED};
+[v _button2 `S306 ~T0 @X0 1 e ]
+[i _button2
+:U ..
+:U ..
+-> . `E3477 2 `uc
+-> . `E3467 1 `uc
+-> . `E3534 0 `uc
+..
+..
+]
+"13
+[; ;application.c: 13: led_t led1 = {.port_name = PORTD_INDEX, .pin = PIN0, .led_stutus = LED_OFF};
 [v _led1 `S305 ~T0 @X0 1 e ]
 [i _led1
 :U ..
 :U ..
--> . `E3477 2 `uc
+-> . `E3477 3 `uc
 -> . `E3467 0 `uc
 . `E3517 0
 ..
 ..
 ]
-"12
-[; ;application.c: 12: led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN1, .led_stutus = LED_OFF};
+"14
+[; ;application.c: 14: led_t led2 = {.port_name = PORTD_INDEX, .pin = PIN1, .led_stutus = LED_OFF};
 [v _led2 `S305 ~T0 @X0 1 e ]
 [i _led2
 :U ..
 :U ..
--> . `E3477 2 `uc
+-> . `E3477 3 `uc
 -> . `E3467 1 `uc
 . `E3517 0
 ..
 ..
 ]
-"13
-[; ;application.c: 13: led_t led3 = {.port_name = PORTC_INDEX, .pin = PIN2, .led_stutus = LED_OFF};
-[v _led3 `S305 ~T0 @X0 1 e ]
-[i _led3
-:U ..
-:U ..
--> . `E3477 2 `uc
--> . `E3467 2 `uc
-. `E3517 0
-..
-..
-]
-"14
-[; ;application.c: 14: led_t led4 = {.port_name = PORTC_INDEX, .pin = PIN3, .led_stutus = LED_OFF};
-[v _led4 `S305 ~T0 @X0 1 e ]
-[i _led4
-:U ..
-:U ..
--> . `E3477 2 `uc
--> . `E3467 3 `uc
-. `E3517 0
-..
-..
-]
 "16
-[; ;application.c: 16: timer0_t timer_0 = {
-[v _timer_0 `S312 ~T0 @X0 1 e ]
-[i _timer_0
+[; ;application.c: 16: usart_t uart1 = {
+[v _uart1 `S320 ~T0 @X0 1 e ]
+[i _uart1
+:U ..
+:U ..
+-> -> -> 9600 `i `l `ul
+. `E3781 0
+:U ..
+:U ..
 :U ..
 :U ..
 -> -> 0 `i `uc
--> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+..
+..
+:U ..
+:U ..
 -> -> 1 `i `uc
 -> -> 1 `i `uc
 -> -> 0 `i `uc
--> -> 3 `ui `uc
--> -> 3036 `i `us
-&U _timer0_DefaultInterruptHandler
+-> -> 0 `i `uc
+-> -> 0 `i `uc
 ..
 ..
+&U _EUSART_TxDefaultInterruptHandler
+&U _EUSART_RxDefaultInterruptHandler
+-> -> -> 0 `i `*v `*F3839
+-> -> -> 0 `i `*v `*F3840
+-> -> -> 0 `i `*v `*F3841
+..
+..
+]
+"29
+[; ;application.c: 29: uint8_t but_val, flag = 0, val;
+[v _but_val `uc ~T0 @X0 1 e ]
+[v _flag `uc ~T0 @X0 1 e ]
+[i _flag
+-> -> 0 `i `uc
+]
+[v _val `uc ~T0 @X0 1 e ]
+"31
+[; ;application.c: 31: uint8_t task1 = '1';
+[v _task1 `uc ~T0 @X0 1 e ]
+[i _task1
+-> -> 49 `ui `uc
+]
+"32
+[; ;application.c: 32: uint8_t task2 = '2';
+[v _task2 `uc ~T0 @X0 1 e ]
+[i _task2
+-> -> 50 `ui `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"27
-[; ;application.c: 27: int main() {
+"34
+[; ;application.c: 34: int main(void) {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"28
-[; ;application.c: 28:     application_initilaze();
+"35
+[; ;application.c: 35:     application_initilaze();
 [e ( _application_initilaze ..  ]
-"29
-[; ;application.c: 29:     while (1) {
-[e :U 319 ]
+"37
+[; ;application.c: 37:     while (1) {
+[e :U 323 ]
 {
-"31
-[; ;application.c: 31:     }
+"38
+[; ;application.c: 38:     }
 }
-[e :U 318 ]
-[e $U 319  ]
-[e :U 320 ]
-"32
-[; ;application.c: 32: }
-[e :UE 317 ]
+[e :U 322 ]
+[e $U 323  ]
+[e :U 324 ]
+"39
+[; ;application.c: 39: }
+[e :UE 321 ]
 }
-"34
-[; ;application.c: 34: void application_initilaze(void) {
+"41
+[; ;application.c: 41: void application_initilaze(void) {
 [v _application_initilaze `(v ~T0 @X0 1 ef ]
 {
 [e :U _application_initilaze ]
 [f ]
-"35
-[; ;application.c: 35:     (INTCONbits.GIE = 1);
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"36
-[; ;application.c: 36:     (INTCONbits.PEIE = 1);
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"37
-[; ;application.c: 37:     led_initialize(&led1);
-[e ( _led_initialize (1 &U _led1 ]
-"38
-[; ;application.c: 38:     led_initialize(&led2);
-[e ( _led_initialize (1 &U _led2 ]
-"39
-[; ;application.c: 39:     led_initialize(&led3);
-[e ( _led_initialize (1 &U _led3 ]
-"40
-[; ;application.c: 40:     led_initialize(&led4);
-[e ( _led_initialize (1 &U _led4 ]
-"41
-[; ;application.c: 41:     timer0_initilize(&timer_0);
-[e ( _timer0_initilize (1 -> &U _timer_0 `*CS312 ]
 "42
-[; ;application.c: 42: }
-[e :UE 321 ]
-}
-"44
-[; ;application.c: 44: void timer0_DefaultInterruptHandler() {
-[v _timer0_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
-{
-[e :U _timer0_DefaultInterruptHandler ]
-[f ]
+[; ;application.c: 42:     (INTCONbits.GIE = 1);
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"43
+[; ;application.c: 43:     (INTCONbits.PEIE = 1);
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
 "45
-[; ;application.c: 45:     led_turn_toggle(&led1);
-[e ( _led_turn_toggle (1 &U _led1 ]
+[; ;application.c: 45:     EUSART_Initialize(&uart1);
+[e ( _EUSART_Initialize (1 -> &U _uart1 `*CS320 ]
 "46
-[; ;application.c: 46: }
-[e :UE 322 ]
+[; ;application.c: 46:     button_initialize(&button1);
+[e ( _button_initialize (1 &U _button1 ]
+"47
+[; ;application.c: 47:     led_initialize(&led1);
+[e ( _led_initialize (1 &U _led1 ]
+"48
+[; ;application.c: 48:     led_initialize(&led2);
+[e ( _led_initialize (1 &U _led2 ]
+"49
+[; ;application.c: 49: }
+[e :UE 325 ]
+}
+"51
+[; ;application.c: 51: void EUSART_TxDefaultInterruptHandler(void) {
+[v _EUSART_TxDefaultInterruptHandler `(v ~T0 @X0 1 ef ]
+{
+[e :U _EUSART_TxDefaultInterruptHandler ]
+[f ]
+"54
+[; ;application.c: 54: }
+[e :UE 326 ]
+}
+"56
+[; ;application.c: 56: void EUSART_RxDefaultInterruptHandler(void) {
+[v _EUSART_RxDefaultInterruptHandler `(v ~T0 @X0 1 ef ]
+{
+[e :U _EUSART_RxDefaultInterruptHandler ]
+[f ]
+"57
+[; ;application.c: 57:     val = EUSART_Read();
+[e = _val ( _EUSART_Read ..  ]
+"58
+[; ;application.c: 58:     if ('1' == val) {
+[e $ ! == -> 49 `ui -> _val `ui 328  ]
+{
+"59
+[; ;application.c: 59:         led_turn_on(&led1);
+[e ( _led_turn_on (1 &U _led1 ]
+"60
+[; ;application.c: 60:   _delay((unsigned long)((500)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"61
+[; ;application.c: 61:   led_turn_off(&led1);
+[e ( _led_turn_off (1 &U _led1 ]
+"62
+[; ;application.c: 62:     } else if ('2' == val) {
+}
+[e $U 329  ]
+[e :U 328 ]
+[e $ ! == -> 50 `ui -> _val `ui 330  ]
+{
+"63
+[; ;application.c: 63:         led_turn_on(&led2);
+[e ( _led_turn_on (1 &U _led2 ]
+"64
+[; ;application.c: 64:   _delay((unsigned long)((500)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"65
+[; ;application.c: 65:   led_turn_off(&led2);
+[e ( _led_turn_off (1 &U _led2 ]
+"67
+[; ;application.c: 67:     } else {
+}
+[e $U 331  ]
+[e :U 330 ]
+{
+"68
+[; ;application.c: 68:     }
+}
+[e :U 331 ]
+[e :U 329 ]
+"69
+[; ;application.c: 69: }
+[e :UE 327 ]
 }

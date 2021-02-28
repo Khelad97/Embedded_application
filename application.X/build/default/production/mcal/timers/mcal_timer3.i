@@ -5496,7 +5496,7 @@ ret_status gpio_port_write_value(port_index port, uint8_t value);
 ret_status gpio_port_read_value(port_index port, uint8_t *value);
 ret_status gpio_port_toggle_value(port_index port);
 # 13 "mcal/timers/../interrupt/mcal_interrupt_config.h" 2
-# 31 "mcal/timers/../interrupt/mcal_interrupt_config.h"
+# 34 "mcal/timers/../interrupt/mcal_interrupt_config.h"
 typedef enum{
     LOW_PRIORITY,
     HIGH_PRIORITY
@@ -5592,7 +5592,6 @@ ret_status timer3_initialize(const timer3_t *timer) {
     timer3_clock_sorce(timer);
     timer3_CCPx_mode(timer);
     timer3_Interrupt(timer);
-
     timer3_write_timer(timer->timer_preload_value);
     timer3_preload = timer->timer_preload_value;
     (T3CONbits.TMR3ON=1);

@@ -1,7 +1,7 @@
 
 /* 
- * File:   mcal_timer2.h
- * Author: Khelad Mohamed
+ * @File:   mcal_timer2.h
+ * @Author: Khelad Mohamed
  *
  * Created on October 22, 2020, 8:22 PM
  */

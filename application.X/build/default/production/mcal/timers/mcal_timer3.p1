@@ -789,124 +789,124 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72
 [; ;mcal/timers/mcal_timer3.c: 72:     timer3_Interrupt(timer);
 [e ( _timer3_Interrupt (1 _timer ]
-"74
-[; ;mcal/timers/mcal_timer3.c: 74:     timer3_write_timer(timer->timer_preload_value);
+"73
+[; ;mcal/timers/mcal_timer3.c: 73:     timer3_write_timer(timer->timer_preload_value);
 [e ( _timer3_write_timer (1 . *U _timer 6 ]
-"75
-[; ;mcal/timers/mcal_timer3.c: 75:     timer3_preload = timer->timer_preload_value;
+"74
+[; ;mcal/timers/mcal_timer3.c: 74:     timer3_preload = timer->timer_preload_value;
 [e = _timer3_preload . *U _timer 6 ]
-"76
-[; ;mcal/timers/mcal_timer3.c: 76:     (T3CONbits.TMR3ON=1);
+"75
+[; ;mcal/timers/mcal_timer3.c: 75:     (T3CONbits.TMR3ON=1);
 [e = . . _T3CONbits 1 0 -> -> 1 `i `uc ]
-"77
-[; ;mcal/timers/mcal_timer3.c: 77: }
+"76
+[; ;mcal/timers/mcal_timer3.c: 76: }
 [e :UE 324 ]
 }
-"79
-[; ;mcal/timers/mcal_timer3.c: 79: ret_status timer3_read_timer(uint16_t *timer_value) {
+"78
+[; ;mcal/timers/mcal_timer3.c: 78: ret_status timer3_read_timer(uint16_t *timer_value) {
 [v _timer3_read_timer `(E3426 ~T0 @X0 1 ef1`*us ]
 {
 [e :U _timer3_read_timer ]
 [v _timer_value `*us ~T0 @X0 1 r1 ]
 [f ]
-"80
-[; ;mcal/timers/mcal_timer3.c: 80:     ret_status ret = R_OK;
+"79
+[; ;mcal/timers/mcal_timer3.c: 79:     ret_status ret = R_OK;
 [v _ret `E3426 ~T0 @X0 1 a ]
 [e = _ret . `E3426 1 ]
-"81
-[; ;mcal/timers/mcal_timer3.c: 81:     uint8_t read_tmr3l = ((uint8_t)0U), read_tmr3h = ((uint8_t)0U);
+"80
+[; ;mcal/timers/mcal_timer3.c: 80:     uint8_t read_tmr3l = ((uint8_t)0U), read_tmr3h = ((uint8_t)0U);
 [v _read_tmr3l `uc ~T0 @X0 1 a ]
 [e = _read_tmr3l -> -> 0 `ui `uc ]
 [v _read_tmr3h `uc ~T0 @X0 1 a ]
 [e = _read_tmr3h -> -> 0 `ui `uc ]
-"82
-[; ;mcal/timers/mcal_timer3.c: 82:     read_tmr3l = TMR3L;
+"81
+[; ;mcal/timers/mcal_timer3.c: 81:     read_tmr3l = TMR3L;
 [e = _read_tmr3l _TMR3L ]
-"83
-[; ;mcal/timers/mcal_timer3.c: 83:     read_tmr3h = TMR3H;
+"82
+[; ;mcal/timers/mcal_timer3.c: 82:     read_tmr3h = TMR3H;
 [e = _read_tmr3h _TMR3H ]
-"84
-[; ;mcal/timers/mcal_timer3.c: 84:     *timer_value = ((uint16_t) (read_tmr3h << 8)) + read_tmr3l;
+"83
+[; ;mcal/timers/mcal_timer3.c: 83:     *timer_value = ((uint16_t) (read_tmr3h << 8)) + read_tmr3l;
 [e = *U _timer_value -> + -> -> << -> _read_tmr3h `i -> 8 `i `us `ui -> _read_tmr3l `ui `us ]
-"85
-[; ;mcal/timers/mcal_timer3.c: 85:     return ret;
+"84
+[; ;mcal/timers/mcal_timer3.c: 84:     return ret;
 [e ) _ret ]
 [e $UE 325  ]
-"86
-[; ;mcal/timers/mcal_timer3.c: 86: }
+"85
+[; ;mcal/timers/mcal_timer3.c: 85: }
 [e :UE 325 ]
 }
-"88
-[; ;mcal/timers/mcal_timer3.c: 88: ret_status timer3_write_timer(uint16_t timer_value) {
+"87
+[; ;mcal/timers/mcal_timer3.c: 87: ret_status timer3_write_timer(uint16_t timer_value) {
 [v _timer3_write_timer `(E3426 ~T0 @X0 1 ef1`us ]
 {
 [e :U _timer3_write_timer ]
 [v _timer_value `us ~T0 @X0 1 r1 ]
 [f ]
-"90
-[; ;mcal/timers/mcal_timer3.c: 90:     ret_status ret = R_OK;
+"89
+[; ;mcal/timers/mcal_timer3.c: 89:     ret_status ret = R_OK;
 [v _ret `E3426 ~T0 @X0 1 a ]
 [e = _ret . `E3426 1 ]
-"91
-[; ;mcal/timers/mcal_timer3.c: 91:     TMR3H = timer_value >> 8;
+"90
+[; ;mcal/timers/mcal_timer3.c: 90:     TMR3H = timer_value >> 8;
 [e = _TMR3H -> >> -> _timer_value `ui -> 8 `i `uc ]
-"92
-[; ;mcal/timers/mcal_timer3.c: 92:     TMR3L = (uint8_t) timer_value;
+"91
+[; ;mcal/timers/mcal_timer3.c: 91:     TMR3L = (uint8_t) timer_value;
 [e = _TMR3L -> _timer_value `uc ]
-"93
-[; ;mcal/timers/mcal_timer3.c: 93:     return ret;
+"92
+[; ;mcal/timers/mcal_timer3.c: 92:     return ret;
 [e ) _ret ]
 [e $UE 326  ]
-"94
-[; ;mcal/timers/mcal_timer3.c: 94: }
+"93
+[; ;mcal/timers/mcal_timer3.c: 93: }
 [e :UE 326 ]
 }
-"96
-[; ;mcal/timers/mcal_timer3.c: 96: void TMR3_ISR(void) {
+"95
+[; ;mcal/timers/mcal_timer3.c: 95: void TMR3_ISR(void) {
 [v _TMR3_ISR `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR3_ISR ]
 [f ]
-"97
-[; ;mcal/timers/mcal_timer3.c: 97:     (PIR2bits.TMR3IF = 0);
+"96
+[; ;mcal/timers/mcal_timer3.c: 96:     (PIR2bits.TMR3IF = 0);
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-"98
-[; ;mcal/timers/mcal_timer3.c: 98:     TMR3H = timer3_preload >> 8;
+"97
+[; ;mcal/timers/mcal_timer3.c: 97:     TMR3H = timer3_preload >> 8;
 [e = _TMR3H -> >> -> _timer3_preload `ui -> 8 `i `uc ]
-"99
-[; ;mcal/timers/mcal_timer3.c: 99:     TMR3L = (uint8_t)timer3_preload;
+"98
+[; ;mcal/timers/mcal_timer3.c: 98:     TMR3L = (uint8_t)timer3_preload;
 [e = _TMR3L -> _timer3_preload `uc ]
-"100
-[; ;mcal/timers/mcal_timer3.c: 100:     TMR3_CallBack();
+"99
+[; ;mcal/timers/mcal_timer3.c: 99:     TMR3_CallBack();
 [e ( _TMR3_CallBack ..  ]
-"101
-[; ;mcal/timers/mcal_timer3.c: 101: }
+"100
+[; ;mcal/timers/mcal_timer3.c: 100: }
 [e :UE 327 ]
 }
-"103
-[; ;mcal/timers/mcal_timer3.c: 103: void TMR3_CallBack(void) {
+"102
+[; ;mcal/timers/mcal_timer3.c: 102: void TMR3_CallBack(void) {
 [v _TMR3_CallBack `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR3_CallBack ]
 [f ]
-"104
-[; ;mcal/timers/mcal_timer3.c: 104:     if (TMR3_InterruptHandler) {
+"103
+[; ;mcal/timers/mcal_timer3.c: 103:     if (TMR3_InterruptHandler) {
 [e $ ! != _TMR3_InterruptHandler -> -> 0 `i `*F3576 329  ]
 {
-"105
-[; ;mcal/timers/mcal_timer3.c: 105:         TMR3_InterruptHandler();
+"104
+[; ;mcal/timers/mcal_timer3.c: 104:         TMR3_InterruptHandler();
 [e ( *U _TMR3_InterruptHandler ..  ]
-"106
-[; ;mcal/timers/mcal_timer3.c: 106:     } else {
+"105
+[; ;mcal/timers/mcal_timer3.c: 105:     } else {
 }
 [e $U 330  ]
 [e :U 329 ]
 {
-"107
-[; ;mcal/timers/mcal_timer3.c: 107:     }
+"106
+[; ;mcal/timers/mcal_timer3.c: 106:     }
 }
 [e :U 330 ]
-"108
-[; ;mcal/timers/mcal_timer3.c: 108: }
+"107
+[; ;mcal/timers/mcal_timer3.c: 107: }
 [e :UE 328 ]
 }

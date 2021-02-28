@@ -288,33 +288,6 @@ R_OK 1
 R_NOK 0
 R_OK 1
 ]
-"11 F:\project embedded\application.X\application.c
-[e E3517 . `uc
-LED_OFF 0
-LED_ON 1
-]
-[e E3477 . `uc
-PORTA_INDEX 0
-PORTB_INDEX 1
-PORTC_INDEX 2
-PORTD_INDEX 3
-PORTE_INDEX 4
-]
-[e E3467 . `uc
-PIN0 0
-PIN1 1
-PIN2 2
-PIN3 3
-PIN4 4
-PIN5 5
-PIN6 6
-PIN7 7
-]
-"37
-[e E919 . `uc
-R_NOK 0
-R_OK 1
-]
 "24 F:\project embedded\application.X\mcal/timers/mcal_timer3.c
 [e E3477 . `uc
 PORTA_INDEX 0
@@ -341,18 +314,112 @@ DIRECTION_INPUT 1
 R_NOK 0
 R_OK 1
 ]
-"27 F:\project embedded\application.X\application.c
+"10 F:\project embedded\application.X\application.c
+[e E3477 . `uc
+PORTA_INDEX 0
+PORTB_INDEX 1
+PORTC_INDEX 2
+PORTD_INDEX 3
+PORTE_INDEX 4
+]
+[e E3467 . `uc
+PIN0 0
+PIN1 1
+PIN2 2
+PIN3 3
+PIN4 4
+PIN5 5
+PIN6 6
+PIN7 7
+]
+[e E3534 . `uc
+BUTTON_NOT_PRESSED 0
+BUTTON_PRESSED 1
+]
+"13
+[e E3517 . `uc
+LED_OFF 0
+LED_ON 1
+]
+"16
+[e E3781 . `uc
+BAUDRATE_ASYN_8BIT_lOW_SPEED 0
+BAUDRATE_ASYN_8BIT_HIGH_SPEED 1
+BAUDRATE_ASYN_16BIT_lOW_SPEED 2
+BAUDRATE_ASYN_16BIT_HIGH_SPEED 3
+BAUDRATE_SYN_8BIT 4
+BAUDRATE_SYN_16BIT 5
+]
+"46
+[e E919 . `uc
+R_NOK 0
+R_OK 1
+]
+"36 F:\project embedded\application.X\mcal/uart/uart.c
+[e E3541 . `uc
+BAUDRATE_ASYN_8BIT_lOW_SPEED 0
+BAUDRATE_ASYN_8BIT_HIGH_SPEED 1
+BAUDRATE_ASYN_16BIT_lOW_SPEED 2
+BAUDRATE_ASYN_16BIT_HIGH_SPEED 3
+BAUDRATE_SYN_8BIT 4
+BAUDRATE_SYN_16BIT 5
+]
+"37
+[e E3521 . `uc
+USART_INT_TX_ENABLE 0
+USART_INT_TX_DISABLE 1
+USART_INT_RX_ENABLE 2
+USART_INT_RX_DISABLE 3
+]
+"151
+[e E3477 . `uc
+PORTA_INDEX 0
+PORTB_INDEX 1
+PORTC_INDEX 2
+PORTD_INDEX 3
+PORTE_INDEX 4
+]
+[e E3467 . `uc
+PIN0 0
+PIN1 1
+PIN2 2
+PIN3 3
+PIN4 4
+PIN5 5
+PIN6 6
+PIN7 7
+]
+[e E3463 . `uc
+DIRECTION_OUTPUT 0
+DIRECTION_INPUT 1
+]
+[e E919 . `uc
+R_NOK 0
+R_OK 1
+]
+"10 F:\project embedded\application.X\mcal/interrupt/mcal_usart_interrupt.c
+[e E3521 . `uc
+USART_INT_TX_ENABLE 0
+USART_INT_TX_DISABLE 1
+USART_INT_RX_ENABLE 2
+USART_INT_RX_DISABLE 3
+]
+"34 F:\project embedded\application.X\application.c
 [v _main main `(i  1 e 2 0 ]
-"34
+"41
 [v _application_initilaze application_initilaze `(v  1 e 1 0 ]
-"44
-[v _timer0_DefaultInterruptHandler timer0_DefaultInterruptHandler `(v  1 e 1 0 ]
+"51
+[v _EUSART_TxDefaultInterruptHandler EUSART_TxDefaultInterruptHandler `(v  1 e 1 0 ]
+"56
+[v _EUSART_RxDefaultInterruptHandler EUSART_RxDefaultInterruptHandler `(v  1 e 1 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
 "86 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
 "54 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\ftdiv.c
@@ -375,6 +442,10 @@ R_OK 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"17 F:\project embedded\application.X\ecu/ecu_button/ecu_button.c
+[v _button_initialize button_initialize `(E3455  1 e 1 0 ]
 "63 F:\project embedded\application.X\ecu/ecu_lcd/ecu_lcd.c
 [v _lcd_send_enable lcd_send_enable `(v  1 e 1 0 ]
 "81
@@ -387,8 +458,10 @@ R_OK 1
 [v _lcd_send_char_data_pos lcd_send_char_data_pos `(v  1 e 1 0 ]
 "15 F:\project embedded\application.X\ecu/ecu_led/ecu_led.c
 [v _led_initialize led_initialize `(E3455  1 e 1 0 ]
-"65
-[v _led_turn_toggle led_turn_toggle `(E3455  1 e 1 0 ]
+"33
+[v _led_turn_on led_turn_on `(E3455  1 e 1 0 ]
+"49
+[v _led_turn_off led_turn_off `(E3455  1 e 1 0 ]
 "15 F:\project embedded\application.X\ecu/ecu_relay/ecu_relay.c
 [v _relay_initialize relay_initialize `(E3455  1 e 1 0 ]
 "33
@@ -407,6 +480,14 @@ R_OK 1
 [v _INT2_ISR INT2_ISR `(v  1 e 1 0 ]
 "108
 [v _INT2_CallBack INT2_CallBack `(v  1 e 1 0 ]
+"136
+[v _RB4_ISR RB4_ISR `(v  1 e 1 0 ]
+"141
+[v _RB5_ISR RB5_ISR `(v  1 e 1 0 ]
+"146
+[v _RB6_ISR RB6_ISR `(v  1 e 1 0 ]
+"151
+[v _RB7_ISR RB7_ISR `(v  1 e 1 0 ]
 "156
 [v _RB4_CallBack RB4_CallBack `(v  1 e 1 0 ]
 "162
@@ -415,14 +496,23 @@ R_OK 1
 [v _RB6_CallBack RB6_CallBack `(v  1 e 1 0 ]
 "174
 [v _RB7_CallBack RB7_CallBack `(v  1 e 1 0 ]
-"22 F:\project embedded\application.X\mcal/interrupt/mcal_interrupt_manager.c
+"20 F:\project embedded\application.X\mcal/interrupt/mcal_interrupt_manager.c
 [v _INTERRUPT_InterruptManagerHigh INTERRUPT_InterruptManagerHigh `IIH(v  1 e 1 0 ]
-"52
+"60
 [v _INTERRUPT_InterruptManagerLow INTERRUPT_InterruptManagerLow `IIL(v  1 e 1 0 ]
+"10 F:\project embedded\application.X\mcal/interrupt/mcal_usart_interrupt.c
+[v _usart_interrupt_enable usart_interrupt_enable `(v  1 e 1 0 ]
+[v i2_usart_interrupt_enable usart_interrupt_enable `(v  1 e 1 0 ]
+"20
+[v _usart_clear_tx_interrupt_flag usart_clear_tx_interrupt_flag `(v  1 e 1 0 ]
+[v i2_usart_clear_tx_interrupt_flag usart_clear_tx_interrupt_flag `(v  1 e 1 0 ]
+"24
+[v _usart_clear_rx_interrupt_flag usart_clear_rx_interrupt_flag `(v  1 e 1 0 ]
 "23 F:\project embedded\application.X\mcal/mcal_gpio/mcal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(E3455  1 e 1 0 ]
 "67
 [v _gpio_pin_write_value gpio_pin_write_value `(E3455  1 e 1 0 ]
+[v i2_gpio_pin_write_value gpio_pin_write_value `(E3455  1 e 1 0 ]
 "94
 [v _gpio_pin_read_value gpio_pin_read_value `(E3455  1 e 1 0 ]
 "110
@@ -431,11 +521,8 @@ R_OK 1
 [v _gpio_port_direction_intialize gpio_port_direction_intialize `(E3455  1 e 1 0 ]
 "171
 [v _gpio_port_write_value gpio_port_write_value `(E3455  1 e 1 0 ]
-"19 F:\project embedded\application.X\mcal/timers/mcal_timer0.c
-[v _timer0_initilize timer0_initilize `(E3426  1 e 1 0 ]
-"88
+"88 F:\project embedded\application.X\mcal/timers/mcal_timer0.c
 [v _timer0_write_timer timer0_write_timer `(E3426  1 e 1 0 ]
-[v i2_timer0_write_timer timer0_write_timer `(E3426  1 e 1 0 ]
 "95
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
 "101
@@ -474,36 +561,108 @@ R_OK 1
 [v _timer3_CCPx_mode timer3_CCPx_mode `T(v  1 s 1 timer3_CCPx_mode ]
 "54
 [v _timer3_Interrupt timer3_Interrupt `T(v  1 s 1 timer3_Interrupt ]
-"88
+"87
 [v _timer3_write_timer timer3_write_timer `(E3426  1 e 1 0 ]
-"96
+"95
 [v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
-"103
+"102
 [v _TMR3_CallBack TMR3_CallBack `(v  1 e 1 0 ]
+"36 F:\project embedded\application.X\mcal/uart/uart.c
+[v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
+"82
+[v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 1 0 ]
+"98
+[v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
+"111
+[v _EUSART_Receive_ISR EUSART_Receive_ISR `(v  1 e 1 0 ]
+"131
+[v _EUSART_RxDataHandler EUSART_RxDataHandler `(v  1 s 1 EUSART_RxDataHandler ]
+"140
+[v _EUSART_Mode_Select EUSART_Mode_Select `(v  1 s 1 EUSART_Mode_Select ]
+"149
+[v _EUSART_Receiver_Enable EUSART_Receiver_Enable `(v  1 s 1 EUSART_Receiver_Enable ]
+"160
+[v _EUSART_Transmit_Enable EUSART_Transmit_Enable `(v  1 s 1 EUSART_Transmit_Enable ]
+"171
+[v _EUSART_Baud_Rate_Calculation EUSART_Baud_Rate_Calculation `(v  1 s 1 EUSART_Baud_Rate_Calculation ]
+[s S24 . 1 `uc 1 port_name 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 button_status 1 0 :1:7 
+]
+"10 F:\project embedded\application.X\application.c
+[v _button1 button1 `S24  1 e 1 0 ]
 [s S293 . 2 `uc 1 port_name 1 0 :4:0 
 `uc 1 pin 1 0 :4:4 
 `E3517 1 led_stutus 1 1 ]
-"11 F:\project embedded\application.X\application.c
-[v _led1 led1 `S293  1 e 2 0 ]
-"12
-[v _led2 led2 `S293  1 e 2 0 ]
 "13
-[v _led3 led3 `S293  1 e 2 0 ]
+[v _led1 led1 `S293  1 e 2 0 ]
 "14
-[v _led4 led4 `S293  1 e 2 0 ]
-[s S1180 . 5 `uc 1 timer_register_mode 1 0 :1:0 
-`uc 1 timer_mode 1 0 :1:1 
-`uc 1 timer_prescaler_mode 1 0 :1:2 
-`uc 1 timer_interrupt_mode 1 0 :1:3 
-`uc 1 timer_current_edge_mode 1 0 :1:4 
-`uc 1 timer_prescaler_value 1 0 :3:5 
-`us 1 timer_preload_value 2 1 `*.37(v 1 TMR0_InterruptHandler 2 3 ]
+[v _led2 led2 `S293  1 e 2 0 ]
+[s S2108 . 1 `uc 1 ferr 1 0 :1:0 
+`uc 1 oerr 1 0 :1:1 
+`uc 1 reserved 1 0 :6:2 
+]
 "16
-[v _timer_0 timer_0 `S1180  1 e 5 0 ]
+[u S2112 . 1 `S2108 1 . 1 0 `uc 1 status 1 0 ]
+[s S2115 . 1 `uc 1 transmit_enable 1 0 :1:0 
+`uc 1 receiver_enable 1 0 :1:1 
+`uc 1 transmit_9bits_config 1 0 :1:2 
+`uc 1 receive_9bits_config 1 0 :1:3 
+`uc 1 EUSART_sync_async_mode 1 0 :1:4 
+`uc 1 address_detection 1 0 :1:5 
+`uc 1 reserved 1 0 :2:6 
+]
+[s S2128 . 17 `ul 1 baudrate 4 0 `E3781 1 baudrate_gen_gonfig 1 4 `S2112 1 EUSART_RxLastError 1 5 `S2115 1 eusart_config 1 6 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 7 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 9 `*.37(v 1 EUSART_FramingErrorHandler 2 11 `*.37(v 1 EUSART_OverrunErrorHandler 2 13 `*.37(v 1 EUSART_ErrorHandler 2 15 ]
+[v _uart1 uart1 `S2128  1 e 17 0 ]
+"29
+[v _val val `uc  1 e 1 0 ]
 "552 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "788
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+[s S1045 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"841
+[s S1054 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CCP2 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S1063 . 1 `uc 1 AN12 1 0 :1:0 
+`uc 1 AN10 1 0 :1:1 
+`uc 1 AN8 1 0 :1:2 
+`uc 1 AN9 1 0 :1:3 
+`uc 1 AN11 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S1072 . 1 `uc 1 FLT0 1 0 :1:0 
+`uc 1 C12IN3M 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 C12IN2M 1 0 :1:3 
+]
+[s S1077 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 C12IN3N 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 C12IN2N 1 0 :1:3 
+]
+[s S1082 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S1085 . 1 `S1045 1 . 1 0 `S1054 1 . 1 0 `S1063 1 . 1 0 `S1072 1 . 1 0 `S1077 1 . 1 0 `S1082 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES1085  1 e 1 @3969 ]
 "996
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "1184
@@ -598,11 +757,71 @@ R_OK 1
 ]
 [u S989 . 1 `S974 1 . 1 0 `S983 1 . 1 0 `S986 1 . 1 0 ]
 [v _PIR2bits PIR2bits `VES989  1 e 1 @4001 ]
-[s S1815 . 1 `uc 1 . 1 0 :2:0 
+[s S2373 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"3822
+[s S2382 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S2385 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[s S2388 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S2391 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S2394 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[u S2396 . 1 `S2373 1 . 1 0 `S2382 1 . 1 0 `S2385 1 . 1 0 `S2388 1 . 1 0 `S2391 1 . 1 0 `S2394 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES2396  1 e 1 @4011 ]
+[s S2432 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"4030
+[s S2441 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S2450 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S2453 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S2455 . 1 `S2432 1 . 1 0 `S2441 1 . 1 0 `S2450 1 . 1 0 `S2453 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES2455  1 e 1 @4012 ]
+"4247
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"4259
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"4271
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"4283
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
+[s S1829 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T3SYNC 1 0 :1:2 
 ]
 "4327
-[s S1818 . 1 `uc 1 TMR3ON 1 0 :1:0 
+[s S1832 . 1 `uc 1 TMR3ON 1 0 :1:0 
 `uc 1 TMR3CS 1 0 :1:1 
 `uc 1 nT3SYNC 1 0 :1:2 
 `uc 1 T3CCP1 1 0 :1:3 
@@ -610,32 +829,53 @@ R_OK 1
 `uc 1 T3CCP2 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S1826 . 1 `uc 1 . 1 0 :2:0 
+[s S1840 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T3SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T3CKPS0 1 0 :1:4 
 `uc 1 T3CKPS1 1 0 :1:5 
 ]
-[s S1832 . 1 `uc 1 . 1 0 :3:0 
+[s S1846 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN3 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 RD163 1 0 :1:7 
 ]
-[s S1837 . 1 `uc 1 . 1 0 :7:0 
+[s S1851 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 T3RD16 1 0 :1:7 
 ]
-[u S1840 . 1 `S1815 1 . 1 0 `S1818 1 . 1 0 `S1826 1 . 1 0 `S1832 1 . 1 0 `S1837 1 . 1 0 ]
-[v _T3CONbits T3CONbits `VES1840  1 e 1 @4017 ]
+[u S1854 . 1 `S1829 1 . 1 0 `S1832 1 . 1 0 `S1840 1 . 1 0 `S1846 1 . 1 0 `S1851 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES1854  1 e 1 @4017 ]
 "4409
 [v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
 "4416
 [v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
-[s S1537 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S2506 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 CKTXP 1 0 :1:4 
+`uc 1 DTRXP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"4715
+[s S2515 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+]
+[s S2518 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S2521 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S2524 . 1 `S2506 1 . 1 0 `S2515 1 . 1 0 `S2518 1 . 1 0 `S2521 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES2524  1 e 1 @4024 ]
+[s S1659 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "5733
-[s S1541 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S1663 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -643,15 +883,15 @@ R_OK 1
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S1549 . 1 `S1537 1 . 1 0 `S1541 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES1549  1 e 1 @4042 ]
+[u S1671 . 1 `S1659 1 . 1 0 `S1663 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES1671  1 e 1 @4042 ]
 "5783
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
-[s S1307 . 1 `uc 1 . 1 0 :2:0 
+[s S1429 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "5933
-[s S1310 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S1432 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -659,19 +899,19 @@ R_OK 1
 `uc 1 T1RUN 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S1318 . 1 `uc 1 . 1 0 :2:0 
+[s S1440 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S1324 . 1 `uc 1 . 1 0 :3:0 
+[s S1446 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S1329 . 1 `S1307 1 . 1 0 `S1310 1 . 1 0 `S1318 1 . 1 0 `S1324 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES1329  1 e 1 @4045 ]
+[u S1451 . 1 `S1429 1 . 1 0 `S1432 1 . 1 0 `S1440 1 . 1 0 `S1446 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES1451  1 e 1 @4045 ]
 "6010
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "6017
@@ -708,7 +948,7 @@ R_OK 1
 ]
 [u S801 . 1 `S772 1 . 1 0 `S774 1 . 1 0 `S777 1 . 1 0 `S780 1 . 1 0 `S783 1 . 1 0 `S786 1 . 1 0 `S795 1 . 1 0 ]
 [v _RCONbits RCONbits `VES801  1 e 1 @4048 ]
-[s S1192 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S1314 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -716,12 +956,12 @@ R_OK 1
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "6552
-[s S1199 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S1321 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S1203 . 1 `S1192 1 . 1 0 `S1199 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES1203  1 e 1 @4053 ]
+[u S1325 . 1 `S1314 1 . 1 0 `S1321 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES1325  1 e 1 @4053 ]
 "6609
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "6616
@@ -804,6 +1044,11 @@ R_OK 1
 [v _RB6_InterruptHandler RB6_InterruptHandler `*.37(v  1 s 2 RB6_InterruptHandler ]
 "17
 [v _RB7_InterruptHandler RB7_InterruptHandler `*.37(v  1 s 2 RB7_InterruptHandler ]
+"10 F:\project embedded\application.X\mcal/interrupt/mcal_interrupt_manager.c
+[v _rb4_flag rb4_flag `VEuc  1 s 1 rb4_flag ]
+[v _rb5_flag rb5_flag `VEuc  1 s 1 rb5_flag ]
+[v _rb6_flag rb6_flag `VEuc  1 s 1 rb6_flag ]
+[v _rb7_flag rb7_flag `VEuc  1 s 1 rb7_flag ]
 "13 F:\project embedded\application.X\mcal/mcal_gpio/mcal_gpio.c
 [v _tris_register tris_register `[5]*.39VEuc  1 s 10 tris_register ]
 "14
@@ -826,34 +1071,45 @@ R_OK 1
 [v _TMR3_InterruptHandler TMR3_InterruptHandler `*.37(v  1 s 2 TMR3_InterruptHandler ]
 "11
 [v _timer3_preload timer3_preload `VEus  1 s 2 timer3_preload ]
-"27 F:\project embedded\application.X\application.c
+"10 F:\project embedded\application.X\mcal/uart/uart.c
+[v _EUSART_TxInterruptHandler EUSART_TxInterruptHandler `*.37(v  1 s 2 EUSART_TxInterruptHandler ]
+"11
+[v _EUSART_RxInterruptHandler EUSART_RxInterruptHandler `*.37(v  1 s 2 EUSART_RxInterruptHandler ]
+"12
+[v _EUSART_FramingErrorInterruptHandler EUSART_FramingErrorInterruptHandler `*.37(v  1 s 2 EUSART_FramingErrorInterruptHandler ]
+"13
+[v _EUSART_OverrunErrorInterruptHandler EUSART_OverrunErrorInterruptHandler `*.37(v  1 s 2 EUSART_OverrunErrorInterruptHandler ]
+"14
+[v _EUSART_ErrorInterruptHandler EUSART_ErrorInterruptHandler `*.37(v  1 s 2 EUSART_ErrorInterruptHandler ]
+"16
+[v _eusartRxLastError eusartRxLastError `VES2112  1 e 1 0 ]
+"18
+[v _eusartTxHead eusartTxHead `VEuc  1 e 1 0 ]
+"19
+[v _eusartTxTail eusartTxTail `VEuc  1 e 1 0 ]
+"20
+[v _eusartTxBuffer eusartTxBuffer `VE[8]uc  1 e 8 0 ]
+"21
+[v _eusartTxBufferRemaining eusartTxBufferRemaining `VEuc  1 e 1 0 ]
+"23
+[v _eusartRxHead eusartRxHead `VEuc  1 e 1 0 ]
+"24
+[v _eusartRxTail eusartRxTail `VEuc  1 e 1 0 ]
+"25
+[v _eusartRxBuffer eusartRxBuffer `VE[8]uc  1 e 8 0 ]
+"26
+[v _eusartRxCount eusartRxCount `VEuc  1 e 1 0 ]
+"28
+[v _eusartRxStatusBuffer eusartRxStatusBuffer `VE[8]S2112  1 e 8 0 ]
+"34 F:\project embedded\application.X\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"32
+"39
 } 0
-"34
+"41
 [v _application_initilaze application_initilaze `(v  1 e 1 0 ]
 {
-"42
-} 0
-"19 F:\project embedded\application.X\mcal/timers/mcal_timer0.c
-[v _timer0_initilize timer0_initilize `(E3426  1 e 1 0 ]
-{
-[s S1180 . 5 `uc 1 timer_register_mode 1 0 :1:0 
-`uc 1 timer_mode 1 0 :1:1 
-`uc 1 timer_prescaler_mode 1 0 :1:2 
-`uc 1 timer_interrupt_mode 1 0 :1:3 
-`uc 1 timer_current_edge_mode 1 0 :1:4 
-`uc 1 timer_prescaler_value 1 0 :3:5 
-`us 1 timer_preload_value 2 1 `*.37(v 1 TMR0_InterruptHandler 2 3 ]
-[v timer0_initilize@timer timer `*.39CS1180  1 p 2 3 ]
-"66
-} 0
-"88
-[v _timer0_write_timer timer0_write_timer `(E3426  1 e 1 0 ]
-{
-[v timer0_write_timer@timer_val timer_val `us  1 p 2 0 ]
-"93
+"49
 } 0
 "15 F:\project embedded\application.X\ecu/ecu_led/ecu_led.c
 [v _led_initialize led_initialize `(E3455  1 e 1 0 ]
@@ -861,7 +1117,7 @@ R_OK 1
 [s S293 . 2 `uc 1 port_name 1 0 :4:0 
 `uc 1 pin 1 0 :4:4 
 `E3517 1 led_stutus 1 1 ]
-[v led_initialize@led led `*.39S293  1 p 2 9 ]
+[v led_initialize@led led `*.39S293  1 p 2 33 ]
 "26
 } 0
 "67 F:\project embedded\application.X\mcal/mcal_gpio/mcal_gpio.c
@@ -869,27 +1125,259 @@ R_OK 1
 {
 [v gpio_pin_write_value@port port `E3477  1 a 1 wreg ]
 [v gpio_pin_write_value@port port `E3477  1 a 1 wreg ]
-[v gpio_pin_write_value@pin pin `E3467  1 p 1 0 ]
-[v gpio_pin_write_value@logic logic `E3459  1 p 1 1 ]
-[v gpio_pin_write_value@port port `E3477  1 a 1 8 ]
+[v gpio_pin_write_value@pin pin `E3467  1 p 1 24 ]
+[v gpio_pin_write_value@logic logic `E3459  1 p 1 25 ]
+[v gpio_pin_write_value@port port `E3477  1 a 1 32 ]
 "86
 } 0
-"23
+"17 F:\project embedded\application.X\ecu/ecu_button/ecu_button.c
+[v _button_initialize button_initialize `(E3455  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 port_name 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 button_status 1 0 :1:7 
+]
+[v button_initialize@btn btn `*.39S24  1 p 2 33 ]
+"26
+} 0
+"36 F:\project embedded\application.X\mcal/uart/uart.c
+[v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
+{
+[s S2108 . 1 `uc 1 ferr 1 0 :1:0 
+`uc 1 oerr 1 0 :1:1 
+`uc 1 reserved 1 0 :6:2 
+]
+[u S2112 . 1 `S2108 1 . 1 0 `uc 1 status 1 0 ]
+[s S2115 . 1 `uc 1 transmit_enable 1 0 :1:0 
+`uc 1 receiver_enable 1 0 :1:1 
+`uc 1 transmit_9bits_config 1 0 :1:2 
+`uc 1 receive_9bits_config 1 0 :1:3 
+`uc 1 EUSART_sync_async_mode 1 0 :1:4 
+`uc 1 address_detection 1 0 :1:5 
+`uc 1 reserved 1 0 :2:6 
+]
+[s S2128 . 17 `ul 1 baudrate 4 0 `E3781 1 baudrate_gen_gonfig 1 4 `S2112 1 EUSART_RxLastError 1 5 `S2115 1 eusart_config 1 6 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 7 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 9 `*.37(v 1 EUSART_FramingErrorHandler 2 11 `*.37(v 1 EUSART_OverrunErrorHandler 2 13 `*.37(v 1 EUSART_ErrorHandler 2 15 ]
+[v EUSART_Initialize@usart_obj usart_obj `*.39CS2128  1 p 2 12 ]
+"63
+} 0
+"10 F:\project embedded\application.X\mcal/interrupt/mcal_usart_interrupt.c
+[v _usart_interrupt_enable usart_interrupt_enable `(v  1 e 1 0 ]
+{
+[v usart_interrupt_enable@state state `E3521  1 a 1 wreg ]
+[v usart_interrupt_enable@state state `E3521  1 a 1 wreg ]
+[v usart_interrupt_enable@state state `E3521  1 a 1 26 ]
+"18
+} 0
+"20
+[v _usart_clear_tx_interrupt_flag usart_clear_tx_interrupt_flag `(v  1 e 1 0 ]
+{
+"22
+} 0
+"24
+[v _usart_clear_rx_interrupt_flag usart_clear_rx_interrupt_flag `(v  1 e 1 0 ]
+{
+"26
+} 0
+"160 F:\project embedded\application.X\mcal/uart/uart.c
+[v _EUSART_Transmit_Enable EUSART_Transmit_Enable `(v  1 s 1 EUSART_Transmit_Enable ]
+{
+[s S2108 . 1 `uc 1 ferr 1 0 :1:0 
+`uc 1 oerr 1 0 :1:1 
+`uc 1 reserved 1 0 :6:2 
+]
+[u S2112 . 1 `S2108 1 . 1 0 `uc 1 status 1 0 ]
+[s S2115 . 1 `uc 1 transmit_enable 1 0 :1:0 
+`uc 1 receiver_enable 1 0 :1:1 
+`uc 1 transmit_9bits_config 1 0 :1:2 
+`uc 1 receive_9bits_config 1 0 :1:3 
+`uc 1 EUSART_sync_async_mode 1 0 :1:4 
+`uc 1 address_detection 1 0 :1:5 
+`uc 1 reserved 1 0 :2:6 
+]
+[s S2128 . 17 `ul 1 baudrate 4 0 `E3781 1 baudrate_gen_gonfig 1 4 `S2112 1 EUSART_RxLastError 1 5 `S2115 1 eusart_config 1 6 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 7 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 9 `*.37(v 1 EUSART_FramingErrorHandler 2 11 `*.37(v 1 EUSART_OverrunErrorHandler 2 13 `*.37(v 1 EUSART_ErrorHandler 2 15 ]
+[v EUSART_Transmit_Enable@usart_obj usart_obj `*.39CS2128  1 p 2 33 ]
+"169
+} 0
+"149
+[v _EUSART_Receiver_Enable EUSART_Receiver_Enable `(v  1 s 1 EUSART_Receiver_Enable ]
+{
+[s S2108 . 1 `uc 1 ferr 1 0 :1:0 
+`uc 1 oerr 1 0 :1:1 
+`uc 1 reserved 1 0 :6:2 
+]
+[u S2112 . 1 `S2108 1 . 1 0 `uc 1 status 1 0 ]
+[s S2115 . 1 `uc 1 transmit_enable 1 0 :1:0 
+`uc 1 receiver_enable 1 0 :1:1 
+`uc 1 transmit_9bits_config 1 0 :1:2 
+`uc 1 receive_9bits_config 1 0 :1:3 
+`uc 1 EUSART_sync_async_mode 1 0 :1:4 
+`uc 1 address_detection 1 0 :1:5 
+`uc 1 reserved 1 0 :2:6 
+]
+[s S2128 . 17 `ul 1 baudrate 4 0 `E3781 1 baudrate_gen_gonfig 1 4 `S2112 1 EUSART_RxLastError 1 5 `S2115 1 eusart_config 1 6 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 7 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 9 `*.37(v 1 EUSART_FramingErrorHandler 2 11 `*.37(v 1 EUSART_OverrunErrorHandler 2 13 `*.37(v 1 EUSART_ErrorHandler 2 15 ]
+[v EUSART_Receiver_Enable@usart_obj usart_obj `*.39CS2128  1 p 2 33 ]
+"158
+} 0
+"23 F:\project embedded\application.X\mcal/mcal_gpio/mcal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(E3455  1 e 1 0 ]
 {
 [v gpio_pin_direction_intialize@port port `E3477  1 a 1 wreg ]
 [v gpio_pin_direction_intialize@port port `E3477  1 a 1 wreg ]
-[v gpio_pin_direction_intialize@pin pin `E3467  1 p 1 0 ]
-[v gpio_pin_direction_intialize@direction direction `E3463  1 p 1 1 ]
-[v gpio_pin_direction_intialize@port port `E3477  1 a 1 8 ]
+[v gpio_pin_direction_intialize@pin pin `E3467  1 p 1 24 ]
+[v gpio_pin_direction_intialize@direction direction `E3463  1 p 1 25 ]
+[v gpio_pin_direction_intialize@port port `E3477  1 a 1 32 ]
 "42
 } 0
-"52 F:\project embedded\application.X\mcal/interrupt/mcal_interrupt_manager.c
+"140 F:\project embedded\application.X\mcal/uart/uart.c
+[v _EUSART_Mode_Select EUSART_Mode_Select `(v  1 s 1 EUSART_Mode_Select ]
+{
+[s S2108 . 1 `uc 1 ferr 1 0 :1:0 
+`uc 1 oerr 1 0 :1:1 
+`uc 1 reserved 1 0 :6:2 
+]
+[u S2112 . 1 `S2108 1 . 1 0 `uc 1 status 1 0 ]
+[s S2115 . 1 `uc 1 transmit_enable 1 0 :1:0 
+`uc 1 receiver_enable 1 0 :1:1 
+`uc 1 transmit_9bits_config 1 0 :1:2 
+`uc 1 receive_9bits_config 1 0 :1:3 
+`uc 1 EUSART_sync_async_mode 1 0 :1:4 
+`uc 1 address_detection 1 0 :1:5 
+`uc 1 reserved 1 0 :2:6 
+]
+[s S2128 . 17 `ul 1 baudrate 4 0 `E3781 1 baudrate_gen_gonfig 1 4 `S2112 1 EUSART_RxLastError 1 5 `S2115 1 eusart_config 1 6 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 7 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 9 `*.37(v 1 EUSART_FramingErrorHandler 2 11 `*.37(v 1 EUSART_OverrunErrorHandler 2 13 `*.37(v 1 EUSART_ErrorHandler 2 15 ]
+[v EUSART_Mode_Select@usart_obj usart_obj `*.39CS2128  1 p 2 24 ]
+"147
+} 0
+"171
+[v _EUSART_Baud_Rate_Calculation EUSART_Baud_Rate_Calculation `(v  1 s 1 EUSART_Baud_Rate_Calculation ]
+{
+"172
+[v EUSART_Baud_Rate_Calculation@temp temp `f  1 a 4 8 ]
+[s S2108 . 1 `uc 1 ferr 1 0 :1:0 
+`uc 1 oerr 1 0 :1:1 
+`uc 1 reserved 1 0 :6:2 
+]
+"171
+[u S2112 . 1 `S2108 1 . 1 0 `uc 1 status 1 0 ]
+[s S2115 . 1 `uc 1 transmit_enable 1 0 :1:0 
+`uc 1 receiver_enable 1 0 :1:1 
+`uc 1 transmit_9bits_config 1 0 :1:2 
+`uc 1 receive_9bits_config 1 0 :1:3 
+`uc 1 EUSART_sync_async_mode 1 0 :1:4 
+`uc 1 address_detection 1 0 :1:5 
+`uc 1 reserved 1 0 :2:6 
+]
+[s S2128 . 17 `ul 1 baudrate 4 0 `E3781 1 baudrate_gen_gonfig 1 4 `S2112 1 EUSART_RxLastError 1 5 `S2115 1 eusart_config 1 6 `*.37(v 1 EUSART_TxDefaultInterruptHandler 2 7 `*.37(v 1 EUSART_RxDefaultInterruptHandler 2 9 `*.37(v 1 EUSART_FramingErrorHandler 2 11 `*.37(v 1 EUSART_OverrunErrorHandler 2 13 `*.37(v 1 EUSART_ErrorHandler 2 15 ]
+[v EUSART_Baud_Rate_Calculation@usart_obj usart_obj `*.39CS2128  1 p 2 33 ]
+"212
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 34 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 33 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 24 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 32 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 33 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 32 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 24 ]
+"70
+} 0
+"11 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 11 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 4 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 9 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 16 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 15 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 8 ]
+"11
+[v ___fldiv@b b `d  1 p 4 38 ]
+[v ___fldiv@a a `d  1 p 4 42 ]
+"185
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 32 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 31 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 30 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 29 ]
+"10
+[v ___fladd@b b `d  1 p 4 17 ]
+[v ___fladd@a a `d  1 p 4 21 ]
+"237
+} 0
+"60 F:\project embedded\application.X\mcal/interrupt/mcal_interrupt_manager.c
 [v _INTERRUPT_InterruptManagerLow INTERRUPT_InterruptManagerLow `IIL(v  1 e 1 0 ]
 {
-"62
+"111
 } 0
-"103 F:\project embedded\application.X\mcal/interrupt/mcal_external_interrupt.c
+"151 F:\project embedded\application.X\mcal/interrupt/mcal_external_interrupt.c
+[v _RB7_ISR RB7_ISR `(v  1 e 1 0 ]
+{
+"154
+} 0
+"174
+[v _RB7_CallBack RB7_CallBack `(v  1 e 1 0 ]
+{
+"178
+} 0
+"146
+[v _RB6_ISR RB6_ISR `(v  1 e 1 0 ]
+{
+"149
+} 0
+"168
+[v _RB6_CallBack RB6_CallBack `(v  1 e 1 0 ]
+{
+"172
+} 0
+"141
+[v _RB5_ISR RB5_ISR `(v  1 e 1 0 ]
+{
+"144
+} 0
+"162
+[v _RB5_CallBack RB5_CallBack `(v  1 e 1 0 ]
+{
+"166
+} 0
+"136
+[v _RB4_ISR RB4_ISR `(v  1 e 1 0 ]
+{
+"139
+} 0
+"156
+[v _RB4_CallBack RB4_CallBack `(v  1 e 1 0 ]
+{
+"160
+} 0
+"103
 [v _INT2_ISR INT2_ISR `(v  1 e 1 0 ]
 {
 "106
@@ -909,20 +1397,20 @@ R_OK 1
 {
 "101
 } 0
-"22 F:\project embedded\application.X\mcal/interrupt/mcal_interrupt_manager.c
+"20 F:\project embedded\application.X\mcal/interrupt/mcal_interrupt_manager.c
 [v _INTERRUPT_InterruptManagerHigh INTERRUPT_InterruptManagerHigh `IIH(v  1 e 1 0 ]
 {
-"50
+"58
 } 0
-"96 F:\project embedded\application.X\mcal/timers/mcal_timer3.c
+"95 F:\project embedded\application.X\mcal/timers/mcal_timer3.c
 [v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
 {
-"101
+"100
 } 0
-"103
+"102
 [v _TMR3_CallBack TMR3_CallBack `(v  1 e 1 0 ]
 {
-"108
+"107
 } 0
 "109 F:\project embedded\application.X\mcal/timers/mcal_timer2.c
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
@@ -958,38 +1446,15 @@ R_OK 1
 "99
 } 0
 "88
-[v i2_timer0_write_timer timer0_write_timer `(E3426  1 e 1 0 ]
+[v _timer0_write_timer timer0_write_timer `(E3426  1 e 1 0 ]
 {
-[v i2timer0_write_timer@timer_val timer_val `us  1 p 2 0 ]
+[v timer0_write_timer@timer_val timer_val `us  1 p 2 0 ]
 "93
 } 0
 "101
 [v _TMR0_callBack TMR0_callBack `(v  1 e 1 0 ]
 {
 "106
-} 0
-"44 F:\project embedded\application.X\application.c
-[v _timer0_DefaultInterruptHandler timer0_DefaultInterruptHandler `(v  1 e 1 0 ]
-{
-"46
-} 0
-"65 F:\project embedded\application.X\ecu/ecu_led/ecu_led.c
-[v _led_turn_toggle led_turn_toggle `(E3455  1 e 1 0 ]
-{
-[s S293 . 2 `uc 1 port_name 1 0 :4:0 
-`uc 1 pin 1 0 :4:4 
-`E3517 1 led_stutus 1 1 ]
-[v led_turn_toggle@led led `*.39S293  1 p 2 7 ]
-"74
-} 0
-"110 F:\project embedded\application.X\mcal/mcal_gpio/mcal_gpio.c
-[v _gpio_pin_toggle_value gpio_pin_toggle_value `(E3455  1 e 1 0 ]
-{
-[v gpio_pin_toggle_value@port port `E3477  1 a 1 wreg ]
-[v gpio_pin_toggle_value@port port `E3477  1 a 1 wreg ]
-[v gpio_pin_toggle_value@pin pin `E3467  1 p 1 0 ]
-[v gpio_pin_toggle_value@port port `E3477  1 a 1 6 ]
-"120
 } 0
 "80 F:\project embedded\application.X\mcal/interrupt/mcal_external_interrupt.c
 [v _INT0_ISR INT0_ISR `(v  1 e 1 0 ]
@@ -1000,4 +1465,77 @@ R_OK 1
 [v _INT0_CallBack INT0_CallBack `(v  1 e 1 0 ]
 {
 "90
+} 0
+"82 F:\project embedded\application.X\mcal/uart/uart.c
+[v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 1 0 ]
+{
+"96
+} 0
+"20 F:\project embedded\application.X\mcal/interrupt/mcal_usart_interrupt.c
+[v i2_usart_clear_tx_interrupt_flag usart_clear_tx_interrupt_flag `(v  1 e 1 0 ]
+{
+"22
+} 0
+"51 F:\project embedded\application.X\application.c
+[v _EUSART_TxDefaultInterruptHandler EUSART_TxDefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"54
+} 0
+"111 F:\project embedded\application.X\mcal/uart/uart.c
+[v _EUSART_Receive_ISR EUSART_Receive_ISR `(v  1 e 1 0 ]
+{
+"129
+} 0
+"56 F:\project embedded\application.X\application.c
+[v _EUSART_RxDefaultInterruptHandler EUSART_RxDefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"69
+} 0
+"33 F:\project embedded\application.X\ecu/ecu_led/ecu_led.c
+[v _led_turn_on led_turn_on `(E3455  1 e 1 0 ]
+{
+[s S293 . 2 `uc 1 port_name 1 0 :4:0 
+`uc 1 pin 1 0 :4:4 
+`E3517 1 led_stutus 1 1 ]
+[v led_turn_on@led led `*.39S293  1 p 2 9 ]
+"42
+} 0
+"49
+[v _led_turn_off led_turn_off `(E3455  1 e 1 0 ]
+{
+[s S293 . 2 `uc 1 port_name 1 0 :4:0 
+`uc 1 pin 1 0 :4:4 
+`E3517 1 led_stutus 1 1 ]
+[v led_turn_off@led led `*.39S293  1 p 2 9 ]
+"58
+} 0
+"67 F:\project embedded\application.X\mcal/mcal_gpio/mcal_gpio.c
+[v i2_gpio_pin_write_value gpio_pin_write_value `(E3455  1 e 1 0 ]
+{
+[v i2gpio_pin_write_value@port port `E3477  1 a 1 wreg ]
+[v i2gpio_pin_write_value@port port `E3477  1 a 1 wreg ]
+[v i2gpio_pin_write_value@pin pin `E3467  1 p 1 0 ]
+[v i2gpio_pin_write_value@logic logic `E3459  1 p 1 1 ]
+[v i2gpio_pin_write_value@port port `E3477  1 a 1 8 ]
+"86
+} 0
+"98 F:\project embedded\application.X\mcal/uart/uart.c
+[v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
+{
+"99
+[v EUSART_Read@readValue readValue `uc  1 a 1 3 ]
+"109
+} 0
+"10 F:\project embedded\application.X\mcal/interrupt/mcal_usart_interrupt.c
+[v i2_usart_interrupt_enable usart_interrupt_enable `(v  1 e 1 0 ]
+{
+[v i2usart_interrupt_enable@state state `E3521  1 a 1 wreg ]
+[v i2usart_interrupt_enable@state state `E3521  1 a 1 wreg ]
+[v i2usart_interrupt_enable@state state `E3521  1 a 1 2 ]
+"18
+} 0
+"131 F:\project embedded\application.X\mcal/uart/uart.c
+[v _EUSART_RxDataHandler EUSART_RxDataHandler `(v  1 s 1 EUSART_RxDataHandler ]
+{
+"138
 } 0

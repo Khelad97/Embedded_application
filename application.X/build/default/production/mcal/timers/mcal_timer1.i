@@ -5496,7 +5496,7 @@ ret_status gpio_port_write_value(port_index port, uint8_t value);
 ret_status gpio_port_read_value(port_index port, uint8_t *value);
 ret_status gpio_port_toggle_value(port_index port);
 # 13 "mcal/timers/../interrupt/mcal_interrupt_config.h" 2
-# 31 "mcal/timers/../interrupt/mcal_interrupt_config.h"
+# 34 "mcal/timers/../interrupt/mcal_interrupt_config.h"
 typedef enum{
     LOW_PRIORITY,
     HIGH_PRIORITY

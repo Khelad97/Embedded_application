@@ -19,6 +19,9 @@
 #define PRIORITY_ENABLE         1
 #define PRIORITY_DISABLE        0
 
+#define RB_PIN_LOGIC_HIGH       1
+#define RB_PIN_LOGIC_LOW        0
+
 /* This macro will enable global interrupts */
 #define ENABLE_GLOBAL_INTERRUPT()       (INTCONbits.GIE = 1)
 /* This macro will disable global interrupts */

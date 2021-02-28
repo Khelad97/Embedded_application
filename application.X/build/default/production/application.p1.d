@@ -16,4 +16,7 @@ mcal/timers/../interrupt/mcal_interrupt_config.h  \
 mcal/timers/mcal_timer1.h  \
 mcal/timers/mcal_timer2.h  \
 mcal/interrupt/mcal_external_interrupt.h  \
-mcal/interrupt/mcal_interrupt_manager.h 
+mcal/interrupt/mcal_interrupt_manager.h  \
+mcal/timers/../interrupt/mcal_timers_interrupt.h  \
+mcal/timers/../interrupt/mcal_usart_interrupt.h  \
+mcal/uart/uart.h 

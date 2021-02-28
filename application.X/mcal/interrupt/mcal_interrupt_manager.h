@@ -10,7 +10,9 @@
 
 #include "mcal_interrupt_config.h"
 #include "mcal_external_interrupt.h"
-#include"mcal_timer_interrupt.h"
+#include "mcal_timers_interrupt.h"
+#include "mcal_usart_interrupt.h"
+
 void interrupt_priority_enable(void);
 void interrupt_priority_disable(void);
 

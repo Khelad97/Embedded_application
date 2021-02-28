@@ -25,11 +25,16 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="mcal" displayName="mcal" projectFiles="true">
+        <logicalFolder name="eccp" displayName="eccp" projectFiles="true">
+          <itemPath>mcal/eccp/eccp.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="interrupt" displayName="interrupt" projectFiles="true">
           <itemPath>mcal/interrupt/mcal_external_interrupt.h</itemPath>
           <itemPath>mcal/interrupt/mcal_interrupt_config.h</itemPath>
           <itemPath>mcal/interrupt/mcal_interrupt_manager.h</itemPath>
           <itemPath>mcal/interrupt/mcal_timer_interrupt.h</itemPath>
+          <itemPath>mcal/interrupt/mcal_timers_interrupt.h</itemPath>
+          <itemPath>mcal/interrupt/mcal_usart_interrupt.h</itemPath>
         </logicalFolder>
         <logicalFolder name="mcal_gpio" displayName="mcal_gpio" projectFiles="true">
           <itemPath>mcal/mcal_gpio/mcal_gpio.h</itemPath>
@@ -39,6 +44,9 @@
           <itemPath>mcal/timers/mcal_timer1.h</itemPath>
           <itemPath>mcal/timers/mcal_timer2.h</itemPath>
           <itemPath>mcal/timers/mcal_timer3.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="uart" displayName="uart" projectFiles="true">
+          <itemPath>mcal/uart/uart.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>application.h</itemPath>
@@ -73,9 +81,14 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="mcal" displayName="mcal" projectFiles="true">
+        <logicalFolder name="eccp" displayName="eccp" projectFiles="true">
+          <itemPath>mcal/eccp/eccp.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="interrupt" displayName="interrupt" projectFiles="true">
           <itemPath>mcal/interrupt/mcal_external_interrupt.c</itemPath>
           <itemPath>mcal/interrupt/mcal_interrupt_manager.c</itemPath>
+          <itemPath>mcal/interrupt/mcal_timers_interrupt.c</itemPath>
+          <itemPath>mcal/interrupt/mcal_usart_interrupt.c</itemPath>
         </logicalFolder>
         <logicalFolder name="mcal_gpio" displayName="mcal_gpio" projectFiles="true">
           <itemPath>mcal/mcal_gpio/mcal_gpio.c</itemPath>
@@ -85,6 +98,9 @@
           <itemPath>mcal/timers/mcal_timer1.c</itemPath>
           <itemPath>mcal/timers/mcal_timer2.c</itemPath>
           <itemPath>mcal/timers/mcal_timer3.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="uart" displayName="uart" projectFiles="true">
+          <itemPath>mcal/uart/uart.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>application.c</itemPath>
